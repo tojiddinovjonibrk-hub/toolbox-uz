@@ -1,15 +1,14 @@
- 
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name="google-site-verification" content="ME0i4nkoz44r7HluUTEK52kwry03ZPUGlnZuqxpHlek" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="ME0i4nkoz44r7HluUTEK52kwry03ZPUGlnZuqxpHlek">
 
   <title>PROTOOLS — Бесплатные онлайн-инструменты</title>
-
-  <meta name="description" content="PROTOOLS — бесплатные онлайн-инструменты: сжатие изображений, создание QR-кодов, генератор паролей, конвертер единиц и многое другое.">
-  <meta name="keywords" content="онлайн инструменты, сжать изображение онлайн, QR код, генератор паролей, конвертер единиц, PROTOOLS">
+  <meta name="description" content="PROTOOLS — бесплатные онлайн-инструменты: сжатие изображений, QR-коды, генератор паролей и конвертеры.">
+  <meta name="keywords" content="PROTOOLS, онлайн инструменты, сжатие изображений, QR код, генератор паролей, конвертер">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#111827">
 
@@ -21,187 +20,236 @@
   <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
 
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              600: '#4F46E5',
+              700: '#4338CA'
             }
+          },
+          boxShadow: {
+            card: '0 2px 12px rgba(15,23,42,0.04)',
+            btn: '0 4px 12px rgba(79,70,229,0.2)'
           }
         }
       }
     }
   </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .card {
-      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+    body {
+      font-family: Inter, system-ui, sans-serif;
     }
+
+    .card {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(79,70,229,0.12);
-      border-color: rgba(99,102,241,0.25);
+      box-shadow: 0 12px 32px rgba(79,70,229,.12);
     }
-    .card:active { transform: translateY(-2px) scale(0.99); }
+
     .btn {
-      transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+      transition: .2s ease;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0) scale(0.98); }
-    .nav-link {
-      transition: color 0.15s ease, background-color 0.15s ease;
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
-    /* Stagger delays */
-    .delay-1 { animation-delay: 0.05s; }
-    .delay-2 { animation-delay: 0.1s; }
-    .delay-3 { animation-delay: 0.15s; }
-    .delay-4 { animation-delay: 0.2s; }
-    .delay-5 { animation-delay: 0.25s; }
-    .delay-6 { animation-delay: 0.3s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp .6s ease forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn .6s ease forwards;
+    }
+
+    .delay-1 { animation-delay: .05s; }
+    .delay-2 { animation-delay: .1s; }
+    .delay-3 { animation-delay: .15s; }
+    .delay-4 { animation-delay: .2s; }
+    .delay-5 { animation-delay: .25s; }
+
     .opacity-0 { opacity: 0; }
   </style>
 </head>
+
 <body class="bg-[#f8fafc] text-slate-800 antialiased">
 
-  <!-- Header -->
-  <header class="bg-white/80 backdrop-blur-xl border-b border-slate-200/60 sticky top-0 z-50 animate-fade-in">
-    <div class="max-w-5xl mx-auto px-5 h-[60px] flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5 group">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
-          <rect width="32" height="32" rx="8" fill="#4F46E5"/>
-          <path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="font-semibold text-[15px] text-slate-900 tracking-tight">КвикТулс</span>
-      </a>
+<header class="bg-white/90 backdrop-blur-xl border-b border-slate-200 sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
 
-      <nav class="hidden md:flex items-center gap-0.5 text-[13px] font-medium">
-        <a href="qr.html" class="nav-link px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">QR-коды</a>
-        <a href="converter.html" class="nav-link px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">Конвертер</a>
-        <a href="compress.html" class="nav-link px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">Сжатие</a>
-        <a href="password.html" class="nav-link px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">Пароли</a>
-        <a href="premium.html" class="btn ml-2 bg-brand-600 text-white px-3.5 py-1.5 rounded-md hover:bg-brand-700 shadow-btn text-[13px]">Премиум</a>
-      </nav>
+    <a href="index.html" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold">P</div>
+      <span class="font-bold text-lg tracking-tight text-slate-900">PROTOOLS</span>
+    </a>
 
-      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100 transition">
-        <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-2">
-      <a href="qr.html" class="block px-3 py-2.5 text-[13px] text-slate-700 rounded-md hover:bg-slate-50">QR-коды</a>
-      <a href="converter.html" class="block px-3 py-2.5 text-[13px] text-slate-700 rounded-md hover:bg-slate-50">Конвертер</a>
-      <a href="compress.html" class="block px-3 py-2.5 text-[13px] text-slate-700 rounded-md hover:bg-slate-50">Сжатие</a>
-      <a href="password.html" class="block px-3 py-2.5 text-[13px] text-slate-700 rounded-md hover:bg-slate-50">Пароли</a>
-      <a href="premium.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium rounded-md">Премиум</a>
-    </div>
-  </header>
+    <nav class="hidden md:flex items-center gap-2 text-sm font-medium">
+      <a href="qr.html" class="px-3 py-2 rounded-lg hover:bg-slate-100">QR-коды</a>
+      <a href="converter.html" class="px-3 py-2 rounded-lg hover:bg-slate-100">Конвертер</a>
+      <a href="compress.html" class="px-3 py-2 rounded-lg hover:bg-slate-100">Сжатие</a>
+      <a href="password.html" class="px-3 py-2 rounded-lg hover:bg-slate-100">Пароли</a>
+      <a href="premium.html" class="btn bg-brand-600 text-white px-4 py-2 rounded-lg hover:bg-brand-700">Премиум</a>
+      <button id="langBtn" class="border rounded-lg px-3 py-2">UZ</button>
+    </nav>
 
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-5 pt-16 pb-12 text-center">
-    <div class="inline-flex items-center gap-1.5 bg-white border border-slate-200 text-slate-600 text-[12px] font-medium px-3 py-1 rounded-full mb-6 shadow-xs opacity-0 animate-fade-up">
-      <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-      Без регистрации · Работает в браузере
+    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Открыть меню">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-5 py-3">
+    <a href="qr.html" class="block py-2">QR-коды</a>
+    <a href="converter.html" class="block py-2">Конвертер</a>
+    <a href="compress.html" class="block py-2">Сжатие</a>
+    <a href="password.html" class="block py-2">Пароли</a>
+    <a href="premium.html" class="block py-2 text-indigo-600">Премиум</a>
+    <button id="mobileLangBtn" class="mt-2 border rounded-lg px-3 py-2">UZ</button>
+  </div>
+</header>
+
+<main>
+  <section class="max-w-5xl mx-auto px-5 pt-20 pb-14 text-center">
+    <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-2 text-xs text-slate-600 mb-6 animate-fade-up">
+      <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+      <span data-ru="Бесплатно · Без регистрации" data-uz="Bepul · Ro‘yxatdan o‘tish shart emas">Бесплатно · Без регистрации</span>
     </div>
-    <h1 class="text-[28px] sm:text-[36px] font-semibold tracking-tight text-slate-900 mb-3 leading-[1.2] opacity-0 animate-fade-up delay-1">
+
+    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-5 animate-fade-up delay-1" data-ru="Полезные онлайн-инструменты" data-uz="Foydali onlayn vositalar">
       Полезные онлайн-инструменты
     </h1>
-    <p class="text-[15px] text-slate-500 max-w-md mx-auto leading-relaxed opacity-0 animate-fade-up delay-2">
-      QR-коды, конвертация файлов, сжатие изображений и генерация паролей — быстро и приватно.
+
+    <p class="text-slate-500 max-w-xl mx-auto leading-relaxed animate-fade-up delay-2" data-ru="Сжимайте изображения, создавайте QR-коды, конвертируйте файлы и генерируйте пароли в одном месте." data-uz="Rasmlarni siqing, QR-kod yarating, fayllarni o‘zgartiring va parollar yarating.">
+      Сжимайте изображения, создавайте QR-коды, конвертируйте файлы и генерируйте пароли в одном месте.
     </p>
   </section>
 
-  <!-- Tools -->
-  <section class="max-w-5xl mx-auto px-5 pb-16">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <section class="max-w-5xl mx-auto px-5 pb-20">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-      <a href="qr.html" class="card bg-white rounded-xl p-5 border border-slate-200/80 shadow-card block group opacity-0 animate-fade-up delay-2">
-        <div class="w-9 h-9 bg-indigo-50 rounded-lg flex items-center justify-center mb-3.5 text-indigo-600 transition-transform duration-300 group-hover:scale-110 group-hover:bg-indigo-100">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z"/></svg>
-        </div>
-        <h2 class="font-semibold text-[14px] text-slate-900 mb-1">QR-коды</h2>
-        <p class="text-slate-500 text-[13px] leading-relaxed mb-3">Текст, ссылка, Wi-Fi, визитка. За 5 секунд.</p>
-        <span class="text-brand-600 text-[12px] font-medium inline-flex items-center gap-1 transition-all group-hover:gap-2">Создать <span class="transition-transform group-hover:translate-x-0.5">→</span></span>
+      <a href="qr.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl mb-5">▦</div>
+        <h2 class="font-bold text-slate-900 mb-2" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</h2>
+        <p class="text-sm text-slate-500 mb-5" data-ru="Создавайте QR-коды для текста, ссылок и Wi-Fi." data-uz="Matn, havola va Wi-Fi uchun QR-kodlar yarating.">Создавайте QR-коды для текста, ссылок и Wi-Fi.</p>
+        <span class="text-indigo-600 text-sm font-semibold" data-ru="Создать →" data-uz="Yaratish →">Создать →</span>
       </a>
 
-      <a href="converter.html" class="card bg-white rounded-xl p-5 border border-slate-200/80 shadow-card block group opacity-0 animate-fade-up delay-3">
-        <div class="w-9 h-9 bg-emerald-50 rounded-lg flex items-center justify-center mb-3.5 text-emerald-600 transition-transform duration-300 group-hover:scale-110 group-hover:bg-emerald-100">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
-        </div>
-        <h2 class="font-semibold text-[14px] text-slate-900 mb-1">Конвертер</h2>
-        <p class="text-slate-500 text-[13px] leading-relaxed mb-3">PDF, Word, изображения, аудио. Без потери качества.</p>
-        <span class="text-brand-600 text-[12px] font-medium inline-flex items-center gap-1 transition-all group-hover:gap-2">Конвертировать <span class="transition-transform group-hover:translate-x-0.5">→</span></span>
+      <a href="converter.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-2xl mb-5">⇄</div>
+        <h2 class="font-bold text-slate-900 mb-2" data-ru="Конвертер" data-uz="Konvertor">Конвертер</h2>
+        <p class="text-sm text-slate-500 mb-5" data-ru="Удобное преобразование файлов и единиц измерения." data-uz="Fayllar va o‘lchov birliklarini oson o‘zgartiring.">Удобное преобразование файлов и единиц измерения.</p>
+        <span class="text-indigo-600 text-sm font-semibold" data-ru="Открыть →" data-uz="Ochish →">Открыть →</span>
       </a>
 
-      <a href="compress.html" class="card bg-white rounded-xl p-5 border border-slate-200/80 shadow-card block group opacity-0 animate-fade-up delay-4">
-        <div class="w-9 h-9 bg-amber-50 rounded-lg flex items-center justify-center mb-3.5 text-amber-600 transition-transform duration-300 group-hover:scale-110 group-hover:bg-amber-100">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 8.25V6a2.25 2.25 0 012.25-2.25h1.5A2.25 2.25 0 0115 6v2.25M9 8.25h6"/></svg>
-        </div>
-        <h2 class="font-semibold text-[14px] text-slate-900 mb-1">Сжатие</h2>
-        <p class="text-slate-500 text-[13px] leading-relaxed mb-3">Уменьшите фото до 80% без заметной потери.</p>
-        <span class="text-brand-600 text-[12px] font-medium inline-flex items-center gap-1 transition-all group-hover:gap-2">Сжать <span class="transition-transform group-hover:translate-x-0.5">→</span></span>
+      <a href="compress.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-2xl mb-5">▣</div>
+        <h2 class="font-bold text-slate-900 mb-2" data-ru="Сжатие фото" data-uz="Rasm siqish">Сжатие фото</h2>
+        <p class="text-sm text-slate-500 mb-5" data-ru="Уменьшайте размер изображений прямо в браузере." data-uz="Rasmlar hajmini brauzerda kamaytiring.">Уменьшайте размер изображений прямо в браузере.</p>
+        <span class="text-indigo-600 text-sm font-semibold" data-ru="Сжать →" data-uz="Siqish →">Сжать →</span>
       </a>
 
-      <a href="password.html" class="card bg-white rounded-xl p-5 border border-slate-200/80 shadow-card block group opacity-0 animate-fade-up delay-5">
-        <div class="w-9 h-9 bg-rose-50 rounded-lg flex items-center justify-center mb-3.5 text-rose-600 transition-transform duration-300 group-hover:scale-110 group-hover:bg-rose-100">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
-        </div>
-        <h2 class="font-semibold text-[14px] text-slate-900 mb-1">Пароли</h2>
-        <p class="text-slate-500 text-[13px] leading-relaxed mb-3">Надёжные пароли любой сложности. Локально.</p>
-        <span class="text-brand-600 text-[12px] font-medium inline-flex items-center gap-1 transition-all group-hover:gap-2">Сгенерировать <span class="transition-transform group-hover:translate-x-0.5">→</span></span>
+      <a href="password.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+        <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-5">🔒</div>
+        <h2 class="font-bold text-slate-900 mb-2" data-ru="Генератор паролей" data-uz="Parol generatori">Генератор паролей</h2>
+        <p class="text-sm text-slate-500 mb-5" data-ru="Создавайте надёжные случайные пароли." data-uz="Kuchli tasodifiy parollar yarating.">Создавайте надёжные случайные пароли.</p>
+        <span class="text-indigo-600 text-sm font-semibold" data-ru="Создать →" data-uz="Yaratish →">Создать →</span>
       </a>
+
     </div>
   </section>
 
-  <!-- Benefits -->
-  <section class="border-y border-slate-200/60 bg-white">
-    <div class="max-w-5xl mx-auto px-5 py-12">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="opacity-0 animate-fade-up delay-2">
-          <div class="text-[13px] font-semibold text-slate-900 mb-1">Мгновенно</div>
-          <p class="text-[13px] text-slate-500 leading-relaxed">Обработка прямо в браузере — без ожидания и загрузок.</p>
-        </div>
-        <div class="opacity-0 animate-fade-up delay-3">
-          <div class="text-[13px] font-semibold text-slate-900 mb-1">Приватно</div>
-          <p class="text-[13px] text-slate-500 leading-relaxed">Файлы не уходят на сервер. Всё остаётся у вас.</p>
-        </div>
-        <div class="opacity-0 animate-fade-up delay-4">
-          <div class="text-[13px] font-semibold text-slate-900 mb-1">Без аккаунта</div>
-          <p class="text-[13px] text-slate-500 leading-relaxed">Базовые функции доступны сразу, без регистрации.</p>
-        </div>
-        <div class="opacity-0 animate-fade-up delay-5">
-          <div class="text-[13px] font-semibold text-slate-900 mb-1">Бесплатно</div>
-          <p class="text-[13px] text-slate-500 leading-relaxed">Основные возможности открыты для всех пользователей.</p>
-        </div>
+  <section class="bg-white border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-5 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <h3 class="font-bold mb-2" data-ru="⚡ Быстро" data-uz="⚡ Tezkor">⚡ Быстро</h3>
+        <p class="text-sm text-slate-500" data-ru="Инструменты работают прямо в браузере." data-uz="Vositalar to‘g‘ridan-to‘g‘ri brauzerda ishlaydi.">Инструменты работают прямо в браузере.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2" data-ru="🔒 Приватно" data-uz="🔒 Maxfiy">🔒 Приватно</h3>
+        <p class="text-sm text-slate-500" data-ru="Файлы обрабатываются локально, если это поддерживается инструментом." data-uz="Fayllar vosita imkoniyatiga qarab qurilmangizda qayta ishlanadi.">Файлы обрабатываются локально, если это поддерживается инструментом.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2" data-ru="Без регистрации" data-uz="Ro‘yxatdan o‘tish shart emas">Без регистрации</h3>
+        <p class="text-sm text-slate-500" data-ru="Начинайте пользоваться сразу." data-uz="Darhol foydalanishni boshlang.">Начинайте пользоваться сразу.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2" data-ru="Бесплатно" data-uz="Bepul">Бесплатно</h3>
+        <p class="text-sm text-slate-500" data-ru="Основные инструменты доступны бесплатно." data-uz="Asosiy vositalar bepul.">Основные инструменты доступны бесплатно.</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="max-w-5xl mx-auto px-5 py-14 text-center opacity-0 animate-fade-up delay-3">
-    <h2 class="text-[18px] font-semibold text-slate-900 mb-2">Нужно больше?</h2>
-    <p class="text-[13px] text-slate-500 mb-6 max-w-sm mx-auto">Уберите рекламу, снимите лимиты и откройте расширенные функции.</p>
-    <a href="premium.html" class="btn inline-flex items-center gap-1.5 bg-brand-600 text-white text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-brand-700 shadow-btn">
-      Перейти на Премиум
-      <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-    </a>
+  <section class="max-w-5xl mx-auto px-5 py-16 text-center">
+    <h2 class="text-2xl font-bold mb-3" data-ru="Больше возможностей с PROTOOLS" data-uz="PROTOOLS bilan ko‘proq imkoniyatlar">Больше возможностей с PROTOOLS</h2>
+    <p class="text-slate-500 text-sm mb-6" data-ru="Изучите дополнительные возможности сайта." data-uz="Saytning qo‘shimcha imkoniyatlarini ko‘ring.">Изучите дополнительные возможности сайта.</p>
+    <a href="premium.html" class="btn inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700">PROTOOLS Premium →</a>
   </section>
+</main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-200/60 bg-white">
-    <div class="max-w-5xl mx-auto px-5 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="flex items-center gap-2">
-        <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="text-[13px] font-medium text-slate-700">КвикТулс</span>
-      </div>
-      <div class="flex gap-5 text-[12px] text-slate-400">
-        <a href="#" class="hover:text-slate-600 transition">Конфиденциальность</a>
-        <a href="#" class="hover:text-slate-600 transition">Условия</a>
-        <a href="#" class="hover:text-slate-600 transition">Контакты</a>
-      </div>
-      <div class="text-[12px] text-slate-400">© 2025</div>
+<footer class="bg-white border-t border-slate-200">
+  <div class="max-w-5xl mx-auto px-5 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <span class="font-bold text-slate-700">PROTOOLS</span>
+    <div class="flex gap-5 text-xs text-slate-500">
+      <a href="privacy.html" class="hover:text-indigo-600">Конфиденциальность</a>
+      <a href="terms.html" class="hover:text-indigo-600">Условия</a>
+      <a href="contact.html" class="hover:text-indigo-600">Контакты</a>
     </div>
-  </footer>
+    <span class="text-xs text-slate-400">© 2026 PROTOOLS</span>
+  </div>
+</footer>
 
-  <script>
-    document.getElementById('menuBtn').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  let language = localStorage.getItem('protools-language') || 'ru';
+
+  function setLanguage(lang) {
+    language = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('protools-language', lang);
+
+    document.querySelectorAll('[data-ru]').forEach(element => {
+      element.textContent = element.dataset[lang];
     });
-  </script>
+
+    document.getElementById('langBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
+    document.getElementById('mobileLangBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
+  }
+
+  document.getElementById('langBtn').addEventListener('click', () => {
+    setLanguage(language === 'ru' ? 'uz' : 'ru');
+  });
+
+  document.getElementById('mobileLangBtn').addEventListener('click', () => {
+    setLanguage(language === 'ru' ? 'uz' : 'ru');
+  });
+
+  setLanguage(language);
+</script>
+
 </body>
 </html>
