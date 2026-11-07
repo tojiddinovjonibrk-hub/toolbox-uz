@@ -6,203 +6,493 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Создать QR-код онлайн бесплатно — PROTOOLS</title>
-
-  <meta name="description" content="Создавайте QR-коды онлайн бесплатно. Преобразуйте ссылки и текст в QR-код и сохраняйте результат с помощью PROTOOLS.">
-  <meta name="keywords" content="создать QR код онлайн, генератор QR кодов, QR код бесплатно, QR code, PROTOOLS">
+  <meta name="description" content="Создавайте QR-коды для текста, ссылок, Wi-Fi и визиток бесплатно с PROTOOLS.">
+  <meta name="keywords" content="QR код, генератор QR кодов, QR code, PROTOOLS">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#111827">
+  <meta name="theme-color" content="#4F46E5">
   <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/qr.html">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#EEF2FF',
+              500: '#6366F1',
+              600: '#4F46E5',
+              700: '#4338CA'
             }
-            }
+          },
+          boxShadow: {
+            card: '0 2px 12px rgba(15,23,42,0.04)',
+            btn: '0 4px 12px rgba(79,70,229,0.2)'
           }
         }
       }
-    }
+    };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Библиотека для создания QR-кодов -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
   <style>
-    body{font-family:'Inter',system-ui,sans-serif}
-    .btn{transition:transform 0.15s ease,background-color 0.15s ease}
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0) scale(0.98)}
-    .opacity-0{opacity:0}
-    .delay-1{animation-delay:0.05s}
-    .delay-2{animation-delay:0.1s}
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn {
+      transition: transform .15s ease, background-color .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    #qrPreview img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    #qrPreview canvas {
+      display: none;
+    }
   </style>
 </head>
-<body class="bg-[#f8fafc] text-slate-800 antialiased">
 
-  <header class="bg-white/80 backdrop-blur-xl border-b border-slate-200/60 sticky top-0 z-50 animate-fade-in">
-    <div class="max-w-5xl mx-auto px-5 h-[60px] flex items-center justify-between">
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+
       <a href="index.html" class="flex items-center gap-2.5">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="font-semibold text-[15px] text-slate-900 tracking-tight">КвикТулс</span>
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-lg font-extrabold text-white">P</div>
+        <span class="text-lg font-extrabold tracking-tight text-slate-900">PRO<span class="text-indigo-600">TOOLS</span></span>
       </a>
-      <nav class="hidden md:flex items-center gap-0.5 text-[13px] font-medium">
-        <a href="qr.html" class="px-3 py-1.5 rounded-md text-brand-700 bg-brand-50">QR-коды</a>
-        <a href="converter.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Конвертер</a>
-        <a href="compress.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Сжатие</a>
-        <a href="password.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Пароли</a>
-        <a href="premium.html" class="ml-2 bg-brand-600 text-white px-3.5 py-1.5 rounded-md hover:bg-brand-700 transition shadow-btn text-[13px]">Премиум</a>
+
+      <nav class="hidden items-center gap-1 text-sm font-medium md:flex">
+        <a href="qr.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</a>
+        <a href="converter.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Конвертер" data-uz="Konverter">Конвертер</a>
+        <a href="compress.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Сжатие" data-uz="Siqish">Сжатие</a>
+        <a href="password.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Пароли" data-uz="Parollar">Пароли</a>
+        <a href="premium.html" class="ml-2 rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700" data-ru="Премиум" data-uz="Premium">Премиум</a>
       </nav>
-      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100"><svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+
+      <div class="flex items-center gap-2">
+        <button id="langBtn" class="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold hover:bg-slate-100">UZ</button>
+        <button id="menuBtn" class="rounded-lg border border-slate-200 p-2 md:hidden" aria-label="Открыть меню" aria-expanded="false">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-2">
-      <a href="qr.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium">QR-коды</a>
-      <a href="converter.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Конвертер</a>
-      <a href="compress.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Сжатие</a>
-      <a href="password.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Пароли</a>
-      <a href="premium.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium">Премиум</a>
+
+    <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-3 md:hidden">
+      <div class="flex flex-col gap-1 text-sm">
+        <a href="qr.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</a>
+        <a href="converter.html" class="rounded-lg px-3 py-2" data-ru="Конвертер" data-uz="Konverter">Конвертер</a>
+        <a href="compress.html" class="rounded-lg px-3 py-2" data-ru="Сжатие" data-uz="Siqish">Сжатие</a>
+        <a href="password.html" class="rounded-lg px-3 py-2" data-ru="Пароли" data-uz="Parollar">Пароли</a>
+        <a href="premium.html" class="rounded-lg px-3 py-2 text-indigo-600" data-ru="Премиум" data-uz="Premium">Премиум</a>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-5 py-10">
-    <div class="mb-8 opacity-0 animate-fade-up">
-      <h1 class="text-[22px] font-semibold text-slate-900 mb-1">Генератор QR-кодов</h1>
-      <p class="text-[13px] text-slate-500">Текст, ссылки, Wi-Fi и визитки. Результат за секунды.</p>
+  <!-- MAIN -->
+  <main class="mx-auto max-w-5xl px-5 py-10 md:py-14">
+
+    <div class="mb-8">
+      <div class="mb-3 inline-flex rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">
+        PROTOOLS
+      </div>
+      <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl" data-ru="Генератор QR-кодов" data-uz="QR-kod generatori">
+        Генератор QR-кодов
+      </h1>
+      <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-500 md:text-base"
+         data-ru="Создавайте QR-коды для ссылок, текста, Wi-Fi и контактных данных. Скачивайте готовое изображение бесплатно."
+         data-uz="Havolalar, matn, Wi-Fi va kontakt ma'lumotlari uchun QR-kod yarating. Tayyor rasmni bepul yuklab oling.">
+        Создавайте QR-коды для ссылок, текста, Wi-Fi и контактных данных. Скачивайте готовое изображение бесплатно.
+      </p>
     </div>
 
-    <div class="bg-white rounded-xl border border-slate-200/80 shadow-card p-6 opacity-0 animate-fade-up delay-1">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="space-y-4">
+    <div class="grid gap-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-card md:grid-cols-2 md:p-7">
+
+      <!-- SETTINGS -->
+      <section class="space-y-5">
+
+        <div>
+          <label for="qrType" class="mb-2 block text-sm font-semibold text-slate-700"
+                 data-ru="Тип содержимого" data-uz="Kontent turi">Тип содержимого</label>
+          <select id="qrType" class="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+            <option value="text" data-ru="Текст / Ссылка" data-uz="Matn / Havola">Текст / Ссылка</option>
+            <option value="wifi" data-ru="Wi-Fi" data-uz="Wi-Fi">Wi-Fi</option>
+            <option value="vcard" data-ru="Визитка" data-uz="Vizitka">Визитка</option>
+          </select>
+        </div>
+
+        <!-- TEXT -->
+        <div id="textFields">
+          <label for="qrText" class="mb-2 block text-sm font-semibold text-slate-700"
+                 data-ru="Текст или ссылка" data-uz="Matn yoki havola">Текст или ссылка</label>
+          <textarea id="qrText" rows="4" maxlength="2500"
+            placeholder="https://example.com"
+            class="w-full resize-y rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"></textarea>
+        </div>
+
+        <!-- WIFI -->
+        <div id="wifiFields" class="hidden space-y-4">
           <div>
-            <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Тип содержимого</label>
-            <select id="qrType" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 bg-white">
-              <option value="text">Текст / Ссылка</option>
-              <option value="wifi">Wi-Fi</option>
-              <option value="vcard">Визитка (vCard)</option>
+            <label for="wifiSsid" class="mb-2 block text-sm font-semibold text-slate-700">SSID</label>
+            <input id="wifiSsid" type="text" maxlength="100"
+              placeholder="Название сети"
+              class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+          </div>
+
+          <div>
+            <label for="wifiPass" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Пароль Wi-Fi" data-uz="Wi-Fi paroli">Пароль Wi-Fi</label>
+            <input id="wifiPass" type="password" maxlength="100"
+              class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+          </div>
+
+          <div>
+            <label for="wifiType" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Тип защиты" data-uz="Himoya turi">Тип защиты</label>
+            <select id="wifiType" class="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm outline-none focus:border-indigo-500">
+              <option value="WPA">WPA / WPA2</option>
+              <option value="WEP">WEP</option>
+              <option value="nopass" data-ru="Без пароля" data-uz="Parolsiz">Без пароля</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- VCARD -->
+        <div id="vcardFields" class="hidden space-y-4">
+          <div>
+            <label for="vName" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Имя" data-uz="Ism">Имя</label>
+            <input id="vName" type="text" maxlength="100" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500">
+          </div>
+
+          <div>
+            <label for="vPhone" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Телефон" data-uz="Telefon">Телефон</label>
+            <input id="vPhone" type="tel" maxlength="40" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500">
+          </div>
+
+          <div>
+            <label for="vEmail" class="mb-2 block text-sm font-semibold text-slate-700">Email</label>
+            <input id="vEmail" type="email" maxlength="100" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500">
+          </div>
+
+          <div>
+            <label for="vOrg" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Компания" data-uz="Kompaniya">Компания</label>
+            <input id="vOrg" type="text" maxlength="100" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none focus:border-indigo-500">
+          </div>
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="qrSize" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Размер изображения" data-uz="Rasm o'lchami">Размер изображения</label>
+            <select id="qrSize" class="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm outline-none focus:border-indigo-500">
+              <option value="200">200 × 200</option>
+              <option value="280" selected>280 × 280</option>
+              <option value="400">400 × 400</option>
+              <option value="600">600 × 600</option>
+              <option value="800">800 × 800</option>
+              <option value="1024">1024 × 1024</option>
             </select>
           </div>
 
-          <div id="textFields">
-            <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Текст или ссылка</label>
-            <textarea id="qrText" rows="3" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 resize-none" placeholder="https://example.com"></textarea>
+          <div>
+            <label for="qrColor" class="mb-2 block text-sm font-semibold text-slate-700"
+                   data-ru="Цвет QR-кода" data-uz="QR-kod rangi">Цвет QR-кода</label>
+            <input id="qrColor" type="color" value="#1e1b4b"
+              class="h-[46px] w-full cursor-pointer rounded-xl border border-slate-200 bg-white p-1">
           </div>
-
-          <div id="wifiFields" class="hidden space-y-3">
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">SSID</label>
-              <input id="wifiSsid" type="text" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Пароль</label>
-              <input id="wifiPass" type="text" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Защита</label>
-              <select id="wifiType" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px]">
-                <option value="WPA">WPA/WPA2</option>
-                <option value="WEP">WEP</option>
-                <option value="nopass">Без пароля</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="vcardFields" class="hidden space-y-3">
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Имя</label>
-              <input id="vName" type="text" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Телефон</label>
-              <input id="vPhone" type="text" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Email</label>
-              <input id="vEmail" type="email" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Компания</label>
-              <input id="vOrg" type="text" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Размер</label>
-              <input id="qrSize" type="number" value="280" min="100" max="1024" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
-            </div>
-            <div>
-              <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Цвет</label>
-              <input id="qrColor" type="color" value="#1e1b4b" class="w-full h-[38px] border border-slate-200 rounded-lg cursor-pointer">
-            </div>
-          </div>
-
-          <button id="generateBtn" class="btn w-full bg-brand-600 text-white py-2.5 rounded-lg text-[13px] font-medium hover:bg-brand-700 shadow-btn">
-            Создать QR-код
-          </button>
         </div>
 
-        <div class="flex flex-col items-center justify-center">
-          <div id="qrPreview" class="bg-slate-50 border border-slate-200 rounded-xl w-full max-w-[260px] aspect-square flex items-center justify-center text-[13px] text-slate-400">
-            QR-код появится здесь
-          </div>
-          <button id="downloadBtn" class="mt-4 hidden bg-slate-900 text-white px-5 py-2 rounded-lg text-[13px] font-medium hover:bg-slate-800 transition">
-            Скачать PNG
-          </button>
-          <p class="text-[11px] text-slate-400 mt-3 text-center">PNG до 1024px · SVG и логотип — в Премиум</p>
+        <div>
+          <label for="qrBg" class="mb-2 block text-sm font-semibold text-slate-700"
+                 data-ru="Цвет фона" data-uz="Fon rangi">Цвет фона</label>
+          <input id="qrBg" type="color" value="#ffffff"
+            class="h-[46px] w-full cursor-pointer rounded-xl border border-slate-200 bg-white p-1">
         </div>
-      </div>
+
+        <button id="generateBtn" class="btn w-full rounded-xl bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-btn hover:bg-indigo-700">
+          <span data-ru="Создать QR-код" data-uz="QR-kod yaratish">Создать QR-код</span>
+        </button>
+
+        <p id="status" role="status" aria-live="polite" class="min-h-5 text-center text-sm text-slate-500"></p>
+      </section>
+
+      <!-- PREVIEW -->
+      <section class="flex flex-col items-center justify-center rounded-2xl bg-slate-50 p-5">
+        <h2 class="mb-5 text-lg font-bold text-slate-800"
+            data-ru="Предпросмотр" data-uz="Ko'rib chiqish">Предпросмотр</h2>
+
+        <div id="qrPreview" class="flex aspect-square w-full max-w-[300px] items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-3 text-center text-sm text-slate-400">
+          <span data-ru="Здесь появится QR-код" data-uz="QR-kod shu yerda paydo bo'ladi">Здесь появится QR-код</span>
+        </div>
+
+        <button id="downloadBtn" class="mt-5 hidden w-full max-w-[300px] rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">
+          <span data-ru="Скачать PNG" data-uz="PNG yuklab olish">Скачать PNG</span>
+        </button>
+
+        <p class="mt-4 text-center text-xs leading-5 text-slate-400"
+           data-ru="QR-код создаётся прямо в браузере. Данные не отправляются на сервер."
+           data-uz="QR-kod to'g'ridan-to'g'ri brauzerda yaratiladi. Ma'lumotlar serverga yuborilmaydi.">
+          QR-код создаётся прямо в браузере. Данные не отправляются на сервер.
+        </p>
+      </section>
     </div>
   </main>
 
-  <footer class="border-t border-slate-200/60 bg-white mt-auto">
-    <div class="max-w-5xl mx-auto px-5 py-6 flex justify-between items-center text-[12px] text-slate-400">
-      <div class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="text-slate-600 font-medium">КвикТулс</span>
-      </div>
-      <a href="index.html" class="hover:text-slate-600 transition">← На главную</a>
+  <!-- FOOTER -->
+  <footer class="mt-10 border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row">
+      <a href="index.html" class="font-bold text-slate-700">PROTOOLS</a>
+      <a href="index.html" class="hover:text-indigo-600" data-ru="← На главную" data-uz="← Bosh sahifaga">← На главную</a>
     </div>
   </footer>
 
   <script>
-    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
-    const qrType = document.getElementById('qrType');
-    const textFields = document.getElementById('textFields');
-    const wifiFields = document.getElementById('wifiFields');
-    const vcardFields = document.getElementById('vcardFields');
-    qrType.addEventListener('change', () => {
-      textFields.classList.add('hidden'); wifiFields.classList.add('hidden'); vcardFields.classList.add('hidden');
-      if (qrType.value === 'text') textFields.classList.remove('hidden');
-      if (qrType.value === 'wifi') wifiFields.classList.remove('hidden');
-      if (qrType.value === 'vcard') vcardFields.classList.remove('hidden');
-    });
-    document.getElementById('generateBtn').addEventListener('click', async () => {
-      let content = '';
-      if (qrType.value === 'text') content = document.getElementById('qrText').value.trim();
-      else if (qrType.value === 'wifi') {
-        content = `WIFI:T:${document.getElementById('wifiType').value};S:${document.getElementById('wifiSsid').value};P:${document.getElementById('wifiPass').value};;`;
-      } else {
-        content = `BEGIN:VCARD\nVERSION:3.0\nFN:${document.getElementById('vName').value}\nTEL:${document.getElementById('vPhone').value}\nEMAIL:${document.getElementById('vEmail').value}\nORG:${document.getElementById('vOrg').value}\nEND:VCARD`;
-      }
-      if (!content) { alert('Введите данные'); return; }
-      const size = parseInt(document.getElementById('qrSize').value) || 280;
-      const color = document.getElementById('qrColor').value;
-      const preview = document.getElementById('qrPreview');
-      preview.innerHTML = '';
-      try {
-        await QRCode.toCanvas(preview, content, { width: Math.min(size, 280), margin: 2, color: { dark: color, light: '#fff' } });
-        const canvas = preview.querySelector('canvas');
-        if (canvas) {
-          const img = document.createElement('img');
-          img.src = canvas.toDataURL('image/png');
-          img.className = 'rounded-lg max-w-full';
-          preview.innerHTML = '';
-          preview.appendChild(img);
-          preview.dataset.dataUrl = img.src;
-          document.getElementById('downloadBtn').classList.remove('hidden');
+    (function () {
+      const $ = id => document.getElementById(id);
+
+      let language = 'ru';
+      let currentDataUrl = '';
+
+      const translations = {
+        ru: {
+          empty: 'Сначала введи данные для QR-кода.',
+          wifi: 'Укажи название Wi-Fi сети.',
+          vcard: 'Укажи хотя бы имя, телефон или Email.',
+          library: 'Не удалось загрузить генератор QR-кодов. Проверь подключение к интернету и обнови страницу.',
+          error: 'Не удалось создать QR-код. Попробуй сократить текст.',
+          ready: 'QR-код успешно создан!',
+          download: 'Скачать PNG'
+        },
+        uz: {
+          empty: 'Avval QR-kod uchun ma’lumot kiriting.',
+          wifi: 'Wi-Fi tarmog‘i nomini kiriting.',
+          vcard: 'Kamida ism, telefon yoki Email kiriting.',
+          library: 'QR-kod generatorini yuklab bo‘lmadi. Internetni tekshirib, sahifani yangilang.',
+          error: 'QR-kod yaratilmadi. Matnni qisqartirib ko‘ring.',
+          ready: 'QR-kod muvaffaqiyatli yaratildi!',
+          download: 'PNG yuklab olish'
         }
-      } catch(e) { preview.textContent = 'Ошибка'; }
-    });
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-      const a = document.createElement('a');
-      a.href = document.getElementById('qrPreview').dataset.dataUrl;
-      a.download = 'qrcode.png';
-      a.click();
-    });
+      };
+
+      function setLanguage(lang) {
+        language = lang;
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-ru][data-uz]').forEach(el => {
+          el.textContent = el.getAttribute('data-' + lang);
+        });
+
+        $('langBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
+        $('downloadBtn').textContent = translations[lang].download;
+
+        try {
+          localStorage.setItem('protools-language', lang);
+        } catch (e) {}
+      }
+
+      try {
+        const saved = localStorage.getItem('protools-language');
+        if (saved === 'ru' || saved === 'uz') language = saved;
+      } catch (e) {}
+
+      setLanguage(language);
+
+      $('langBtn').addEventListener('click', () => {
+        setLanguage(language === 'ru' ? 'uz' : 'ru');
+      });
+
+      $('menuBtn').addEventListener('click', () => {
+        const hidden = $('mobileMenu').classList.toggle('hidden');
+        $('menuBtn').setAttribute('aria-expanded', String(!hidden));
+      });
+
+      function escapeWifi(value) {
+        return value.replace(/([\\;,:"])/g, '\\$1');
+      }
+
+      function escapeVCard(value) {
+        return value
+          .replace(/\\/g, '\\\\')
+          .replace(/\n/g, '\\n')
+          .replace(/,/g, '\\,')
+          .replace(/;/g, '\\;');
+      }
+
+      $('qrType').addEventListener('change', () => {
+        $('textFields').classList.add('hidden');
+        $('wifiFields').classList.add('hidden');
+        $('vcardFields').classList.add('hidden');
+
+        if ($('qrType').value === 'text') $('textFields').classList.remove('hidden');
+        if ($('qrType').value === 'wifi') $('wifiFields').classList.remove('hidden');
+        if ($('qrType').value === 'vcard') $('vcardFields').classList.remove('hidden');
+
+        $('status').textContent = '';
+      });
+
+      function getContent() {
+        const type = $('qrType').value;
+
+        if (type === 'text') {
+          return $('qrText').value.trim();
+        }
+
+        if (type === 'wifi') {
+          const ssid = $('wifiSsid').value.trim();
+          const password = $('wifiPass').value;
+          const security = $('wifiType').value;
+
+          if (!ssid) {
+            $('status').textContent = translations[language].wifi;
+            return '';
+          }
+
+          const passPart = security === 'nopass'
+            ? ''
+            : 'P:' + escapeWifi(password) + ';';
+
+          return 'WIFI:T:' + security +
+            ';S:' + escapeWifi(ssid) +
+            ';' + passPart + ';';
+        }
+
+        const name = $('vName').value.trim();
+        const phone = $('vPhone').value.trim();
+        const email = $('vEmail').value.trim();
+        const org = $('vOrg').value.trim();
+
+        if (!name && !phone && !email && !org) {
+          $('status').textContent = translations[language].vcard;
+          return '';
+        }
+
+        return [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          name ? 'FN:' + escapeVCard(name) : '',
+          phone ? 'TEL:' + phone : '',
+          email ? 'EMAIL:' + email : '',
+          org ? 'ORG:' + escapeVCard(org) : '',
+          'END:VCARD'
+        ].filter(Boolean).join('\r\n');
+      }
+
+      $('generateBtn').addEventListener('click', () => {
+        const content = getContent();
+
+        if (!content) {
+          if (!$('status').textContent) {
+            $('status').textContent = translations[language].empty;
+          }
+          return;
+        }
+
+        if (typeof QRCode === 'undefined') {
+          $('status').textContent = translations[language].library;
+          return;
+        }
+
+        const size = Number($('qrSize').value);
+        const color = $('qrColor').value;
+        const background = $('qrBg').value;
+        const preview = $('qrPreview');
+
+        $('generateBtn').disabled = true;
+        $('generateBtn').classList.add('opacity-60');
+        $('status').textContent = '';
+
+        preview.innerHTML = '';
+
+        try {
+          const holder = document.createElement('div');
+
+          new QRCode(holder, {
+            text: content,
+            width: size,
+            height: size,
+            colorDark: color,
+            colorLight: background,
+            correctLevel: QRCode.CorrectLevel.M
+          });
+
+          setTimeout(() => {
+            const canvas = holder.querySelector('canvas');
+            const image = holder.querySelector('img');
+
+            if (canvas) {
+              currentDataUrl = canvas.toDataURL('image/png');
+            } else if (image && image.src) {
+              currentDataUrl = image.src;
+            } else {
+              $('status').textContent = translations[language].error;
+              $('generateBtn').disabled = false;
+              $('generateBtn').classList.remove('opacity-60');
+              return;
+            }
+
+            const previewImage = document.createElement('img');
+            previewImage.src = currentDataUrl;
+            previewImage.alt = 'QR Code';
+            previewImage.className = 'h-auto w-full max-w-full object-contain';
+
+            preview.appendChild(previewImage);
+            preview.style.backgroundColor = background;
+            preview.style.padding = '12px';
+
+            $('downloadBtn').classList.remove('hidden');
+            $('status').textContent = translations[language].ready;
+
+            $('generateBtn').disabled = false;
+            $('generateBtn').classList.remove('opacity-60');
+          }, 150);
+
+        } catch (error) {
+          preview.textContent = translations[language].error;
+          $('status').textContent = translations[language].error;
+          $('generateBtn').disabled = false;
+          $('generateBtn').classList.remove('opacity-60');
+        }
+      });
+
+      $('downloadBtn').addEventListener('click', () => {
+        if (!currentDataUrl) return;
+
+        const link = document.createElement('a');
+        link.href = currentDataUrl;
+        link.download = 'protools-qrcode.png';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      });
+    })();
   </script>
+
 </body>
 </html>
+
