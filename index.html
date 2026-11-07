@@ -2,93 +2,102 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="ME0i4nkoz44r7HluUTEK52kwry03ZPUGlnZuqxpHlek">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="ME0i4nkoz44r7HluUTEK52kwry03ZPUGlnZuqxpHlek">
 
-  <title>PROTOOLS — Бесплатные онлайн-инструменты</title>
-  <meta name="description" content="PROTOOLS — бесплатные онлайн-инструменты: сжатие изображений, QR-коды, генератор паролей и конвертеры.">
-  <meta name="keywords" content="PROTOOLS, онлайн инструменты, сжатие изображений, QR код, генератор паролей, конвертер">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#111827">
+<title>PROTOOLS — Бесплатные онлайн-инструменты</title>
+<meta name="description" content="PROTOOLS — бесплатные онлайн-инструменты: сжатие изображений, QR-коды, генератор паролей и конвертеры.">
+<meta name="keywords" content="PROTOOLS, онлайн инструменты, сжатие изображений, QR код, генератор паролей, конвертер">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#111827">
 
-  <meta property="og:title" content="PROTOOLS — Онлайн-инструменты">
-  <meta property="og:description" content="Полезные бесплатные инструменты в одном месте.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
+<meta property="og:title" content="PROTOOLS — Онлайн-инструменты">
+<meta property="og:description" content="Полезные бесплатные инструменты в одном месте.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
 
-  <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
+<link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              600: '#4F46E5',
-              700: '#4338CA'
-            }
-          },
-          boxShadow: {
-            card: '0 2px 12px rgba(15,23,42,0.04)',
-            btn: '0 4px 12px rgba(79,70,229,0.2)'
+<!-- Tailwind configuration: MUST be before CDN -->
+<script>
+tailwind = {
+  config: {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            600: '#4F46E5',
+            700: '#4338CA'
           }
+        },
+        boxShadow: {
+          card: '0 2px 12px rgba(15,23,42,0.04)',
+          btn: '0 4px 12px rgba(79,70,229,0.2)'
         }
       }
     }
-  </script>
+  }
+};
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: Inter, system-ui, sans-serif;
-    }
+<style>
+body {
+  font-family: Inter, system-ui, sans-serif;
+}
 
-    .card {
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(79,70,229,.12);
-    }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(79,70,229,.12);
+}
 
-    .btn {
-      transition: .2s ease;
-    }
+.btn {
+  transition: .2s ease;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+.btn:hover {
+  transform: translateY(-2px);
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    .animate-fade-up {
-      animation: fadeUp .6s ease forwards;
-    }
+.animate-fade-up {
+  animation: fadeUp .6s ease forwards;
+}
 
-    .animate-fade-in {
-      animation: fadeIn .6s ease forwards;
-    }
+.animate-fade-in {
+  animation: fadeIn .6s ease forwards;
+}
 
-    .delay-1 { animation-delay: .05s; }
-    .delay-2 { animation-delay: .1s; }
-    .delay-3 { animation-delay: .15s; }
-    .delay-4 { animation-delay: .2s; }
-    .delay-5 { animation-delay: .25s; }
+.delay-1 { animation-delay: .05s; }
+.delay-2 { animation-delay: .1s; }
+.delay-3 { animation-delay: .15s; }
+.delay-4 { animation-delay: .2s; }
+.delay-5 { animation-delay: .25s; }
 
-    .opacity-0 { opacity: 0; }
-  </style>
+.opacity-0 { opacity: 0; }
+</style>
 </head>
 
 <body class="bg-[#f8fafc] text-slate-800 antialiased">
@@ -107,10 +116,10 @@
       <a href="compress.html" class="px-3 py-2 rounded-lg hover:bg-slate-100">Сжатие</a>
       <a href="password.html" class="px-3 py-2 rounded-lg hover:bg-slate-100">Пароли</a>
       <a href="premium.html" class="btn bg-brand-600 text-white px-4 py-2 rounded-lg hover:bg-brand-700">Премиум</a>
-      <button id="langBtn" class="border rounded-lg px-3 py-2">UZ</button>
+      <button id="langBtn" type="button" class="border rounded-lg px-3 py-2">UZ</button>
     </nav>
 
-    <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Открыть меню">
+    <button id="menuBtn" type="button" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Открыть меню" aria-expanded="false">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
@@ -123,86 +132,97 @@
     <a href="compress.html" class="block py-2">Сжатие</a>
     <a href="password.html" class="block py-2">Пароли</a>
     <a href="premium.html" class="block py-2 text-indigo-600">Премиум</a>
-    <button id="mobileLangBtn" class="mt-2 border rounded-lg px-3 py-2">UZ</button>
+    <button id="mobileLangBtn" type="button" class="mt-2 border rounded-lg px-3 py-2">UZ</button>
   </div>
 </header>
 
 <main>
-  <section class="max-w-5xl mx-auto px-5 pt-20 pb-14 text-center">
-    <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-2 text-xs text-slate-600 mb-6 animate-fade-up">
-      <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-      <span data-ru="Бесплатно · Без регистрации" data-uz="Bepul · Ro‘yxatdan o‘tish shart emas">Бесплатно · Без регистрации</span>
+
+<section class="max-w-5xl mx-auto px-5 pt-20 pb-14 text-center">
+  <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-2 text-xs text-slate-600 mb-6 animate-fade-up">
+    <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+    <span data-ru="Бесплатно · Без регистрации" data-uz="Bepul · Ro‘yxatdan o‘tish shart emas">Бесплатно · Без регистрации</span>
+  </div>
+
+  <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-5 animate-fade-up delay-1"
+      data-ru="Полезные онлайн-инструменты"
+      data-uz="Foydali onlayn vositalar">
+    Полезные онлайн-инструменты
+  </h1>
+
+  <p class="text-slate-500 max-w-xl mx-auto leading-relaxed animate-fade-up delay-2"
+     data-ru="Сжимайте изображения, создавайте QR-коды, конвертируйте файлы и генерируйте пароли в одном месте."
+     data-uz="Rasmlarni siqing, QR-kod yarating, fayllarni o‘zgartiring va parollar yarating.">
+    Сжимайте изображения, создавайте QR-коды, конвертируйте файлы и генерируйте пароли в одном месте.
+  </p>
+</section>
+
+<section class="max-w-5xl mx-auto px-5 pb-20">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+    <a href="qr.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+      <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl mb-5">▦</div>
+      <h2 class="font-bold text-slate-900 mb-2" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</h2>
+      <p class="text-sm text-slate-500 mb-5" data-ru="Создавайте QR-коды для текста, ссылок и Wi-Fi." data-uz="Matn, havola va Wi-Fi uchun QR-kodlar yarating.">Создавайте QR-коды для текста, ссылок и Wi-Fi.</p>
+      <span class="text-indigo-600 text-sm font-semibold" data-ru="Создать →" data-uz="Yaratish →">Создать →</span>
+    </a>
+
+    <a href="converter.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+      <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-2xl mb-5">⇄</div>
+      <h2 class="font-bold text-slate-900 mb-2" data-ru="Конвертер" data-uz="Konvertor">Конвертер</h2>
+      <p class="text-sm text-slate-500 mb-5" data-ru="Удобное преобразование файлов и единиц измерения." data-uz="Fayllar va o‘lchov birliklarini oson o‘zgartiring.">Удобное преобразование файлов и единиц измерения.</p>
+      <span class="text-indigo-600 text-sm font-semibold" data-ru="Открыть →" data-uz="Ochish →">Открыть →</span>
+    </a>
+
+    <a href="compress.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+      <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-2xl mb-5">▣</div>
+      <h2 class="font-bold text-slate-900 mb-2" data-ru="Сжатие фото" data-uz="Rasm siqish">Сжатие фото</h2>
+      <p class="text-sm text-slate-500 mb-5" data-ru="Уменьшайте размер изображений прямо в браузере." data-uz="Rasmlar hajmini brauzerda kamaytiring.">Уменьшайте размер изображений прямо в браузере.</p>
+      <span class="text-indigo-600 text-sm font-semibold" data-ru="Сжать →" data-uz="Siqish →">Сжать →</span>
+    </a>
+
+    <a href="password.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
+      <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-5">🔒</div>
+      <h2 class="font-bold text-slate-900 mb-2" data-ru="Генератор паролей" data-uz="Parol generatori">Генератор паролей</h2>
+      <p class="text-sm text-slate-500 mb-5" data-ru="Создавайте надёжные случайные пароли." data-uz="Kuchli tasodifiy parollar yarating.">Создавайте надёжные случайные пароли.</p>
+      <span class="text-indigo-600 text-sm font-semibold" data-ru="Создать →" data-uz="Yaratish →">Создать →</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="bg-white border-y border-slate-200">
+  <div class="max-w-5xl mx-auto px-5 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <div>
+      <h3 class="font-bold mb-2" data-ru="⚡ Быстро" data-uz="⚡ Tezkor">⚡ Быстро</h3>
+      <p class="text-sm text-slate-500" data-ru="Инструменты работают прямо в браузере." data-uz="Vositalar to‘g‘ridan-to‘g‘ri brauzerda ishlaydi.">Инструменты работают прямо в браузере.</p>
     </div>
 
-    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-5 animate-fade-up delay-1" data-ru="Полезные онлайн-инструменты" data-uz="Foydali onlayn vositalar">
-      Полезные онлайн-инструменты
-    </h1>
-
-    <p class="text-slate-500 max-w-xl mx-auto leading-relaxed animate-fade-up delay-2" data-ru="Сжимайте изображения, создавайте QR-коды, конвертируйте файлы и генерируйте пароли в одном месте." data-uz="Rasmlarni siqing, QR-kod yarating, fayllarni o‘zgartiring va parollar yarating.">
-      Сжимайте изображения, создавайте QR-коды, конвертируйте файлы и генерируйте пароли в одном месте.
-    </p>
-  </section>
-
-  <section class="max-w-5xl mx-auto px-5 pb-20">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-      <a href="qr.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
-        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl mb-5">▦</div>
-        <h2 class="font-bold text-slate-900 mb-2" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</h2>
-        <p class="text-sm text-slate-500 mb-5" data-ru="Создавайте QR-коды для текста, ссылок и Wi-Fi." data-uz="Matn, havola va Wi-Fi uchun QR-kodlar yarating.">Создавайте QR-коды для текста, ссылок и Wi-Fi.</p>
-        <span class="text-indigo-600 text-sm font-semibold" data-ru="Создать →" data-uz="Yaratish →">Создать →</span>
-      </a>
-
-      <a href="converter.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
-        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-2xl mb-5">⇄</div>
-        <h2 class="font-bold text-slate-900 mb-2" data-ru="Конвертер" data-uz="Konvertor">Конвертер</h2>
-        <p class="text-sm text-slate-500 mb-5" data-ru="Удобное преобразование файлов и единиц измерения." data-uz="Fayllar va o‘lchov birliklarini oson o‘zgartiring.">Удобное преобразование файлов и единиц измерения.</p>
-        <span class="text-indigo-600 text-sm font-semibold" data-ru="Открыть →" data-uz="Ochish →">Открыть →</span>
-      </a>
-
-      <a href="compress.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
-        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-2xl mb-5">▣</div>
-        <h2 class="font-bold text-slate-900 mb-2" data-ru="Сжатие фото" data-uz="Rasm siqish">Сжатие фото</h2>
-        <p class="text-sm text-slate-500 mb-5" data-ru="Уменьшайте размер изображений прямо в браузере." data-uz="Rasmlar hajmini brauzerda kamaytiring.">Уменьшайте размер изображений прямо в браузере.</p>
-        <span class="text-indigo-600 text-sm font-semibold" data-ru="Сжать →" data-uz="Siqish →">Сжать →</span>
-      </a>
-
-      <a href="password.html" class="card bg-white rounded-2xl p-6 border border-slate-200 shadow-card">
-        <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-5">🔒</div>
-        <h2 class="font-bold text-slate-900 mb-2" data-ru="Генератор паролей" data-uz="Parol generatori">Генератор паролей</h2>
-        <p class="text-sm text-slate-500 mb-5" data-ru="Создавайте надёжные случайные пароли." data-uz="Kuchli tasodifiy parollar yarating.">Создавайте надёжные случайные пароли.</p>
-        <span class="text-indigo-600 text-sm font-semibold" data-ru="Создать →" data-uz="Yaratish →">Создать →</span>
-      </a>
-
+    <div>
+      <h3 class="font-bold mb-2" data-ru="🔒 Приватно" data-uz="🔒 Maxfiy">🔒 Приватно</h3>
+      <p class="text-sm text-slate-500" data-ru="Файлы обрабатываются локально, если это поддерживается инструментом." data-uz="Fayllar vosita imkoniyatiga qarab qurilmangizda qayta ishlanadi.">Файлы обрабатываются локально, если это поддерживается инструментом.</p>
     </div>
-  </section>
 
-  <section class="bg-white border-y border-slate-200">
-    <div class="max-w-5xl mx-auto px-5 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div>
-        <h3 class="font-bold mb-2" data-ru="⚡ Быстро" data-uz="⚡ Tezkor">⚡ Быстро</h3>
-        <p class="text-sm text-slate-500" data-ru="Инструменты работают прямо в браузере." data-uz="Vositalar to‘g‘ridan-to‘g‘ri brauzerda ishlaydi.">Инструменты работают прямо в браузере.</p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2" data-ru="🔒 Приватно" data-uz="🔒 Maxfiy">🔒 Приватно</h3>
-        <p class="text-sm text-slate-500" data-ru="Файлы обрабатываются локально, если это поддерживается инструментом." data-uz="Fayllar vosita imkoniyatiga qarab qurilmangizda qayta ishlanadi.">Файлы обрабатываются локально, если это поддерживается инструментом.</p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2" data-ru="Без регистрации" data-uz="Ro‘yxatdan o‘tish shart emas">Без регистрации</h3>
-        <p class="text-sm text-slate-500" data-ru="Начинайте пользоваться сразу." data-uz="Darhol foydalanishni boshlang.">Начинайте пользоваться сразу.</p>
-      </div>
-      <div>
-        <h3 class="font-bold mb-2" data-ru="Бесплатно" data-uz="Bepul">Бесплатно</h3>
-        <p class="text-sm text-slate-500" data-ru="Основные инструменты доступны бесплатно." data-uz="Asosiy vositalar bepul.">Основные инструменты доступны бесплатно.</p>
-      </div>
+    <div>
+      <h3 class="font-bold mb-2" data-ru="Без регистрации" data-uz="Ro‘yxatdan o‘tish shart emas">Без регистрации</h3>
+      <p class="text-sm text-slate-500" data-ru="Начинайте пользоваться сразу." data-uz="Darhol foydalanishni boshlang.">Начинайте пользоваться сразу.</p>
     </div>
-  </section>
 
-  <section class="max-w-5xl mx-auto px-5 py-16 text-center">
-    <h2 class="text-2xl font-bold mb-3" data-ru="Больше возможностей с PROTOOLS" data-uz="PROTOOLS bilan ko‘proq imkoniyatlar">Больше возможностей с PROTOOLS</h2>
-    <p class="text-slate-500 text-sm mb-6" data-ru="Изучите дополнительные возможности сайта." data-uz="Saytning qo‘shimcha imkoniyatlarini ko‘ring.">Изучите дополнительные возможности сайта.</p>
-    <a href="premium.html" class="btn inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700">PROTOOLS Premium →</a>
-  </section>
+    <div>
+      <h3 class="font-bold mb-2" data-ru="Бесплатно" data-uz="Bepul">Бесплатно</h3>
+      <p class="text-sm text-slate-500" data-ru="Основные инструменты доступны бесплатно." data-uz="Asosiy vositalar bepul.">Основные инструменты доступны бесплатно.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-5 py-16 text-center">
+  <h2 class="text-2xl font-bold mb-3" data-ru="Больше возможностей с PROTOOLS" data-uz="PROTOOLS bilan ko‘proq imkoniyatlar">Больше возможностей с PROTOOLS</h2>
+  <p class="text-slate-500 text-sm mb-6" data-ru="Изучите дополнительные возможности сайта." data-uz="Saytning qo‘shimcha imkoniyatlarini ko‘ring.">Изучите дополнительные возможности сайта.</p>
+  <a href="premium.html" class="btn inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700">PROTOOLS Premium →</a>
+</section>
+
 </main>
 
 <footer class="bg-white border-t border-slate-200">
@@ -218,37 +238,64 @@
 </footer>
 
 <script>
+(function () {
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const langBtn = document.getElementById('langBtn');
+  const mobileLangBtn = document.getElementById('mobileLangBtn');
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  let language = localStorage.getItem('protools-language') || 'ru';
-
-  function setLanguage(lang) {
-    language = lang;
-    document.documentElement.lang = lang;
-    localStorage.setItem('protools-language', lang);
-
-    document.querySelectorAll('[data-ru]').forEach(element => {
-      element.textContent = element.dataset[lang];
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute(
+        'aria-expanded',
+        String(!mobileMenu.classList.contains('hidden'))
+      );
     });
-
-    document.getElementById('langBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
-    document.getElementById('mobileLangBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
   }
 
-  document.getElementById('langBtn').addEventListener('click', () => {
-    setLanguage(language === 'ru' ? 'uz' : 'ru');
-  });
+  let language = 'ru';
 
-  document.getElementById('mobileLangBtn').addEventListener('click', () => {
+  try {
+    const saved = localStorage.getItem('protools-language');
+    if (saved === 'ru' || saved === 'uz') {
+      language = saved;
+    }
+  } catch (error) {
+    console.warn('Language storage unavailable');
+  }
+
+  function setLanguage(lang) {
+    if (lang !== 'ru' && lang !== 'uz') return;
+
+    language = lang;
+    document.documentElement.lang = lang;
+
+    try {
+      localStorage.setItem('protools-language', lang);
+    } catch (error) {
+      console.warn('Could not save language');
+    }
+
+    document.querySelectorAll('[data-ru][data-uz]').forEach(function (element) {
+      element.textContent = element.getAttribute('data-' + lang);
+    });
+
+    const nextLanguage = lang === 'ru' ? 'UZ' : 'RU';
+
+    if (langBtn) langBtn.textContent = nextLanguage;
+    if (mobileLangBtn) mobileLangBtn.textContent = nextLanguage;
+  }
+
+  function toggleLanguage() {
     setLanguage(language === 'ru' ? 'uz' : 'ru');
-  });
+  }
+
+  if (langBtn) langBtn.addEventListener('click', toggleLanguage);
+  if (mobileLangBtn) mobileLangBtn.addEventListener('click', toggleLanguage);
 
   setLanguage(language);
+})();
 </script>
 
 </body>
