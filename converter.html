@@ -5,312 +5,642 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Конвертер файлов онлайн бесплатно — PROTOOLS</title>
-
-  <meta name="description" content="Конвертируйте файлы онлайн с помощью PROTOOLS. Удобный бесплатный инструмент для работы с файлами прямо в браузере.">
-  <meta name="keywords" content="конвертер файлов онлайн, конвертировать файлы, преобразование файлов, PROTOOLS">
+  <title>Конвертер изображений онлайн — PROTOOLS</title>
+  <meta name="description" content="Бесплатно конвертируйте изображения JPG, PNG, WebP и PDF прямо в браузере с PROTOOLS.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#111827">
+  <meta name="theme-color" content="#4F46E5">
   <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/converter.html">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#EEF2FF',
+              400: '#818CF8',
+              500: '#6366F1',
+              600: '#4F46E5',
+              700: '#4338CA'
             }
+          },
+          boxShadow: {
+            card: '0 2px 12px rgba(15,23,42,0.04)',
+            btn: '0 4px 12px rgba(79,70,229,0.2)'
           }
         }
       }
-    }
+    };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Библиотека для создания PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   <style>
-    body{font-family:'Inter',system-ui,sans-serif}
-    .dropzone.active{border-color:#6366f1;background:#eef2ff}
-    .btn{transition:transform 0.15s ease,background-color 0.15s ease}
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0) scale(0.98)}
-    .opacity-0{opacity:0}
-    .delay-1{animation-delay:0.05s}
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .dropzone {
+      transition: .2s ease;
+    }
+
+    .dropzone.active {
+      border-color: #6366F1;
+      background: #EEF2FF;
+    }
+
+    .btn {
+      transition: transform .15s ease, background-color .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
   </style>
 </head>
-<body class="bg-[#f8fafc] text-slate-800 antialiased">
 
-  <header class="bg-white/80 backdrop-blur-xl border-b border-slate-200/60 sticky top-0 z-50 animate-fade-in">
-    <div class="max-w-5xl mx-auto px-5 h-[60px] flex items-center justify-between">
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+
       <a href="index.html" class="flex items-center gap-2.5">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="font-semibold text-[15px] text-slate-900 tracking-tight">КвикТулс</span>
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-lg font-extrabold text-white">P</div>
+        <span class="text-lg font-extrabold tracking-tight text-slate-900">PRO<span class="text-indigo-600">TOOLS</span></span>
       </a>
-      <nav class="hidden md:flex items-center gap-0.5 text-[13px] font-medium">
-        <a href="qr.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">QR-коды</a>
-        <a href="converter.html" class="px-3 py-1.5 rounded-md text-brand-700 bg-brand-50">Конвертер</a>
-        <a href="compress.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Сжатие</a>
-        <a href="password.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Пароли</a>
-        <a href="premium.html" class="ml-2 bg-brand-600 text-white px-3.5 py-1.5 rounded-md hover:bg-brand-700 transition shadow-btn text-[13px]">Премиум</a>
+
+      <nav class="hidden items-center gap-1 text-sm font-medium md:flex">
+        <a href="qr.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</a>
+        <a href="converter.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="Конвертер" data-uz="Konverter">Конвертер</a>
+        <a href="compress.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Сжатие" data-uz="Siqish">Сжатие</a>
+        <a href="password.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Пароли" data-uz="Parollar">Пароли</a>
+        <a href="premium.html" class="ml-2 rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700" data-ru="Премиум" data-uz="Premium">Премиум</a>
       </nav>
-      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100"><svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+
+      <div class="flex items-center gap-2">
+        <button id="langBtn" class="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold hover:bg-slate-100">UZ</button>
+        <button id="menuBtn" class="rounded-lg border border-slate-200 p-2 md:hidden" aria-label="Открыть меню" aria-expanded="false">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-2">
-      <a href="qr.html" class="block px-3 py-2.5 text-[13px] text-slate-700">QR-коды</a>
-      <a href="converter.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium">Конвертер</a>
-      <a href="compress.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Сжатие</a>
-      <a href="password.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Пароли</a>
-      <a href="premium.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium">Премиум</a>
+
+    <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-3 md:hidden">
+      <div class="flex flex-col gap-1 text-sm">
+        <a href="qr.html" class="rounded-lg px-3 py-2" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</a>
+        <a href="converter.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="Конвертер" data-uz="Konverter">Конвертер</a>
+        <a href="compress.html" class="rounded-lg px-3 py-2" data-ru="Сжатие" data-uz="Siqish">Сжатие</a>
+        <a href="password.html" class="rounded-lg px-3 py-2" data-ru="Пароли" data-uz="Parollar">Пароли</a>
+        <a href="premium.html" class="rounded-lg px-3 py-2 text-indigo-600" data-ru="Премиум" data-uz="Premium">Премиум</a>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-xl mx-auto px-5 py-10">
-    <div class="mb-8 opacity-0 animate-fade-up">
-      <h1 class="text-[22px] font-semibold text-slate-900 mb-1">Конвертер файлов</h1>
-      <p class="text-[13px] text-slate-500">Изображения → PDF / JPG / PNG / WebP. Работает прямо в браузере.</p>
+  <!-- MAIN -->
+  <main class="mx-auto max-w-3xl px-5 py-10 md:py-14">
+
+    <div class="mb-8">
+      <div class="mb-3 inline-flex rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">PROTOOLS</div>
+
+      <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl"
+          data-ru="Конвертер изображений" data-uz="Rasmlar konverteri">
+        Конвертер изображений
+      </h1>
+
+      <p class="mt-3 text-sm leading-6 text-slate-500 md:text-base"
+         data-ru="Преобразуйте JPG, PNG и WebP в другие форматы или создавайте PDF прямо в браузере."
+         data-uz="JPG, PNG va WebP rasmlarini boshqa formatlarga o'zgartiring yoki brauzerda PDF yarating.">
+        Преобразуйте JPG, PNG и WebP в другие форматы или создавайте PDF прямо в браузере.
+      </p>
     </div>
 
-    <div class="bg-white rounded-xl border border-slate-200/80 shadow-card p-6 opacity-0 animate-fade-up delay-1">
-      <div id="dropzone" class="dropzone border border-dashed border-slate-200 rounded-lg p-8 text-center cursor-pointer transition-all duration-200 hover:border-brand-400 hover:bg-brand-50/40 hover:scale-[1.01]">
-        <svg class="w-8 h-8 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
-        <p class="text-[13px] font-medium text-slate-700 mb-0.5">Перетащите изображение</p>
-        <p class="text-[12px] text-slate-400">JPG, PNG, WebP, GIF · или нажмите, чтобы выбрать</p>
-        <input type="file" id="fileInput" accept="image/*" class="hidden">
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-card md:p-7">
+
+      <!-- FILE UPLOAD -->
+      <div id="dropzone" class="dropzone cursor-pointer rounded-2xl border-2 border-dashed border-slate-200 p-8 text-center hover:border-indigo-400 hover:bg-indigo-50/40">
+
+        <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+          <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+          </svg>
+        </div>
+
+        <p class="text-sm font-semibold text-slate-700"
+           data-ru="Перетащите изображение сюда" data-uz="Rasmni shu yerga tashlang">
+          Перетащите изображение сюда
+        </p>
+
+        <p class="mt-2 text-xs text-slate-400"
+           data-ru="Или нажмите, чтобы выбрать файл · JPG, PNG, WebP, GIF"
+           data-uz="Yoki fayl tanlash uchun bosing · JPG, PNG, WebP, GIF">
+          Или нажмите, чтобы выбрать файл · JPG, PNG, WebP, GIF
+        </p>
+
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/gif" class="hidden">
+
+        <button id="chooseBtn" type="button" class="mt-5 rounded-lg bg-indigo-600 px-5 py-2.5 text-xs font-semibold text-white hover:bg-indigo-700"
+                data-ru="Выбрать изображение" data-uz="Rasm tanlash">
+          Выбрать изображение
+        </button>
       </div>
 
-      <div id="formatSection" class="mt-5 hidden">
-        <label class="block text-[12px] font-medium text-slate-600 mb-2">Конвертировать в</label>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="formatButtons"></div>
+      <!-- SELECTED FILE -->
+      <div id="fileInfo" class="mt-4 hidden rounded-xl border border-slate-200 bg-slate-50 p-4">
+        <div class="flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <p id="fileName" class="truncate text-sm font-semibold text-slate-800"></p>
+            <p id="fileDetails" class="mt-1 text-xs text-slate-500"></p>
+          </div>
+          <button id="removeBtn" type="button" class="shrink-0 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
+                  data-ru="Удалить" data-uz="O'chirish">Удалить</button>
+        </div>
       </div>
 
-      <div id="qualitySection" class="mt-4 hidden">
-        <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Качество JPG/WebP: <span id="qualityValue" class="text-brand-600">0.92</span></label>
-        <input id="quality" type="range" min="0.5" max="1" step="0.01" value="0.92" class="w-full accent-brand-600 h-1">
+      <!-- FORMATS -->
+      <div id="formatSection" class="mt-6 hidden">
+        <label class="mb-3 block text-sm font-semibold text-slate-700"
+               data-ru="Выберите формат" data-uz="Formatni tanlang">Выберите формат</label>
+
+        <div id="formatButtons" class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <button type="button" data-format="JPG" class="format-btn rounded-xl border border-slate-200 px-4 py-4 text-sm font-bold hover:border-indigo-400 hover:bg-indigo-50">JPG</button>
+          <button type="button" data-format="PNG" class="format-btn rounded-xl border border-slate-200 px-4 py-4 text-sm font-bold hover:border-indigo-400 hover:bg-indigo-50">PNG</button>
+          <button type="button" data-format="WebP" class="format-btn rounded-xl border border-slate-200 px-4 py-4 text-sm font-bold hover:border-indigo-400 hover:bg-indigo-50">WebP</button>
+          <button type="button" data-format="PDF" class="format-btn rounded-xl border border-slate-200 px-4 py-4 text-sm font-bold hover:border-indigo-400 hover:bg-indigo-50">PDF</button>
+        </div>
       </div>
 
-      <button id="convertBtn" disabled class="btn mt-5 w-full bg-brand-600 text-white py-2.5 rounded-lg text-[13px] font-medium hover:bg-brand-700 transition disabled:opacity-40 disabled:cursor-not-allowed shadow-btn">
-        Конвертировать
+      <!-- QUALITY -->
+      <div id="qualitySection" class="mt-6 hidden">
+        <div class="mb-2 flex justify-between text-sm">
+          <label for="quality" class="font-semibold text-slate-700"
+                 data-ru="Качество изображения" data-uz="Rasm sifati">Качество изображения</label>
+          <span id="qualityValue" class="font-semibold text-indigo-600">92%</span>
+        </div>
+        <input id="quality" type="range" min="10" max="100" step="1" value="92" class="h-2 w-full cursor-pointer accent-indigo-600">
+        <p class="mt-2 text-xs text-slate-400"
+           data-ru="Меньше качество — обычно меньше размер файла."
+           data-uz="Sifat pastroq bo'lsa, fayl hajmi odatda kichikroq bo'ladi.">
+          Меньше качество — обычно меньше размер файла.
+        </p>
+      </div>
+
+      <!-- CONVERT -->
+      <button id="convertBtn" type="button" disabled class="btn mt-6 w-full rounded-xl bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-btn hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40">
+        <span data-ru="Конвертировать файл" data-uz="Faylni o'zgartirish">Конвертировать файл</span>
       </button>
 
-      <div id="status" class="mt-5 hidden text-center">
-        <div class="inline-block w-5 h-5 border-2 border-brand-200 border-t-brand-600 rounded-full animate-spin mb-2"></div>
-        <p id="statusText" class="text-[12px] text-slate-500">Конвертируем...</p>
+      <!-- STATUS -->
+      <div id="status" class="mt-5 hidden rounded-xl bg-indigo-50 p-4 text-center">
+        <div class="mx-auto mb-2 h-6 w-6 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600"></div>
+        <p id="statusText" class="text-sm font-medium text-indigo-700">Обработка...</p>
       </div>
 
-      <div id="result" class="mt-5 hidden text-center">
-        <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+      <!-- ERROR -->
+      <div id="errorBox" role="alert" class="mt-5 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"></div>
+
+      <!-- RESULT -->
+      <div id="result" class="mt-5 hidden rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center">
+        <div class="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
         </div>
-        <p class="text-[13px] font-medium text-slate-800 mb-1">Готово</p>
-        <p id="resultInfo" class="text-[11px] text-slate-400 mb-3"></p>
-        <a id="downloadLink" href="#" class="inline-block bg-slate-900 text-white px-4 py-2 rounded-lg text-[12px] font-medium hover:bg-slate-800 transition">Скачать файл</a>
+
+        <p class="font-bold text-emerald-800"
+           data-ru="Конвертация завершена!" data-uz="O'zgartirish tugallandi!">
+          Конвертация завершена!
+        </p>
+
+        <p id="resultInfo" class="mt-2 text-xs text-emerald-700"></p>
+
+        <a id="downloadLink" href="#" class="mt-4 inline-block rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-700"
+           data-ru="Скачать файл" data-uz="Faylni yuklab olish">
+          Скачать файл
+        </a>
       </div>
     </div>
 
-    <div class="mt-6 flex flex-wrap justify-center gap-1.5">
-      <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-[11px] text-slate-500">JPG → PDF</span>
-      <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-[11px] text-slate-500">PNG → JPG</span>
-      <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-[11px] text-slate-500">JPG → WebP</span>
-      <span class="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-[11px] text-slate-500">PNG → PDF</span>
+    <div class="mt-6 flex flex-wrap justify-center gap-2">
+      <span class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-500">JPG → PDF</span>
+      <span class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-500">PNG → JPG</span>
+      <span class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-500">JPG → WebP</span>
+      <span class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-500">PNG → PDF</span>
     </div>
-    <p class="text-center text-[11px] text-slate-400 mt-4">Реальная конвертация изображений в браузере. PDF, DOCX и аудио — в разработке.</p>
+
+    <p class="mt-5 text-center text-xs leading-5 text-slate-400"
+       data-ru="Файлы обрабатываются в браузере. Они не загружаются на наш сервер. Анимированные GIF преобразуются как статичное изображение."
+       data-uz="Fayllar brauzerda qayta ishlanadi. Ular serverimizga yuklanmaydi. Animatsiyali GIF statik rasm sifatida o'zgartiriladi.">
+      Файлы обрабатываются в браузере. Они не загружаются на наш сервер. Анимированные GIF преобразуются как статичное изображение.
+    </p>
   </main>
 
-  <footer class="border-t border-slate-200/60 bg-white">
-    <div class="max-w-5xl mx-auto px-5 py-6 flex justify-between items-center text-[12px] text-slate-400">
-      <div class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="text-slate-600 font-medium">КвикТулс</span>
-      </div>
-      <a href="index.html" class="hover:text-slate-600 transition">← На главную</a>
+  <!-- FOOTER -->
+  <footer class="mt-10 border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row">
+      <a href="index.html" class="font-bold text-slate-700">PROTOOLS</a>
+      <a href="index.html" class="hover:text-indigo-600" data-ru="← На главную" data-uz="← Bosh sahifaga">← На главную</a>
     </div>
   </footer>
 
   <script>
-    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    (() => {
+      const $ = id => document.getElementById(id);
 
-    const dropzone = document.getElementById('dropzone');
-    const fileInput = document.getElementById('fileInput');
-    const formatSection = document.getElementById('formatSection');
-    const formatButtons = document.getElementById('formatButtons');
-    const qualitySection = document.getElementById('qualitySection');
-    const quality = document.getElementById('quality');
-    const qualityValue = document.getElementById('qualityValue');
-    const convertBtn = document.getElementById('convertBtn');
-    const status = document.getElementById('status');
-    const result = document.getElementById('result');
-    const resultInfo = document.getElementById('resultInfo');
-    const downloadLink = document.getElementById('downloadLink');
+      let language = 'ru';
+      let selectedFile = null;
+      let selectedFormat = null;
+      let resultUrl = null;
 
-    let selectedFile = null;
-    let selectedFormat = null;
-
-    // Available output formats for images
-    const IMAGE_FORMATS = ['JPG', 'PNG', 'WebP', 'PDF'];
-
-    quality.addEventListener('input', () => qualityValue.textContent = quality.value);
-
-    dropzone.addEventListener('click', () => fileInput.click());
-    dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('active'); });
-    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('active'));
-    dropzone.addEventListener('drop', e => {
-      e.preventDefault();
-      dropzone.classList.remove('active');
-      if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
-    });
-    fileInput.addEventListener('change', () => {
-      if (fileInput.files[0]) handleFile(fileInput.files[0]);
-    });
-
-    function handleFile(file) {
-      if (!file.type.startsWith('image/')) {
-        alert('Сейчас поддерживаются только изображения (JPG, PNG, WebP, GIF).\nPDF и документы — в разработке.');
-        return;
-      }
-
-      selectedFile = file;
-      selectedFormat = null;
-      result.classList.add('hidden');
-      status.classList.add('hidden');
-      convertBtn.disabled = true;
-
-      const sizeMB = (file.size / 1024 / 1024).toFixed(2);
-      dropzone.innerHTML = `
-        <p class="text-[13px] font-medium text-slate-700">${file.name}</p>
-        <p class="text-[12px] text-slate-400">${sizeMB} МБ · ${file.type}</p>
-      `;
-
-      // Build format buttons
-      formatButtons.innerHTML = '';
-      IMAGE_FORMATS.forEach(fmt => {
-        // Don't offer converting to the same format if already that type
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'px-3 py-2 border border-slate-200 rounded-lg text-[12px] hover:border-brand-400 hover:bg-brand-50 transition';
-        btn.textContent = fmt;
-        btn.onclick = () => {
-          document.querySelectorAll('#formatButtons button').forEach(b => {
-            b.classList.remove('border-brand-600', 'bg-brand-50', 'text-brand-700');
-            b.classList.add('border-slate-200');
-          });
-          btn.classList.add('border-brand-600', 'bg-brand-50', 'text-brand-700');
-          selectedFormat = fmt;
-          convertBtn.disabled = false;
-          // Show quality only for lossy formats
-          if (fmt === 'JPG' || fmt === 'WebP') {
-            qualitySection.classList.remove('hidden');
-          } else {
-            qualitySection.classList.add('hidden');
-          }
-        };
-        formatButtons.appendChild(btn);
-      });
-      formatSection.classList.remove('hidden');
-    }
-
-    function loadImage(file) {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = () => reject(new Error('Не удалось загрузить изображение'));
-        img.src = URL.createObjectURL(file);
-      });
-    }
-
-    function canvasToBlob(canvas, type, quality) {
-      return new Promise(resolve => {
-        canvas.toBlob(blob => resolve(blob), type, quality);
-      });
-    }
-
-    async function convertImage() {
-      const img = await loadImage(selectedFile);
-      const canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      const ctx = canvas.getContext('2d');
-
-      // White background for formats that don't support transparency when converting from PNG with alpha
-      if (selectedFormat === 'JPG' || selectedFormat === 'PDF') {
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-      ctx.drawImage(img, 0, 0);
-
-      const q = parseFloat(quality.value) || 0.92;
-      let blob, mime, ext;
-
-      if (selectedFormat === 'JPG') {
-        mime = 'image/jpeg';
-        ext = 'jpg';
-        blob = await canvasToBlob(canvas, mime, q);
-      } else if (selectedFormat === 'PNG') {
-        mime = 'image/png';
-        ext = 'png';
-        blob = await canvasToBlob(canvas, mime);
-      } else if (selectedFormat === 'WebP') {
-        mime = 'image/webp';
-        ext = 'webp';
-        blob = await canvasToBlob(canvas, mime, q);
-      } else if (selectedFormat === 'PDF') {
-        // Use jsPDF
-        const { jsPDF } = window.jspdf;
-        // Fit image to A4 while keeping aspect ratio
-        const pageW = 210; // mm
-        const pageH = 297;
-        const imgRatio = img.naturalWidth / img.naturalHeight;
-        const pageRatio = pageW / pageH;
-
-        let w, h;
-        if (imgRatio > pageRatio) {
-          w = pageW;
-          h = pageW / imgRatio;
-        } else {
-          h = pageH;
-          w = pageH * imgRatio;
+      const messages = {
+        ru: {
+          choose: 'Сначала выбери изображение.',
+          format: 'Выбери формат для конвертации.',
+          large: 'Файл слишком большой. Максимальный размер — 25 МБ.',
+          invalid: 'Этот файл не является поддерживаемым изображением.',
+          loading: 'Обрабатываем изображение...',
+          pdfError: 'Библиотека PDF не загрузилась. Проверь интернет и обнови страницу.',
+          failed: 'Не удалось обработать изображение. Попробуй другой файл.',
+          unsupported: 'Браузер не поддерживает выбранный формат.',
+          success: 'Готово! Файл успешно создан.',
+          original: 'Исходный размер',
+          newSize: 'Новый размер',
+          select: 'Выбрать изображение'
+        },
+        uz: {
+          choose: 'Avval rasm tanlang.',
+          format: 'O\'zgartirish uchun formatni tanlang.',
+          large: 'Fayl juda katta. Maksimal hajm — 25 MB.',
+          invalid: 'Bu qo\'llab-quvvatlanadigan rasm fayli emas.',
+          loading: 'Rasm qayta ishlanmoqda...',
+          pdfError: 'PDF kutubxonasi yuklanmadi. Internetni tekshirib, sahifani yangilang.',
+          failed: 'Rasmni qayta ishlash amalga oshmadi. Boshqa faylni sinab ko\'ring.',
+          unsupported: 'Brauzer tanlangan formatni qo\'llab-quvvatlamaydi.',
+          success: 'Tayyor! Fayl muvaffaqiyatli yaratildi.',
+          original: 'Asl hajmi',
+          newSize: 'Yangi hajmi',
+          select: 'Rasm tanlash'
         }
-        const x = (pageW - w) / 2;
-        const y = (pageH - h) / 2;
+      };
 
-        const pdf = new jsPDF({
-          orientation: w > h ? 'l' : 'p',
-          unit: 'mm',
-          format: 'a4'
+      function t(key) {
+        return messages[language][key];
+      }
+
+      function setLanguage(lang) {
+        language = lang;
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-ru][data-uz]').forEach(el => {
+          el.textContent = el.getAttribute('data-' + lang);
         });
 
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-        pdf.addImage(dataUrl, 'JPEG', x, y, w, h);
-        blob = pdf.output('blob');
-        mime = 'application/pdf';
-        ext = 'pdf';
+        $('langBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
+
+        try {
+          localStorage.setItem('protools-language', lang);
+        } catch (e) {}
       }
-
-      return { blob, mime, ext };
-    }
-
-    convertBtn.addEventListener('click', async () => {
-      if (!selectedFile || !selectedFormat) return;
-
-      convertBtn.disabled = true;
-      status.classList.remove('hidden');
-      result.classList.add('hidden');
-      document.getElementById('statusText').textContent = `Конвертируем в ${selectedFormat}...`;
 
       try {
-        const { blob, mime, ext } = await convertImage();
+        const saved = localStorage.getItem('protools-language');
+        if (saved === 'ru' || saved === 'uz') language = saved;
+      } catch (e) {}
 
-        const url = URL.createObjectURL(blob);
-        const baseName = selectedFile.name.replace(/\.[^.]+$/, '');
-        const fileName = `${baseName}.${ext}`;
+      setLanguage(language);
 
-        downloadLink.href = url;
-        downloadLink.download = fileName;
-        resultInfo.textContent = `${fileName} · ${(blob.size / 1024).toFixed(1)} КБ`;
+      $('langBtn').addEventListener('click', () => {
+        setLanguage(language === 'ru' ? 'uz' : 'ru');
+      });
 
-        status.classList.add('hidden');
-        result.classList.remove('hidden');
-      } catch (err) {
-        console.error(err);
-        status.classList.add('hidden');
-        alert('Ошибка конвертации: ' + (err.message || 'неизвестная ошибка'));
+      $('menuBtn').addEventListener('click', () => {
+        const hidden = $('mobileMenu').classList.toggle('hidden');
+        $('menuBtn').setAttribute('aria-expanded', String(!hidden));
+      });
+
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1024 / 1024).toFixed(2) + ' MB';
       }
 
-      convertBtn.disabled = false;
-    });
+      function clearResult() {
+        if (resultUrl) {
+          URL.revokeObjectURL(resultUrl);
+          resultUrl = null;
+        }
+
+        $('result').classList.add('hidden');
+        $('errorBox').classList.add('hidden');
+      }
+
+      function showError(message) {
+        $('errorBox').textContent = message;
+        $('errorBox').classList.remove('hidden');
+      }
+
+      function resetFormats() {
+        document.querySelectorAll('.format-btn').forEach(btn => {
+          btn.classList.remove('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
+          btn.classList.add('border-slate-200');
+        });
+
+        selectedFormat = null;
+        $('convertBtn').disabled = true;
+        $('qualitySection').classList.add('hidden');
+      }
+
+      function handleFile(file) {
+        clearResult();
+        $('status').classList.add('hidden');
+
+        if (!file) return;
+
+        const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+
+        if (!allowed.includes(file.type)) {
+          showError(t('invalid'));
+          return;
+        }
+
+        if (file.size > 25 * 1024 * 1024) {
+          showError(t('large'));
+          return;
+        }
+
+        selectedFile = file;
+        resetFormats();
+
+        $('fileName').textContent = file.name;
+        $('fileDetails').textContent = formatSize(file.size) + ' · ' + file.type;
+        $('fileInfo').classList.remove('hidden');
+        $('formatSection').classList.remove('hidden');
+
+        $('dropzone').classList.add('border-indigo-300', 'bg-indigo-50/30');
+      }
+
+      $('dropzone').addEventListener('click', e => {
+        if (e.target.closest('#chooseBtn')) return;
+        $('fileInput').click();
+      });
+
+      $('chooseBtn').addEventListener('click', e => {
+        e.stopPropagation();
+        $('fileInput').click();
+      });
+
+      $('fileInput').addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (file) handleFile(file);
+        e.target.value = '';
+      });
+
+      $('dropzone').addEventListener('dragover', e => {
+        e.preventDefault();
+        $('dropzone').classList.add('active');
+      });
+
+      $('dropzone').addEventListener('dragleave', () => {
+        $('dropzone').classList.remove('active');
+      });
+
+      $('dropzone').addEventListener('drop', e => {
+        e.preventDefault();
+        $('dropzone').classList.remove('active');
+
+        const file = e.dataTransfer.files[0];
+        if (file) handleFile(file);
+      });
+
+      $('removeBtn').addEventListener('click', () => {
+        selectedFile = null;
+        resetFormats();
+        clearResult();
+
+        $('fileInfo').classList.add('hidden');
+        $('formatSection').classList.add('hidden');
+        $('status').classList.add('hidden');
+        $('fileInput').value = '';
+        $('dropzone').classList.remove('border-indigo-300', 'bg-indigo-50/30');
+      });
+
+      document.querySelectorAll('.format-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedFormat = btn.dataset.format;
+
+          document.querySelectorAll('.format-btn').forEach(item => {
+            item.classList.remove('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
+            item.classList.add('border-slate-200');
+          });
+
+          btn.classList.remove('border-slate-200');
+          btn.classList.add('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
+
+          $('convertBtn').disabled = !selectedFile;
+
+          if (selectedFormat === 'JPG' || selectedFormat === 'WebP') {
+            $('qualitySection').classList.remove('hidden');
+          } else {
+            $('qualitySection').classList.add('hidden');
+          }
+
+          clearResult();
+        });
+      });
+
+      $('quality').addEventListener('input', () => {
+        $('qualityValue').textContent = $('quality').value + '%';
+      });
+
+      function loadImage(file) {
+        return new Promise((resolve, reject) => {
+          const objectUrl = URL.createObjectURL(file);
+          const img = new Image();
+
+          img.onload = () => {
+            URL.revokeObjectURL(objectUrl);
+            resolve(img);
+          };
+
+          img.onerror = () => {
+            URL.revokeObjectURL(objectUrl);
+            reject(new Error(t('invalid')));
+          };
+
+          img.src = objectUrl;
+        });
+      }
+
+      function canvasToBlob(canvas, mime, quality) {
+        return new Promise((resolve, reject) => {
+          canvas.toBlob(blob => {
+            if (!blob) {
+              reject(new Error(t('unsupported')));
+              return;
+            }
+
+            if (blob.type !== mime) {
+              reject(new Error(t('unsupported')));
+              return;
+            }
+
+            resolve(blob);
+          }, mime, quality);
+        });
+      }
+
+      async function convertImage() {
+        const img = await loadImage(selectedFile);
+
+        const width = img.naturalWidth;
+        const height = img.naturalHeight;
+
+        if (!width || !height || width * height > 40000000) {
+          throw new Error('Изображение слишком большое по разрешению.');
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+
+        if (!ctx) throw new Error(t('failed'));
+
+        if (selectedFormat === 'JPG' || selectedFormat === 'PDF') {
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, width, height);
+        }
+
+        ctx.drawImage(img, 0, 0);
+
+        const quality = Number($('quality').value) / 100;
+
+        if (selectedFormat === 'JPG') {
+          return {
+            blob: await canvasToBlob(canvas, 'image/jpeg', quality),
+            ext: 'jpg'
+          };
+        }
+
+        if (selectedFormat === 'PNG') {
+          return {
+            blob: await canvasToBlob(canvas, 'image/png'),
+            ext: 'png'
+          };
+        }
+
+        if (selectedFormat === 'WebP') {
+          return {
+            blob: await canvasToBlob(canvas, 'image/webp', quality),
+            ext: 'webp'
+          };
+        }
+
+        if (selectedFormat === 'PDF') {
+          if (!window.jspdf || !window.jspdf.jsPDF) {
+            throw new Error(t('pdfError'));
+          }
+
+          const { jsPDF } = window.jspdf;
+
+          const orientation = width > height ? 'landscape' : 'portrait';
+
+          const pdf = new jsPDF({
+            orientation,
+            unit: 'mm',
+            format: 'a4'
+          });
+
+          const pageWidth = pdf.internal.pageSize.getWidth();
+          const pageHeight = pdf.internal.pageSize.getHeight();
+
+          const ratio = Math.min(pageWidth / width, pageHeight / height);
+          const imageWidth = width * ratio;
+          const imageHeight = height * ratio;
+
+          const x = (pageWidth - imageWidth) / 2;
+          const y = (pageHeight - imageHeight) / 2;
+
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+
+          pdf.addImage(dataUrl, 'JPEG', x, y, imageWidth, imageHeight);
+
+          return {
+            blob: pdf.output('blob'),
+            ext: 'pdf'
+          };
+        }
+
+        throw new Error(t('unsupported'));
+      }
+
+      $('convertBtn').addEventListener('click', async () => {
+        if (!selectedFile) {
+          showError(t('choose'));
+          return;
+        }
+
+        if (!selectedFormat) {
+          showError(t('format'));
+          return;
+        }
+
+        clearResult();
+
+        $('convertBtn').disabled = true;
+        $('status').classList.remove('hidden');
+        $('statusText').textContent = t('loading');
+
+        try {
+          const output = await convertImage();
+
+          if (!output.blob || !output.blob.size) {
+            throw new Error(t('failed'));
+          }
+
+          const baseName = selectedFile.name.replace(/\.[^.]+$/, '') || 'image';
+          const fileName = baseName + '.' + output.ext;
+
+          resultUrl = URL.createObjectURL(output.blob);
+
+          $('downloadLink').href = resultUrl;
+          $('downloadLink').download = fileName;
+
+          $('resultInfo').textContent =
+            fileName + ' · ' +
+            t('original') + ': ' + formatSize(selectedFile.size) +
+            ' · ' + t('newSize') + ': ' + formatSize(output.blob.size);
+
+          $('result').classList.remove('hidden');
+          $('status').classList.add('hidden');
+
+        } catch (error) {
+          $('status').classList.add('hidden');
+          showError(error.message || t('failed'));
+        } finally {
+          $('convertBtn').disabled = !selectedFile || !selectedFormat;
+        }
+      });
+
+      window.addEventListener('beforeunload', () => {
+        if (resultUrl) URL.revokeObjectURL(resultUrl);
+      });
+    })();
   </script>
+
 </body>
 </html>
