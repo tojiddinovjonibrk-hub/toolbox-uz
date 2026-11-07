@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сжатие изображений — КвикТулс</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: { 50:'#eef2ff', 100:'#e0e7ff', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca' } },
+          boxShadow: {
+            'xs': '0 1px 2px rgba(0,0,0,0.04)',
+            'card': '0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
+            'btn': '0 1px 2px rgba(79,70,229,0.2), 0 4px 12px rgba(79,70,229,0.15)'
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.5s ease-out forwards',
+            'fade-in': 'fadeIn 0.4s ease-out forwards',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(12px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',system-ui,sans-serif}
+    .dropzone.active{border-color:#6366f1;background:#eef2ff}
+    .btn{transition:transform 0.15s ease,background-color 0.15s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0) scale(0.98)}
+    .opacity-0{opacity:0}
+    .delay-1{animation-delay:0.05s}
+    .delay-2{animation-delay:0.1s}
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 antialiased">
+
+  <header class="bg-white/80 backdrop-blur-xl border-b border-slate-200/60 sticky top-0 z-50 animate-fade-in">
+    <div class="max-w-5xl mx-auto px-5 h-[60px] flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="font-semibold text-[15px] text-slate-900 tracking-tight">КвикТулс</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-0.5 text-[13px] font-medium">
+        <a href="qr.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">QR-коды</a>
+        <a href="converter.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Конвертер</a>
+        <a href="compress.html" class="px-3 py-1.5 rounded-md text-brand-700 bg-brand-50">Сжатие</a>
+        <a href="password.html" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">Пароли</a>
+        <a href="premium.html" class="ml-2 bg-brand-600 text-white px-3.5 py-1.5 rounded-md hover:bg-brand-700 transition shadow-btn text-[13px]">Премиум</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100"><svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-2">
+      <a href="qr.html" class="block px-3 py-2.5 text-[13px] text-slate-700">QR-коды</a>
+      <a href="converter.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Конвертер</a>
+      <a href="compress.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium">Сжатие</a>
+      <a href="password.html" class="block px-3 py-2.5 text-[13px] text-slate-700">Пароли</a>
+      <a href="premium.html" class="block px-3 py-2.5 text-[13px] text-brand-600 font-medium">Премиум</a>
+    </div>
+  </header>
+
+  <main class="max-w-xl mx-auto px-5 py-10">
+    <div class="mb-8 opacity-0 animate-fade-up">
+      <h1 class="text-[22px] font-semibold text-slate-900 mb-1">Сжатие изображений</h1>
+      <p class="text-[13px] text-slate-500">Уменьшите размер до 70–80% без заметной потери качества.</p>
+    </div>
+
+    <div class="bg-white rounded-xl border border-slate-200/80 shadow-card p-6 opacity-0 animate-fade-up delay-1">
+      <div id="dropzone" class="dropzone border border-dashed border-slate-200 rounded-lg p-8 text-center cursor-pointer transition-all duration-200 hover:border-brand-400 hover:bg-brand-50/40 hover:scale-[1.01]">
+        <svg class="w-8 h-8 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+        <p class="text-[13px] font-medium text-slate-700 mb-0.5">Перетащите изображения</p>
+        <p class="text-[12px] text-slate-400">или нажмите, чтобы выбрать</p>
+        <input type="file" id="fileInput" accept="image/*" multiple class="hidden">
+      </div>
+
+      <div class="mt-5 grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Качество: <span id="qualityValue" class="text-brand-600">80</span>%</label>
+          <input id="quality" type="range" min="10" max="100" value="80" class="w-full accent-brand-600 h-1">
+        </div>
+        <div>
+          <label class="block text-[12px] font-medium text-slate-600 mb-1.5">Макс. ширина</label>
+          <input id="maxWidth" type="number" value="1920" min="100" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
+        </div>
+      </div>
+
+      <button id="compressBtn" disabled class="btn mt-5 w-full bg-brand-600 text-white py-2.5 rounded-lg text-[13px] font-medium hover:bg-brand-700 transition disabled:opacity-40 disabled:cursor-not-allowed shadow-btn">
+        Сжать
+      </button>
+
+      <div id="results" class="mt-5 space-y-2.5 hidden"></div>
+    </div>
+    <p class="text-center text-[11px] text-slate-400 mt-5">До 10 файлов · макс. 8 МБ · Премиум без лимитов</p>
+  </main>
+
+  <footer class="border-t border-slate-200/60 bg-white">
+    <div class="max-w-5xl mx-auto px-5 py-6 flex justify-between items-center text-[12px] text-slate-400">
+      <div class="flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#4F46E5"/><path d="M9 16.5L13.5 21L23 11" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="text-slate-600 font-medium">КвикТулс</span>
+      </div>
+      <a href="index.html" class="hover:text-slate-600 transition">← На главную</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const quality = document.getElementById('quality');
+    const qualityValue = document.getElementById('qualityValue');
+    const compressBtn = document.getElementById('compressBtn');
+    const results = document.getElementById('results');
+    let files = [];
+    quality.addEventListener('input', () => qualityValue.textContent = quality.value);
+    dropzone.addEventListener('click', () => fileInput.click());
+    dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('active'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('active'));
+    dropzone.addEventListener('drop', e => { e.preventDefault(); dropzone.classList.remove('active'); handleFiles(e.dataTransfer.files); });
+    fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+    function handleFiles(list) {
+      files = Array.from(list).filter(f => f.type.startsWith('image/'));
+      if (files.length) {
+        compressBtn.disabled = false;
+        dropzone.innerHTML = `<p class="text-[13px] font-medium text-slate-700">${files.length} файл(ов)</p><p class="text-[12px] text-slate-400">Нажмите «Сжать»</p>`;
+      }
+    }
+    function formatSize(b) {
+      if (b < 1024) return b + ' Б';
+      if (b < 1048576) return (b/1024).toFixed(1) + ' КБ';
+      return (b/1048576).toFixed(2) + ' МБ';
+    }
+    compressBtn.addEventListener('click', async () => {
+      if (!files.length) return;
+      compressBtn.disabled = true;
+      compressBtn.textContent = 'Сжимаем...';
+      results.classList.remove('hidden');
+      results.innerHTML = '';
+      const options = { maxSizeMB: 10, maxWidthOrHeight: parseInt(document.getElementById('maxWidth').value) || 1920, useWebWorker: true, initialQuality: parseInt(quality.value)/100 };
+      for (const file of files) {
+        try {
+          const compressed = await imageCompression(file, options);
+          const saved = ((1 - compressed.size / file.size) * 100).toFixed(0);
+          const url = URL.createObjectURL(compressed);
+          const card = document.createElement('div');
+          card.className = 'flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100';
+          card.innerHTML = `<img src="${url}" class="w-11 h-11 object-cover rounded-md"><div class="flex-1 min-w-0"><p class="text-[12px] font-medium truncate text-slate-800">${file.name}</p><p class="text-[11px] text-slate-500">${formatSize(file.size)} → ${formatSize(compressed.size)} <span class="text-emerald-600">(-${saved}%)</span></p></div><a href="${url}" download="compressed_${file.name}" class="text-[11px] font-medium text-brand-600 hover:text-brand-700 px-2.5 py-1 rounded-md hover:bg-brand-50">Скачать</a>`;
+          results.appendChild(card);
+        } catch(e) { results.innerHTML += `<p class="text-red-500 text-[12px]">Ошибка: ${file.name}</p>`; }
+      }
+      compressBtn.disabled = false;
+      compressBtn.textContent = 'Сжать';
+    });
+  </script>
+</body>
+</html>
