@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="google-site-verification" content="ME0i4nkoz44r7HluUTEK52kwry03ZPUGlnZuqxpHlek">
 
   <title>PROTOOLS — Бесплатные онлайн-инструменты</title>
@@ -31,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -46,7 +46,6 @@
       }
     };
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <script type="application/ld+json">
   {
@@ -69,7 +68,7 @@
         "name": "Что такое PROTOOLS?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, а также генерации паролей."
+          "text": "PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, генерации паролей и полезными инструкциями."
         }
       },
       {
@@ -93,7 +92,15 @@
         "name": "Какие инструменты доступны на сайте?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "На сайте доступны генератор QR-кодов, конвертер изображений, инструмент сжатия изображений и генератор паролей."
+          "text": "На сайте доступны генератор QR-кодов, конвертер изображений, инструмент сжатия изображений, генератор паролей и раздел инструкций."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Где найти инструкции по использованию инструментов?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Откройте раздел Guides на сайте PROTOOLS. Там опубликованы инструкции по созданию QR-кодов, конвертации и сжатию изображений и генерации паролей."
         }
       },
       {
@@ -194,6 +201,7 @@
     <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
       <a href="#tools" class="hover:text-indigo-600" data-ru="Инструменты" data-en="Tools">Инструменты</a>
       <a href="#how" class="hover:text-indigo-600" data-ru="Как пользоваться" data-en="How it works">Как пользоваться</a>
+      <a href="guides.html" class="hover:text-indigo-600" data-ru="Инструкции" data-en="Guides">Инструкции</a>
       <a href="#faq" class="hover:text-indigo-600" data-ru="Вопросы" data-en="FAQ">Вопросы</a>
       <a href="about.html" class="hover:text-indigo-600" data-ru="О нас" data-en="About us">О нас</a>
       <a href="contact.html" class="hover:text-indigo-600" data-ru="Контакты" data-en="Contact">Контакты</a>
@@ -220,6 +228,7 @@
     <nav class="flex flex-col gap-4 text-sm font-medium">
       <a href="#tools" data-ru="Инструменты" data-en="Tools">Инструменты</a>
       <a href="#how" data-ru="Как пользоваться" data-en="How it works">Как пользоваться</a>
+      <a href="guides.html" data-ru="Инструкции" data-en="Guides">Инструкции</a>
       <a href="#faq" data-ru="Вопросы" data-en="FAQ">Вопросы</a>
       <a href="about.html" data-ru="О нас" data-en="About us">О нас</a>
       <a href="contact.html" data-ru="Контакты" data-en="Contact">Контакты</a>
@@ -232,7 +241,6 @@
 
 <main>
 
-  <!-- HERO -->
   <section class="relative overflow-hidden bg-white">
     <div class="mx-auto max-w-7xl px-5 py-20 text-center md:py-28">
 
@@ -266,7 +274,6 @@
     </div>
   </section>
 
-  <!-- TOOLS -->
   <section id="tools" class="mx-auto max-w-7xl px-5 py-20">
     <div class="mb-10 text-center">
       <h2 class="text-3xl font-extrabold tracking-tight md:text-4xl"
@@ -277,7 +284,7 @@
         data-en="Choose the tool you need.">Выберите инструмент для своей задачи.</p>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
       <a href="qr.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
         <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-3xl">▦</div>
@@ -323,10 +330,20 @@
         <div class="mt-6 font-semibold text-indigo-600"><span data-ru="Открыть генератор" data-en="Open Generator">Открыть генератор</span> →</div>
       </a>
 
+      <a href="guides.html" class="tool-card rounded-2xl border border-indigo-100 bg-white p-6 shadow-card">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 text-3xl">📚</div>
+        <h3 class="text-lg font-bold" data-ru="Инструкции PROTOOLS" data-en="PROTOOLS Guides">Инструкции PROTOOLS</h3>
+        <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500"
+          data-ru="Читайте пошаговые инструкции по использованию QR-генератора, конвертера, сжатия изображений и генератора паролей."
+          data-en="Read step-by-step guides for using the QR generator, image converter, compressor and password generator.">
+          Читайте пошаговые инструкции по использованию QR-генератора, конвертера, сжатия изображений и генератора паролей.
+        </p>
+        <div class="mt-6 font-semibold text-indigo-600"><span data-ru="Читать инструкции" data-en="Read guides">Читать инструкции</span> →</div>
+      </a>
+
     </div>
   </section>
 
-  <!-- TOOL INFORMATION -->
   <section class="border-y border-slate-200 bg-white">
     <div class="mx-auto max-w-6xl px-5 py-20">
       <div class="mx-auto max-w-3xl text-center">
@@ -384,11 +401,21 @@
           <a href="password.html" class="mt-4 inline-block font-semibold text-indigo-600 hover:text-indigo-800"
             data-ru="Перейти к генератору паролей →" data-en="Go to Password Generator →">Перейти к генератору паролей →</a>
         </article>
+
+        <article class="rounded-2xl bg-indigo-50 p-7 md:col-span-2">
+          <h3 class="text-xl font-bold" data-ru="Обучающие инструкции" data-en="Helpful tutorials">Обучающие инструкции</h3>
+          <p class="mt-3 leading-7 text-slate-600"
+            data-ru="В разделе Guides собраны пошаговые объяснения работы с инструментами PROTOOLS. Они помогут разобраться с основными функциями и выбрать подходящие настройки."
+            data-en="The Guides section contains step-by-step explanations of PROTOOLS tools. They help visitors understand the main features and choose suitable settings.">
+            В разделе Guides собраны пошаговые объяснения работы с инструментами PROTOOLS. Они помогут разобраться с основными функциями и выбрать подходящие настройки.
+          </p>
+          <a href="guides.html" class="mt-4 inline-block font-semibold text-indigo-600 hover:text-indigo-800"
+            data-ru="Открыть все инструкции →" data-en="Explore all guides →">Открыть все инструкции →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section id="how" class="mx-auto max-w-6xl px-5 py-20">
     <div class="text-center">
       <h2 class="text-3xl font-extrabold md:text-4xl"
@@ -426,8 +453,7 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="border-y border-slate-200 bg-white">
+  <section class="border-y border-slate-200 bg-white">
     <div class="mx-auto max-w-5xl px-5 py-20 text-center">
       <h2 class="text-3xl font-extrabold"
         data-ru="О проекте PROTOOLS"
@@ -444,7 +470,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="bg-slate-50">
     <div class="mx-auto max-w-4xl px-5 py-20">
       <div class="mb-10 text-center">
@@ -464,9 +489,9 @@
             <span aria-hidden="true">＋</span>
           </button>
           <div class="faq-answer" hidden
-            data-ru="PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, а также генерации паролей."
-            data-en="PROTOOLS is a website with online tools for creating QR codes, converting and compressing images, and generating passwords.">
-            PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, а также генерации паролей.
+            data-ru="PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, генерации паролей и полезными инструкциями."
+            data-en="PROTOOLS is a website with online tools for creating QR codes, converting and compressing images, generating passwords, and reading helpful guides.">
+            PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, генерации паролей и полезными инструкциями.
           </div>
         </div>
 
@@ -500,9 +525,21 @@
             <span aria-hidden="true">＋</span>
           </button>
           <div class="faq-answer" hidden
-            data-ru="Сейчас на сайте представлены QR-генератор, конвертер изображений, инструмент сжатия изображений и генератор паролей."
-            data-en="The website currently offers a QR code generator, image converter, image compressor, and password generator.">
-            Сейчас на сайте представлены QR-генератор, конвертер изображений, инструмент сжатия изображений и генератор паролей.
+            data-ru="Сейчас на сайте представлены QR-генератор, конвертер изображений, инструмент сжатия изображений, генератор паролей и раздел инструкций."
+            data-en="The website currently offers a QR code generator, image converter, image compressor, password generator, and a guides section.">
+            Сейчас на сайте представлены QR-генератор, конвертер изображений, инструмент сжатия изображений, генератор паролей и раздел инструкций.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span data-ru="Где найти инструкции по использованию инструментов?" data-en="Where can I find tool guides?">Где найти инструкции по использованию инструментов?</span>
+            <span aria-hidden="true">＋</span>
+          </button>
+          <div class="faq-answer" hidden
+            data-ru="Откройте раздел Guides на сайте PROTOOLS. Там опубликованы инструкции по созданию QR-кодов, конвертации и сжатию изображений и генерации паролей."
+            data-en="Open the Guides section on PROTOOLS. It contains instructions for creating QR codes, converting and compressing images, and generating passwords.">
+            Откройте раздел Guides на сайте PROTOOLS. Там опубликованы инструкции по созданию QR-кодов, конвертации и сжатию изображений и генерации паролей.
           </div>
         </div>
 
@@ -522,7 +559,6 @@
     </div>
   </section>
 
-  <!-- CONTACT CTA -->
   <section class="bg-indigo-600 px-5 py-16 text-center text-white">
     <h2 class="text-3xl font-extrabold"
       data-ru="Есть вопрос или предложение?"
@@ -550,6 +586,7 @@
       </div>
 
       <div class="flex flex-wrap justify-center gap-5 text-sm">
+        <a href="guides.html" class="hover:text-white" data-ru="Инструкции" data-en="Guides">Инструкции</a>
         <a href="about.html" class="hover:text-white" data-ru="О нас" data-en="About us">О нас</a>
         <a href="privacy.html" class="hover:text-white" data-ru="Конфиденциальность" data-en="Privacy policy">Конфиденциальность</a>
         <a href="terms.html" class="hover:text-white" data-ru="Условия использования" data-en="Terms of use">Условия использования</a>
@@ -661,3 +698,4 @@
 
 </body>
 </html>
+
