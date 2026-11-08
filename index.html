@@ -8,26 +8,31 @@
   <meta name="google-site-verification" content="ME0i4nkoz44r7HluUTEK52kwry03ZPUGlnZuqxpHlek">
 
   <title>PROTOOLS — Бесплатные онлайн-инструменты</title>
-  <meta name="description" content="PROTOOLS — бесплатные онлайн-инструменты: QR-коды, конвертер изображений, сжатие фото и генератор паролей.">
+
+  <meta name="description" content="PROTOOLS — бесплатные онлайн-инструменты: создание QR-кодов, конвертация и сжатие изображений, генератор надёжных паролей.">
+  <meta name="keywords" content="онлайн инструменты, QR генератор, сжатие изображений, конвертер изображений, генератор паролей">
+  <meta name="author" content="PROTOOLS">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#4F46E5">
+
   <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PROTOOLS — Бесплатные онлайн-инструменты">
+  <meta property="og:description" content="Создавайте QR-коды, конвертируйте и сжимайте изображения, генерируйте пароли онлайн.">
+  <meta property="og:url" content="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/">
+  <meta property="og:site_name" content="PROTOOLS">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script>
-    window.tailwind = {
+    tailwind = {
       config: {
         theme: {
           extend: {
             fontFamily: { sans: ['Inter', 'sans-serif'] },
-            colors: {
-              brand: {
-                600: '#4F46E5',
-                700: '#4338CA'
-              }
-            },
             boxShadow: {
               card: '0 2px 12px rgba(15,23,42,0.04)',
               btn: '0 4px 12px rgba(79,70,229,0.2)'
@@ -39,10 +44,22 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PROTOOLS",
+    "url": "https://tojiddinovjonibrk-hub.github.io/toolbox-uz/",
+    "description": "Free online tools for QR codes, image conversion, image compression and password generation.",
+    "inLanguage": ["ru", "en"]
+  }
+  </script>
+
   <style>
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
     }
 
     .tool-card {
@@ -60,319 +77,352 @@
       background-clip: text;
       color: transparent;
     }
+
+    .faq-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      background: white;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 19px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 19px 19px;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    .faq-answer[hidden] {
+      display: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tool-card { transition: none; }
+    }
   </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900">
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
 
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-xl font-extrabold text-white">
-          P
-        </div>
-        <span class="text-xl font-extrabold tracking-tight">PRO<span class="text-indigo-600">TOOLS</span></span>
+    <a href="index.html" class="flex items-center gap-2" aria-label="PROTOOLS Home">
+      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-xl font-extrabold text-white">P</div>
+      <span class="text-xl font-extrabold tracking-tight">PRO<span class="text-indigo-600">TOOLS</span></span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+      <a href="#tools" class="hover:text-indigo-600" data-ru="Инструменты" data-en="Tools">Инструменты</a>
+      <a href="#how" class="hover:text-indigo-600" data-ru="Как пользоваться" data-en="How it works">Как пользоваться</a>
+      <a href="#faq" class="hover:text-indigo-600" data-ru="Вопросы" data-en="FAQ">Вопросы</a>
+      <a href="about.html" class="hover:text-indigo-600" data-ru="О нас" data-en="About us">О нас</a>
+      <a href="contact.html" class="hover:text-indigo-600" data-ru="Контакты" data-en="Contact">Контакты</a>
+      <a href="premium.html" class="font-bold text-indigo-600">Premium</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button id="langBtn" class="rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold hover:bg-slate-100" aria-label="Change language">EN</button>
+
+      <button id="menuBtn" class="rounded-lg border border-slate-200 p-2 md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-4 md:hidden">
+    <nav class="flex flex-col gap-4 text-sm font-medium">
+      <a href="#tools" data-ru="Инструменты" data-en="Tools">Инструменты</a>
+      <a href="#how" data-ru="Как пользоваться" data-en="How it works">Как пользоваться</a>
+      <a href="#faq" data-ru="Вопросы" data-en="FAQ">Вопросы</a>
+      <a href="about.html" data-ru="О нас" data-en="About us">О нас</a>
+      <a href="contact.html" data-ru="Контакты" data-en="Contact">Контакты</a>
+      <a href="premium.html">Premium</a>
+      <button id="mobileLangBtn" class="w-fit rounded-lg border border-slate-200 px-3 py-2">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-white">
+    <div class="mx-auto max-w-7xl px-5 py-20 text-center md:py-28">
+
+      <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700">
+        <span class="h-2 w-2 rounded-full bg-green-500"></span>
+        <span data-ru="Бесплатные онлайн-инструменты" data-en="Free online tools">Бесплатные онлайн-инструменты</span>
+      </div>
+
+      <h1 class="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+        <span data-ru="Полезные инструменты" data-en="Useful tools">Полезные инструменты</span>
+        <br>
+        <span class="gradient-text" data-ru="в одном месте" data-en="in one place">в одном месте</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-500 md:text-lg"
+         data-ru="Создавайте QR-коды, конвертируйте изображения, уменьшайте размер фотографий и генерируйте надёжные пароли. Всё удобно собрано в одном месте."
+         data-en="Create QR codes, convert images, reduce photo sizes, and generate strong passwords. Everything you need in one convenient place.">
+        Создавайте QR-коды, конвертируйте изображения, уменьшайте размер фотографий и генерируйте надёжные пароли. Всё удобно собрано в одном месте.
+      </p>
+
+      <a href="#tools" class="mt-9 inline-flex items-center justify-center rounded-xl bg-indigo-600 px-7 py-3.5 font-semibold text-white shadow-btn transition hover:bg-indigo-700">
+        <span data-ru="Открыть инструменты" data-en="Explore tools">Открыть инструменты</span>
+        <span class="ml-2">→</span>
       </a>
 
-      <nav class="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
-        <a href="#tools" class="hover:text-indigo-600" data-ru="Инструменты" data-en="Tools">Инструменты</a>
-        <a href="#about" class="hover:text-indigo-600" data-ru="О проекте" data-en="About project">О проекте</a>
-        <a href="about.html" class="hover:text-indigo-600" data-ru="О нас" data-en="About us">О нас</a>
-        <a href="contact.html" class="hover:text-indigo-600" data-ru="Контакты" data-en="Contact">Контакты</a>
-      </nav>
+      <p class="mt-5 text-sm text-slate-400"
+         data-ru="Не нужно устанавливать отдельную программу."
+         data-en="No separate software installation required.">
+        Не нужно устанавливать отдельную программу.
+      </p>
+    </div>
+  </section>
 
-      <div class="flex items-center gap-3">
-        <button id="langBtn" class="rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold hover:bg-slate-100" aria-label="Change language">
-          EN
-        </button>
-
-        <button id="menuBtn" class="rounded-lg border border-slate-200 p-2 md:hidden" aria-label="Open menu" aria-expanded="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
+  <!-- TOOLS -->
+  <section id="tools" class="mx-auto max-w-7xl px-5 py-20">
+    <div class="mb-10 text-center">
+      <h2 class="text-3xl font-extrabold tracking-tight md:text-4xl" data-ru="Наши инструменты" data-en="Our tools">Наши инструменты</h2>
+      <p class="mt-3 text-slate-500" data-ru="Выберите нужный инструмент и начните работу." data-en="Choose the tool you need and get started.">Выберите нужный инструмент и начните работу.</p>
     </div>
 
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-4 text-sm font-medium">
-        <a href="#tools" data-ru="Инструменты" data-en="Tools">Инструменты</a>
-        <a href="#about" data-ru="О проекте" data-en="About project">О проекте</a>
-        <a href="about.html" data-ru="О нас" data-en="About us">О нас</a>
-        <a href="contact.html" data-ru="Контакты" data-en="Contact">Контакты</a>
-        <button id="mobileLangBtn" class="w-fit rounded-lg border border-slate-200 px-3 py-2">EN</button>
-      </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+      <a href="qr.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-3xl">▦</div>
+        <h3 class="text-lg font-bold" data-ru="QR-генератор" data-en="QR Generator">QR-генератор</h3>
+        <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500" data-ru="Создавайте QR-коды для ссылок, текста и других данных." data-en="Create QR codes for links, text, and other information.">Создавайте QR-коды для ссылок, текста и других данных.</p>
+        <div class="mt-6 font-semibold text-indigo-600"><span data-ru="Открыть" data-en="Open">Открыть</span> →</div>
+      </a>
+
+      <a href="converter.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-3xl">⇄</div>
+        <h3 class="text-lg font-bold" data-ru="Конвертер изображений" data-en="Image Converter">Конвертер изображений</h3>
+        <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500" data-ru="Преобразуйте изображения между поддерживаемыми форматами." data-en="Convert images between supported file formats.">Преобразуйте изображения между поддерживаемыми форматами.</p>
+        <div class="mt-6 font-semibold text-indigo-600"><span data-ru="Открыть" data-en="Open">Открыть</span> →</div>
+      </a>
+
+      <a href="compress.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-50 text-3xl">▧</div>
+        <h3 class="text-lg font-bold" data-ru="Сжатие изображений" data-en="Image Compressor">Сжатие изображений</h3>
+        <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500" data-ru="Уменьшайте размер изображений, настраивая качество и ширину." data-en="Reduce image file sizes by adjusting quality and width.">Уменьшайте размер изображений, настраивая качество и ширину.</p>
+        <div class="mt-6 font-semibold text-indigo-600"><span data-ru="Открыть" data-en="Open">Открыть</span> →</div>
+      </a>
+
+      <a href="password.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-50 text-3xl">🔐</div>
+        <h3 class="text-lg font-bold" data-ru="Генератор паролей" data-en="Password Generator">Генератор паролей</h3>
+        <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500" data-ru="Создавайте случайные пароли с выбранными символами." data-en="Generate random passwords with your chosen character sets.">Создавайте случайные пароли с выбранными символами.</p>
+        <div class="mt-6 font-semibold text-indigo-600"><span data-ru="Открыть" data-en="Open">Открыть</span> →</div>
+      </a>
+
     </div>
-  </header>
+  </section>
 
-  <main>
+  <!-- HOW IT WORKS -->
+  <section id="how" class="border-y border-slate-200 bg-white">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold md:text-4xl" data-ru="Как пользоваться PROTOOLS" data-en="How to use PROTOOLS">Как пользоваться PROTOOLS</h2>
+        <p class="mt-3 text-slate-500" data-ru="Начать работу можно всего за несколько простых шагов." data-en="You can get started in just a few simple steps.">Начать работу можно всего за несколько простых шагов.</p>
+      </div>
 
-    <!-- HERO -->
-    <section class="relative overflow-hidden bg-white">
-      <div class="mx-auto max-w-7xl px-5 py-20 text-center md:py-28">
-
-        <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700">
-          <span class="h-2 w-2 rounded-full bg-green-500"></span>
-          <span data-ru="Бесплатные онлайн-инструменты" data-en="Free online tools">Бесплатные онлайн-инструменты</span>
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <div class="rounded-2xl bg-slate-50 p-7 text-center">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600 text-xl font-bold text-white">1</div>
+          <h3 class="mt-5 font-bold" data-ru="Выберите инструмент" data-en="Choose a tool">Выберите инструмент</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-500" data-ru="Откройте подходящий инструмент на главной странице." data-en="Open the tool you need from the homepage.">Откройте подходящий инструмент на главной странице.</p>
         </div>
 
-        <h1 class="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-          <span data-ru="Полезные инструменты" data-en="Useful tools">Полезные инструменты</span>
-          <br>
-          <span class="gradient-text" data-ru="в одном месте" data-en="in one place">в одном месте</span>
-        </h1>
+        <div class="rounded-2xl bg-slate-50 p-7 text-center">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600 text-xl font-bold text-white">2</div>
+          <h3 class="mt-5 font-bold" data-ru="Укажите данные" data-en="Enter your data">Укажите данные</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-500" data-ru="Введите текст или выберите файл, если это требуется." data-en="Enter text or select a file when required.">Введите текст или выберите файл, если это требуется.</p>
+        </div>
 
-        <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-500 md:text-lg"
-           data-ru="Создавайте QR-коды, конвертируйте изображения, сжимайте фотографии и используйте другие инструменты прямо в браузере."
-           data-en="Create QR codes, convert images, compress photos, and use other tools directly in your browser.">
-          Создавайте QR-коды, конвертируйте изображения, сжимайте фотографии и используйте другие инструменты прямо в браузере.
-        </p>
-
-        <a href="#tools" class="mt-9 inline-flex items-center justify-center rounded-xl bg-indigo-600 px-7 py-3.5 font-semibold text-white shadow-btn transition hover:bg-indigo-700">
-          <span data-ru="Открыть инструменты" data-en="Explore tools">Открыть инструменты</span>
-          <span class="ml-2">→</span>
-        </a>
+        <div class="rounded-2xl bg-slate-50 p-7 text-center">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600 text-xl font-bold text-white">3</div>
+          <h3 class="mt-5 font-bold" data-ru="Получите результат" data-en="Get your result">Получите результат</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-500" data-ru="Используйте результат или скачайте готовый файл." data-en="Use your result or download the generated file.">Используйте результат или скачайте готовый файл.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TOOLS -->
-    <section id="tools" class="mx-auto max-w-7xl px-5 py-20">
+  <!-- ABOUT -->
+  <section id="about" class="mx-auto max-w-5xl px-5 py-20 text-center">
+    <h2 class="text-3xl font-extrabold" data-ru="О проекте PROTOOLS" data-en="About PROTOOLS">О проекте PROTOOLS</h2>
+
+    <p class="mx-auto mt-5 max-w-3xl leading-8 text-slate-500"
+       data-ru="PROTOOLS — проект, объединяющий полезные веб-инструменты для повседневных задач. Мы стремимся сделать работу с файлами, изображениями, QR-кодами и паролями простой и удобной. Проект развивается, и мы постепенно добавляем новые возможности."
+       data-en="PROTOOLS is a project bringing together useful web tools for everyday tasks. Our goal is to make working with files, images, QR codes, and passwords simple and convenient. The project is growing, and we are gradually adding new features.">
+      PROTOOLS — проект, объединяющий полезные веб-инструменты для повседневных задач. Мы стремимся сделать работу с файлами, изображениями, QR-кодами и паролями простой и удобной. Проект развивается, и мы постепенно добавляем новые возможности.
+    </p>
+
+    <a href="about.html" class="mt-7 inline-block font-semibold text-indigo-600 hover:text-indigo-800" data-ru="Подробнее о проекте →" data-en="Learn more about the project →">Подробнее о проекте →</a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="border-y border-slate-200 bg-white">
+    <div class="mx-auto max-w-4xl px-5 py-20">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-extrabold tracking-tight md:text-4xl"
-            data-ru="Наши инструменты" data-en="Our tools">
-          Наши инструменты
-        </h2>
-
-        <p class="mt-3 text-slate-500"
-           data-ru="Выберите нужный инструмент"
-           data-en="Choose the tool you need">
-          Выберите нужный инструмент
-        </p>
+        <h2 class="text-3xl font-extrabold" data-ru="Частые вопросы" data-en="Frequently asked questions">Частые вопросы</h2>
+        <p class="mt-3 text-slate-500" data-ru="Ответы на популярные вопросы о PROTOOLS." data-en="Answers to common questions about PROTOOLS.">Ответы на популярные вопросы о PROTOOLS.</p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="space-y-4">
 
-        <!-- QR -->
-        <a href="qr.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-3xl">▦</div>
-
-          <h3 class="text-lg font-bold" data-ru="QR-генератор" data-en="QR Generator">QR-генератор</h3>
-
-          <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500"
-             data-ru="Создавайте QR-коды для ссылок и текста."
-             data-en="Create QR codes for links and text.">
-            Создавайте QR-коды для ссылок и текста.
-          </p>
-
-          <div class="mt-6 font-semibold text-indigo-600">
-            <span data-ru="Открыть" data-en="Open">Открыть</span> →
-          </div>
-        </a>
-
-        <!-- CONVERTER -->
-        <a href="converter.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-3xl">⇄</div>
-
-          <h3 class="text-lg font-bold" data-ru="Конвертер изображений" data-en="Image Converter">Конвертер изображений</h3>
-
-          <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500"
-             data-ru="Конвертируйте JPG, PNG, WebP и другие форматы."
-             data-en="Convert JPG, PNG, WebP, and other image formats.">
-            Конвертируйте JPG, PNG, WebP и другие форматы.
-          </p>
-
-          <div class="mt-6 font-semibold text-indigo-600">
-            <span data-ru="Открыть" data-en="Open">Открыть</span> →
-          </div>
-        </a>
-
-        <!-- COMPRESS -->
-        <a href="compress.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-50 text-3xl">▧</div>
-
-          <h3 class="text-lg font-bold" data-ru="Сжатие фото" data-en="Image Compressor">Сжатие фото</h3>
-
-          <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500"
-             data-ru="Уменьшайте размер изображений без установки программ."
-             data-en="Reduce image file sizes without installing software.">
-            Уменьшайте размер изображений без установки программ.
-          </p>
-
-          <div class="mt-6 font-semibold text-indigo-600">
-            <span data-ru="Открыть" data-en="Open">Открыть</span> →
-          </div>
-        </a>
-
-        <!-- PASSWORD -->
-        <a href="password.html" class="tool-card rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-50 text-3xl">🔐</div>
-
-          <h3 class="text-lg font-bold" data-ru="Генератор паролей" data-en="Password Generator">Генератор паролей</h3>
-
-          <p class="mt-2 min-h-12 text-sm leading-6 text-slate-500"
-             data-ru="Создавайте случайные надёжные пароли."
-             data-en="Generate random, strong passwords.">
-            Создавайте случайные надёжные пароли.
-          </p>
-
-          <div class="mt-6 font-semibold text-indigo-600">
-            <span data-ru="Открыть" data-en="Open">Открыть</span> →
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="border-y border-slate-200 bg-white">
-      <div class="mx-auto max-w-5xl px-5 py-16 text-center">
-
-        <h2 class="text-3xl font-extrabold"
-            data-ru="О PROTOOLS" data-en="About PROTOOLS">
-          О PROTOOLS
-        </h2>
-
-        <p class="mx-auto mt-5 max-w-2xl leading-7 text-slate-500"
-           data-ru="PROTOOLS — проект с простыми и удобными онлайн-инструментами. Используйте нужные функции прямо в браузере без установки дополнительных программ."
-           data-en="PROTOOLS is a project offering simple and convenient online tools. Use the features you need directly in your browser without installing additional software.">
-          PROTOOLS — проект с простыми и удобными онлайн-инструментами. Используйте нужные функции прямо в браузере без установки дополнительных программ.
-        </p>
-
-        <a href="about.html" class="mt-6 inline-block font-semibold text-indigo-600 hover:text-indigo-800"
-           data-ru="Подробнее о проекте →"
-           data-en="Learn more about the project →">
-          Подробнее о проекте →
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-slate-300">
-    <div class="mx-auto max-w-7xl px-5 py-10">
-
-      <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
-
-        <div>
-          <div class="text-xl font-extrabold text-white">PROTOOLS</div>
-
-          <p class="mt-2 text-sm text-slate-400"
-             data-ru="Полезные инструменты онлайн."
-             data-en="Useful online tools.">
-            Полезные инструменты онлайн.
-          </p>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-ru="Что такое PROTOOLS?" data-en="What is PROTOOLS?">Что такое PROTOOLS?</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer" hidden data-ru="PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, а также генерации паролей." data-en="PROTOOLS is a website with online tools for creating QR codes, converting and compressing images, and generating passwords.">PROTOOLS — это сайт с онлайн-инструментами для создания QR-кодов, конвертации и сжатия изображений, а также генерации паролей.</div>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-5 text-sm">
-          <a href="about.html" class="hover:text-white"
-             data-ru="О нас" data-en="About us">О нас</a>
-
-          <a href="privacy.html" class="hover:text-white"
-             data-ru="Конфиденциальность" data-en="Privacy policy">Конфиденциальность</a>
-
-          <a href="terms.html" class="hover:text-white"
-             data-ru="Условия использования" data-en="Terms of use">Условия использования</a>
-
-          <a href="contact.html" class="hover:text-white"
-             data-ru="Контакты" data-en="Contact">Контакты</a>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-ru="Нужно ли устанавливать программу?" data-en="Do I need to install software?">Нужно ли устанавливать программу?</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer" hidden data-ru="Нет. Сайт открывается в браузере. Для отдельных функций может потребоваться выбрать файл с вашего устройства." data-en="No. The website works in your browser. Some tools may ask you to select a file from your device.">Нет. Сайт открывается в браузере. Для отдельных функций может потребоваться выбрать файл с вашего устройства.</div>
         </div>
-      </div>
 
-      <div class="mt-8 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
-        © <span id="year"></span> PROTOOLS.
-        <span data-ru="Все права защищены." data-en="All rights reserved.">
-          Все права защищены.
-        </span>
-      </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-ru="Можно ли пользоваться инструментами бесплатно?" data-en="Can I use the tools for free?">Можно ли пользоваться инструментами бесплатно?</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer" hidden data-ru="Да. Основные инструменты PROTOOLS доступны бесплатно. Информация о будущих платных возможностях будет опубликована отдельно." data-en="Yes. The basic PROTOOLS tools are free to use. Information about future paid features will be published separately.">Да. Основные инструменты PROTOOLS доступны бесплатно. Информация о будущих платных возможностях будет опубликована отдельно.</div>
+        </div>
 
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-ru="Как связаться с разработчиками?" data-en="How can I contact the developers?">Как связаться с разработчиками?</span>
+            <span>＋</span>
+          </button>
+          <div class="faq-answer" hidden data-ru="Перейдите на страницу контактов, чтобы отправить вопрос или предложение." data-en="Visit the contact page to send a question or suggestion.">Перейдите на страницу контактов, чтобы отправить вопрос или предложение.</div>
+        </div>
+
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    (function () {
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const langBtn = document.getElementById('langBtn');
-      const mobileLangBtn = document.getElementById('mobileLangBtn');
+  <!-- CONTACT CTA -->
+  <section class="bg-indigo-600 px-5 py-16 text-center text-white">
+    <h2 class="text-3xl font-extrabold" data-ru="Есть предложение?" data-en="Have a suggestion?">Есть предложение?</h2>
+    <p class="mx-auto mt-3 max-w-xl text-indigo-100" data-ru="Мы развиваем PROTOOLS и будем рады вашим идеям и сообщениям." data-en="We are developing PROTOOLS and welcome your ideas and messages.">Мы развиваем PROTOOLS и будем рады вашим идеям и сообщениям.</p>
+    <a href="contact.html" class="mt-7 inline-block rounded-xl bg-white px-7 py-3 font-bold text-indigo-700 hover:bg-indigo-50" data-ru="Связаться с нами" data-en="Contact us">Связаться с нами</a>
+  </section>
 
-      let language = 'ru';
+</main>
 
-      try {
-        const saved = localStorage.getItem('protools-language');
+<footer class="bg-slate-950 text-slate-300">
+  <div class="mx-auto max-w-7xl px-5 py-10">
 
-        if (saved === 'ru' || saved === 'en') {
-          language = saved;
-        }
-      } catch (error) {}
+    <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+      <div>
+        <div class="text-xl font-extrabold text-white">PROTOOLS</div>
+        <p class="mt-2 text-sm text-slate-400" data-ru="Полезные инструменты онлайн." data-en="Useful online tools.">Полезные инструменты онлайн.</p>
+      </div>
 
-      // Mobile menu
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', function () {
-          const isHidden = mobileMenu.classList.toggle('hidden');
-          menuBtn.setAttribute('aria-expanded', String(!isHidden));
-        });
+      <div class="flex flex-wrap justify-center gap-5 text-sm">
+        <a href="about.html" class="hover:text-white" data-ru="О нас" data-en="About us">О нас</a>
+        <a href="privacy.html" class="hover:text-white" data-ru="Конфиденциальность" data-en="Privacy policy">Конфиденциальность</a>
+        <a href="terms.html" class="hover:text-white" data-ru="Условия использования" data-en="Terms of use">Условия использования</a>
+        <a href="contact.html" class="hover:text-white" data-ru="Контакты" data-en="Contact">Контакты</a>
+        <a href="premium.html" class="hover:text-white">Premium</a>
+      </div>
+    </div>
 
-        mobileMenu.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () {
-            mobileMenu.classList.add('hidden');
-            menuBtn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
+    <div class="mt-8 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+      © <span id="year"></span> PROTOOLS.
+      <span data-ru="Все права защищены." data-en="All rights reserved.">Все права защищены.</span>
+    </div>
+  </div>
+</footer>
 
-      // Language system: Russian / English
-      function setLanguage(lang) {
-        if (lang !== 'ru' && lang !== 'en') return;
+<script>
+(function () {
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const langBtn = document.getElementById('langBtn');
+  const mobileLangBtn = document.getElementById('mobileLangBtn');
 
-        language = lang;
-        document.documentElement.lang = lang;
+  let language = 'ru';
 
-        try {
-          localStorage.setItem('protools-language', lang);
-        } catch (error) {}
+  try {
+    const saved = localStorage.getItem('protools-language');
+    if (saved === 'ru' || saved === 'en') language = saved;
+  } catch (error) {}
 
-        document.querySelectorAll('[data-ru][data-en]').forEach(function (element) {
-          element.textContent = element.getAttribute('data-' + lang);
-        });
+  function setLanguage(lang) {
+    if (lang !== 'ru' && lang !== 'en') return;
 
-        if (langBtn) {
-          langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
-        }
+    language = lang;
+    document.documentElement.lang = lang;
 
-        if (mobileLangBtn) {
-          mobileLangBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
-        }
-      }
+    try {
+      localStorage.setItem('protools-language', lang);
+    } catch (error) {}
 
-      function toggleLanguage() {
-        setLanguage(language === 'ru' ? 'en' : 'ru');
-      }
+    document.querySelectorAll('[data-ru][data-en]').forEach(element => {
+      element.textContent = element.getAttribute('data-' + lang);
+    });
 
-      if (langBtn) {
-        langBtn.addEventListener('click', toggleLanguage);
-      }
+    if (langBtn) langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+    if (mobileLangBtn) mobileLangBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+  }
 
-      if (mobileLangBtn) {
-        mobileLangBtn.addEventListener('click', toggleLanguage);
-      }
+  function toggleLanguage() {
+    setLanguage(language === 'ru' ? 'en' : 'ru');
+  }
 
-      // Current year
-      const year = document.getElementById('year');
+  langBtn.addEventListener('click', toggleLanguage);
+  mobileLangBtn.addEventListener('click', toggleLanguage);
 
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
+  menuBtn.addEventListener('click', function () {
+    const hidden = mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!hidden));
+  });
 
-      // Restore saved language
-      setLanguage(language);
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
 
-    })();
-  </script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', String(!isOpen));
+      answer.hidden = isOpen;
+      button.lastElementChild.textContent = isOpen ? '＋' : '−';
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  setLanguage(language);
+})();
+</script>
 
 </body>
 </html>
+
