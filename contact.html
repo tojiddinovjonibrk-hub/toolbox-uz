@@ -5,31 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.">
-  <meta name="theme-color" content="#2563eb">
-
   <title>Контакты — PROTOOLS</title>
+  <meta name="description" content="Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/contact.html">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f7fb;
       color: #172033;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       background: white;
-      padding: 20px;
+      padding: 18px 20px;
       border-bottom: 1px solid #e5eaf2;
     }
 
     .container {
-      max-width: 900px;
+      width: 100%;
+      max-width: 1000px;
       margin: auto;
       padding: 0 20px;
     }
@@ -38,6 +41,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 15px;
     }
 
     .logo {
@@ -64,7 +68,7 @@
       color: #2563eb;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
-      padding: 9px 14px;
+      padding: 10px 15px;
       font-weight: bold;
       cursor: pointer;
     }
@@ -74,38 +78,43 @@
     }
 
     main {
-      padding: 65px 20px;
+      flex: 1;
+      padding: 75px 20px;
       text-align: center;
     }
 
     h1 {
-      font-size: 38px;
-      margin-bottom: 15px;
+      font-size: clamp(30px, 5vw, 42px);
+      margin: 0 0 15px;
     }
 
     .subtitle {
+      max-width: 650px;
+      margin: auto;
       color: #64748b;
       font-size: 17px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .card {
-      max-width: 600px;
-      margin: 35px auto;
+      max-width: 620px;
+      margin: 40px auto;
       padding: 35px;
       background: white;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.05);
+      border: 1px solid #e8edf5;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.05);
       text-align: left;
     }
 
     .card h2 {
       margin-top: 0;
+      font-size: 23px;
     }
 
     .card p {
       color: #64748b;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .email {
@@ -117,51 +126,49 @@
       text-decoration: none;
       border-radius: 10px;
       font-weight: bold;
-      transition: background .2s;
+      transition: background .2s, transform .2s;
     }
 
     .email:hover {
       background: #1d4ed8;
+      transform: translateY(-2px);
     }
 
     footer {
-      padding: 25px;
+      padding: 25px 15px;
       text-align: center;
       color: #64748b;
       background: white;
       border-top: 1px solid #e5eaf2;
     }
 
-    footer a {
-      color: #2563eb;
-      text-decoration: none;
-      margin: 0 8px;
+    footer p {
+      margin-top: 0;
     }
 
-    @media(max-width:600px) {
-      h1 {
-        font-size: 30px;
-      }
+    footer a {
+      display: inline-block;
+      color: #2563eb;
+      text-decoration: none;
+      margin: 5px 8px;
+    }
 
-      .card {
-        padding: 24px;
-      }
+    footer a:hover,
+    .back:hover {
+      text-decoration: underline;
+    }
 
-      .header-content {
-        gap: 10px;
-      }
-
-      .header-actions {
-        gap: 10px;
-      }
-
-      .back {
-        font-size: 13px;
-      }
-
-      .logo {
-        font-size: 21px;
-      }
+    @media(max-width: 600px) {
+      header { padding: 15px 10px; }
+      .container { padding: 0 12px; }
+      .logo { font-size: 21px; }
+      .header-actions { gap: 9px; }
+      .back { font-size: 13px; }
+      .lang-btn { padding: 8px 11px; }
+      main { padding: 55px 12px; }
+      .card { padding: 24px 20px; margin-top: 30px; }
+      .subtitle { font-size: 15px; }
+      .email { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -173,15 +180,10 @@
     <a class="logo" href="index.html">PROTOOLS</a>
 
     <div class="header-actions">
-      <button id="langBtn" class="lang-btn" type="button">
-        EN
-      </button>
-
+      <button id="langBtn" class="lang-btn" type="button">EN</button>
       <a href="index.html" class="back"
          data-ru="← Главная"
-         data-en="← Home">
-        ← Главная
-      </a>
+         data-en="← Home">← Главная</a>
     </div>
   </div>
 </header>
@@ -189,11 +191,8 @@
 <main>
   <div class="container">
 
-    <h1
-      data-ru="Свяжитесь с нами"
-      data-en="Contact us">
-      Свяжитесь с нами
-    </h1>
+    <h1 data-ru="Свяжитесь с нами"
+        data-en="Contact us">Свяжитесь с нами</h1>
 
     <p class="subtitle"
        data-ru="Есть вопрос, предложение или нашли ошибку? Мы будем рады получить ваше сообщение."
@@ -203,11 +202,8 @@
     </p>
 
     <div class="card">
-
       <h2 data-ru="📩 Электронная почта"
-          data-en="📩 Email">
-        📩 Электронная почта
-      </h2>
+          data-en="📩 Email">📩 Электронная почта</h2>
 
       <p
         data-ru="По вопросам работы сайта, сотрудничества, предложений и технических проблем вы можете написать нам на электронную почту."
@@ -217,13 +213,14 @@
         написать нам на электронную почту.
       </p>
 
-      <a class="email" href="mailto:shslsh32@gmail.com"
+      <a class="email"
+         href="mailto:shslsh32@gmail.com"
          data-ru="Написать нам"
          data-en="Send us an email">
         Написать нам
       </a>
-
     </div>
+
   </div>
 </main>
 
@@ -231,25 +228,24 @@
   <p>
     © <span id="year"></span> PROTOOLS.
     <span data-ru="Все права защищены."
-          data-en="All rights reserved.">
-      Все права защищены.
-    </span>
+          data-en="All rights reserved.">Все права защищены.</span>
   </p>
 
   <a href="index.html" data-ru="Главная" data-en="Home">Главная</a>
   <a href="about.html" data-ru="О нас" data-en="About us">О нас</a>
   <a href="privacy.html" data-ru="Конфиденциальность" data-en="Privacy">Конфиденциальность</a>
+  <a href="terms.html" data-ru="Условия" data-en="Terms">Условия</a>
 </footer>
 
 <script>
 (function () {
   const langBtn = document.getElementById('langBtn');
+  const year = document.getElementById('year');
 
   let language = 'ru';
 
   try {
     const saved = localStorage.getItem('protools-language');
-
     if (saved === 'ru' || saved === 'en') {
       language = saved;
     }
@@ -269,9 +265,7 @@
       element.textContent = element.getAttribute('data-' + lang);
     });
 
-    if (langBtn) {
-      langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
-    }
+    langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
 
     document.title = lang === 'ru'
       ? 'Контакты — PROTOOLS'
@@ -279,21 +273,16 @@
 
     const description = document.querySelector('meta[name="description"]');
 
-    if (description) {
-      description.content = lang === 'ru'
-        ? 'Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.'
-        : 'Contact the PROTOOLS team. We welcome questions, suggestions, and bug reports.';
-    }
+    description.content = lang === 'ru'
+      ? 'Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.'
+      : 'Contact the PROTOOLS team. We welcome questions, suggestions, and bug reports.';
   }
 
-  if (langBtn) {
-    langBtn.addEventListener('click', function () {
-      setLanguage(language === 'ru' ? 'en' : 'ru');
-    });
-  }
+  langBtn.addEventListener('click', function () {
+    setLanguage(language === 'ru' ? 'en' : 'ru');
+  });
 
-  document.getElementById('year').textContent = new Date().getFullYear();
-
+  year.textContent = new Date().getFullYear();
   setLanguage(language);
 })();
 </script>
