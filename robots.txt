@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tojiddinovjonibrk-hub.github.io/toolbox-uz/sitemap.xml
