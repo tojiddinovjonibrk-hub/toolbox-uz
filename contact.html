@@ -1,47 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.">
+  <meta name="theme-color" content="#2563eb">
+
   <title>Контакты — PROTOOLS</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f7fb;
       color: #172033;
     }
+
     header {
       background: white;
       padding: 20px;
       border-bottom: 1px solid #e5eaf2;
     }
+
     .container {
       max-width: 900px;
       margin: auto;
       padding: 0 20px;
     }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .logo {
       font-size: 25px;
       font-weight: 800;
       color: #2563eb;
       text-decoration: none;
     }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .back {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .lang-btn {
+      background: white;
+      color: #2563eb;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .lang-btn:hover {
+      background: #eff6ff;
+    }
+
     main {
       padding: 65px 20px;
       text-align: center;
     }
+
     h1 {
       font-size: 38px;
       margin-bottom: 15px;
     }
+
     .subtitle {
       color: #64748b;
       font-size: 17px;
       line-height: 1.6;
     }
+
     .card {
       max-width: 600px;
       margin: 35px auto;
@@ -51,11 +98,16 @@
       box-shadow: 0 8px 30px rgba(0,0,0,.05);
       text-align: left;
     }
-    .card h2 { margin-top: 0; }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
     .card p {
       color: #64748b;
       line-height: 1.7;
     }
+
     .email {
       display: inline-block;
       margin-top: 15px;
@@ -65,16 +117,13 @@
       text-decoration: none;
       border-radius: 10px;
       font-weight: bold;
+      transition: background .2s;
     }
-    .note {
-      margin-top: 20px;
-      padding: 14px;
-      background: #eff6ff;
-      border-radius: 10px;
-      color: #1e40af;
-      font-size: 14px;
-      line-height: 1.6;
+
+    .email:hover {
+      background: #1d4ed8;
     }
+
     footer {
       padding: 25px;
       text-align: center;
@@ -82,61 +131,172 @@
       background: white;
       border-top: 1px solid #e5eaf2;
     }
+
     footer a {
       color: #2563eb;
       text-decoration: none;
       margin: 0 8px;
     }
+
     @media(max-width:600px) {
-      h1 { font-size: 30px; }
-      .card { padding: 24px; }
+      h1 {
+        font-size: 30px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .header-content {
+        gap: 10px;
+      }
+
+      .header-actions {
+        gap: 10px;
+      }
+
+      .back {
+        font-size: 13px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <div class="container">
+  <div class="container header-content">
     <a class="logo" href="index.html">PROTOOLS</a>
+
+    <div class="header-actions">
+      <button id="langBtn" class="lang-btn" type="button">
+        EN
+      </button>
+
+      <a href="index.html" class="back"
+         data-ru="← Главная"
+         data-en="← Home">
+        ← Главная
+      </a>
+    </div>
   </div>
 </header>
 
 <main>
   <div class="container">
-    <h1>Свяжитесь с нами</h1>
-    <p class="subtitle">
+
+    <h1
+      data-ru="Свяжитесь с нами"
+      data-en="Contact us">
+      Свяжитесь с нами
+    </h1>
+
+    <p class="subtitle"
+       data-ru="Есть вопрос, предложение или нашли ошибку? Мы будем рады получить ваше сообщение."
+       data-en="Have a question, suggestion, or found a bug? We would be happy to hear from you.">
       Есть вопрос, предложение или нашли ошибку?
       Мы будем рады получить ваше сообщение.
     </p>
 
     <div class="card">
-      <h2>📩 Электронная почта</h2>
-      <p>
+
+      <h2 data-ru="📩 Электронная почта"
+          data-en="📩 Email">
+        📩 Электронная почта
+      </h2>
+
+      <p
+        data-ru="По вопросам работы сайта, сотрудничества, предложений и технических проблем вы можете написать нам на электронную почту."
+        data-en="For questions about the website, cooperation, suggestions, or technical issues, you can contact us by email.">
         По вопросам работы сайта, сотрудничества,
         предложений и технических проблем вы можете
         написать нам на электронную почту.
       </p>
 
-      <a class="email" href="mailto:YOUR_EMAIL@example.com">
+      <a class="email" href="mailto:shslsh32@gmail.com"
+         data-ru="Написать нам"
+         data-en="Send us an email">
         Написать нам
       </a>
 
-      <div class="note">
-        Важно: замените shslsh32@gmail.com в коде
-        на свой настоящий адрес электронной почты.
-        Пока вы этого не сделаете, кнопка не будет
-        вести на ваш реальный почтовый ящик.
-      </div>
     </div>
   </div>
 </main>
 
 <footer>
-  <p>© 2026 PROTOOLS. Все права защищены.</p>
-  <a href="index.html">Главная</a>
-  <a href="about.html">О нас</a>
-  <a href="privacy.html">Конфиденциальность</a>
+  <p>
+    © <span id="year"></span> PROTOOLS.
+    <span data-ru="Все права защищены."
+          data-en="All rights reserved.">
+      Все права защищены.
+    </span>
+  </p>
+
+  <a href="index.html" data-ru="Главная" data-en="Home">Главная</a>
+  <a href="about.html" data-ru="О нас" data-en="About us">О нас</a>
+  <a href="privacy.html" data-ru="Конфиденциальность" data-en="Privacy">Конфиденциальность</a>
 </footer>
+
+<script>
+(function () {
+  const langBtn = document.getElementById('langBtn');
+
+  let language = 'ru';
+
+  try {
+    const saved = localStorage.getItem('protools-language');
+
+    if (saved === 'ru' || saved === 'en') {
+      language = saved;
+    }
+  } catch (error) {}
+
+  function setLanguage(lang) {
+    if (lang !== 'ru' && lang !== 'en') return;
+
+    language = lang;
+    document.documentElement.lang = lang;
+
+    try {
+      localStorage.setItem('protools-language', lang);
+    } catch (error) {}
+
+    document.querySelectorAll('[data-ru][data-en]').forEach(function (element) {
+      element.textContent = element.getAttribute('data-' + lang);
+    });
+
+    if (langBtn) {
+      langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+    }
+
+    document.title = lang === 'ru'
+      ? 'Контакты — PROTOOLS'
+      : 'Contact — PROTOOLS';
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.content = lang === 'ru'
+        ? 'Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.'
+        : 'Contact the PROTOOLS team. We welcome questions, suggestions, and bug reports.';
+    }
+  }
+
+  if (langBtn) {
+    langBtn.addEventListener('click', function () {
+      setLanguage(language === 'ru' ? 'en' : 'ru');
+    });
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  setLanguage(language);
+})();
+</script>
 
 </body>
 </html>
