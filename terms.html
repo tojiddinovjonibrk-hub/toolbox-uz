@@ -1,12 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Условия использования онлайн-инструментов PROTOOLS.">
-  <title>Условия использования — PROTOOLS</title>
+  <meta name="description" id="metaDescription" content="Условия использования онлайн-инструментов PROTOOLS.">
+  <title id="pageTitle">Условия использования — PROTOOLS</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,10 +17,63 @@
       color: #172033;
       line-height: 1.7;
     }
-    header, footer { background: white; padding: 22px; }
-    header { border-bottom: 1px solid #e5eaf2; }
-    .container { max-width: 850px; margin: auto; padding: 0 20px; }
-    .logo { color: #2563eb; font-size: 25px; font-weight: 800; text-decoration: none; }
+
+    header, footer {
+      background: white;
+      padding: 22px;
+    }
+
+    header {
+      border-bottom: 1px solid #e5eaf2;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      color: #2563eb;
+      font-size: 25px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back {
+      color: #2563eb;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .language {
+      background: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .language:hover {
+      background: #dbeafe;
+    }
+
     main {
       max-width: 850px;
       margin: 45px auto;
@@ -26,95 +82,327 @@
       border-radius: 18px;
       box-shadow: 0 8px 30px rgba(0,0,0,.04);
     }
-    h1 { font-size: 34px; }
-    h2 { margin-top: 30px; font-size: 21px; }
-    p, li { color: #526078; }
-    footer { text-align: center; border-top: 1px solid #e5eaf2; }
-    footer a { color: #2563eb; text-decoration: none; margin: 0 8px; }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.3;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 21px;
+    }
+
+    p, li {
+      color: #526078;
+    }
+
+    main a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    main a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #e5eaf2;
+    }
+
+    footer p {
+      color: #94a3b8;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 8px;
+      display: inline-block;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media(max-width:600px) {
-      main { margin: 20px 12px; padding: 22px; }
-      h1 { font-size: 27px; }
+      header {
+        padding: 16px 10px;
+      }
+
+      .container {
+        padding: 0 8px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .header-right {
+        gap: 9px;
+      }
+
+      .back {
+        font-size: 13px;
+      }
+
+      .language {
+        padding: 8px 10px;
+      }
+
+      main {
+        margin: 20px 12px;
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 19px;
+      }
+
+      footer a {
+        margin: 5px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <div class="container">
+  <div class="container header-content">
     <a class="logo" href="index.html">PROTOOLS</a>
+
+    <div class="header-right">
+      <a href="index.html" class="back" id="backLink">← На главную</a>
+
+      <button
+        class="language"
+        id="languageButton"
+        type="button"
+        onclick="toggleLanguage()"
+      >
+        EN
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
-  <h1>Условия использования</h1>
-  <p>Дата последнего обновления: 8 ноября 2026 года.</p>
+  <h1 id="heading">Условия использования</h1>
 
-  <h2>1. Общие положения</h2>
-  <p>
+  <p id="updateDate">Дата последнего обновления: 8 ноября 2026 года.</p>
+
+  <h2 id="section1Title">1. Общие положения</h2>
+  <p id="section1Text">
     Используя сайт PROTOOLS, вы соглашаетесь соблюдать
     настоящие условия. Если вы не согласны с ними,
     пожалуйста, прекратите использование сайта.
   </p>
 
-  <h2>2. Использование инструментов</h2>
-  <p>
+  <h2 id="section2Title">2. Использование инструментов</h2>
+  <p id="section2Text">
     PROTOOLS предоставляет онлайн-инструменты для работы
     с файлами, изображениями, паролями и другими данными.
     Используйте их только в законных целях.
   </p>
 
-  <h2>3. Ответственность пользователя</h2>
-  <p>
+  <h2 id="section3Title">3. Ответственность пользователя</h2>
+  <p id="section3Text">
     Пользователь самостоятельно отвечает за файлы и данные,
     которые загружает или обрабатывает с помощью инструментов.
     Не загружайте материалы, на использование которых у вас
     нет необходимых прав.
   </p>
 
-  <h2>4. Доступность сайта</h2>
-  <p>
+  <h2 id="section4Title">4. Доступность сайта</h2>
+  <p id="section4Text">
     Мы стремимся поддерживать работу PROTOOLS, однако не
     гарантируем бесперебойную доступность всех функций.
     Инструменты могут обновляться, изменяться или временно
     становиться недоступными.
   </p>
 
-  <h2>5. Интеллектуальная собственность</h2>
-  <p>
+  <h2 id="section5Title">5. Интеллектуальная собственность</h2>
+  <p id="section5Text">
     Дизайн, название и оригинальные материалы сайта PROTOOLS
     защищены применимым законодательством. Копирование и
     распространение материалов без разрешения запрещено,
     если иное не предусмотрено законом.
   </p>
 
-  <h2>6. Сторонние сервисы</h2>
-  <p>
+  <h2 id="section6Title">6. Сторонние сервисы</h2>
+  <p id="section6Text">
     На сайте могут использоваться сторонние библиотеки,
     сервисы и рекламные системы. Их использование может
     регулироваться отдельными условиями и политиками
     соответствующих поставщиков.
   </p>
 
-  <h2>7. Изменения условий</h2>
-  <p>
+  <h2 id="section7Title">7. Изменения условий</h2>
+  <p id="section7Text">
     Мы можем обновлять настоящие условия. Актуальная версия
     всегда публикуется на этой странице.
   </p>
 
-  <h2>8. Контакты</h2>
-  <p>
+  <h2 id="section8Title">8. Контакты</h2>
+  <p id="section8Text">
     По вопросам использования сайта посетите страницу
     <a href="contact.html">Контакты</a>.
   </p>
 </main>
 
 <footer>
-  <p>© 2026 PROTOOLS. Все права защищены.</p>
-  <a href="index.html">Главная</a>
-  <a href="about.html">О нас</a>
-  <a href="privacy.html">Конфиденциальность</a>
-  <a href="contact.html">Контакты</a>
+  <p id="footerCopyright">© 2026 PROTOOLS. Все права защищены.</p>
+
+  <div>
+    <a href="index.html" id="footerHome">Главная</a>
+    <a href="about.html" id="footerAbout">О нас</a>
+    <a href="privacy.html" id="footerPrivacy">Конфиденциальность</a>
+    <a href="contact.html" id="footerContact">Контакты</a>
+  </div>
 </footer>
+
+<script>
+  const translations = {
+    ru: {
+      title: "Условия использования — PROTOOLS",
+      description: "Условия использования онлайн-инструментов PROTOOLS.",
+      back: "← На главную",
+      heading: "Условия использования",
+      updateDate: "Дата последнего обновления: 8 ноября 2026 года.",
+
+      section1Title: "1. Общие положения",
+      section1Text: "Используя сайт PROTOOLS, вы соглашаетесь соблюдать настоящие условия. Если вы не согласны с ними, пожалуйста, прекратите использование сайта.",
+
+      section2Title: "2. Использование инструментов",
+      section2Text: "PROTOOLS предоставляет онлайн-инструменты для работы с файлами, изображениями, паролями и другими данными. Используйте их только в законных целях.",
+
+      section3Title: "3. Ответственность пользователя",
+      section3Text: "Пользователь самостоятельно отвечает за файлы и данные, которые загружает или обрабатывает с помощью инструментов. Не загружайте материалы, на использование которых у вас нет необходимых прав.",
+
+      section4Title: "4. Доступность сайта",
+      section4Text: "Мы стремимся поддерживать работу PROTOOLS, однако не гарантируем бесперебойную доступность всех функций. Инструменты могут обновляться, изменяться или временно становиться недоступными.",
+
+      section5Title: "5. Интеллектуальная собственность",
+      section5Text: "Дизайн, название и оригинальные материалы сайта PROTOOLS защищены применимым законодательством. Копирование и распространение материалов без разрешения запрещено, если иное не предусмотрено законом.",
+
+      section6Title: "6. Сторонние сервисы",
+      section6Text: "На сайте могут использоваться сторонние библиотеки, сервисы и рекламные системы. Их использование может регулироваться отдельными условиями и политиками соответствующих поставщиков.",
+
+      section7Title: "7. Изменения условий",
+      section7Text: "Мы можем обновлять настоящие условия. Актуальная версия всегда публикуется на этой странице.",
+
+      section8Title: "8. Контакты",
+      section8Text: 'По вопросам использования сайта посетите страницу <a href="contact.html">Контакты</a>.',
+
+      footerCopyright: "© 2026 PROTOOLS. Все права защищены.",
+      footerHome: "Главная",
+      footerAbout: "О нас",
+      footerPrivacy: "Конфиденциальность",
+      footerContact: "Контакты"
+    },
+
+    en: {
+      title: "Terms of Use — PROTOOLS",
+      description: "Terms of use for PROTOOLS online tools.",
+      back: "← Home",
+      heading: "Terms of Use",
+      updateDate: "Last updated: November 8, 2026.",
+
+      section1Title: "1. General Provisions",
+      section1Text: "By using the PROTOOLS website, you agree to comply with these terms. If you do not agree with them, please stop using the website.",
+
+      section2Title: "2. Use of Tools",
+      section2Text: "PROTOOLS provides online tools for working with files, images, passwords, and other data. Use these tools only for lawful purposes.",
+
+      section3Title: "3. User Responsibilities",
+      section3Text: "Users are solely responsible for the files and data they upload or process using the tools. Do not upload materials unless you have the necessary rights to use them.",
+
+      section4Title: "4. Website Availability",
+      section4Text: "We aim to keep PROTOOLS operational, but we do not guarantee uninterrupted availability of all features. Tools may be updated, modified, or temporarily unavailable.",
+
+      section5Title: "5. Intellectual Property",
+      section5Text: "The design, name, and original materials of the PROTOOLS website are protected by applicable law. Copying and distributing materials without permission is prohibited unless permitted by law.",
+
+      section6Title: "6. Third-Party Services",
+      section6Text: "The website may use third-party libraries, services, and advertising systems. Their use may be governed by separate terms and policies of the respective providers.",
+
+      section7Title: "7. Changes to These Terms",
+      section7Text: "We may update these terms. The current version will always be published on this page.",
+
+      section8Title: "8. Contact",
+      section8Text: 'For questions about using the website, please visit our <a href="contact.html">Contact page</a>.',
+
+      footerCopyright: "© 2026 PROTOOLS. All rights reserved.",
+      footerHome: "Home",
+      footerAbout: "About Us",
+      footerPrivacy: "Privacy Policy",
+      footerContact: "Contact"
+    }
+  };
+
+  const textIds = [
+    "heading",
+    "updateDate",
+    "section1Title",
+    "section1Text",
+    "section2Title",
+    "section2Text",
+    "section3Title",
+    "section3Text",
+    "section4Title",
+    "section4Text",
+    "section5Title",
+    "section5Text",
+    "section6Title",
+    "section6Text",
+    "section7Title",
+    "section7Text",
+    "section8Title",
+    "section8Text",
+    "footerCopyright",
+    "footerHome",
+    "footerAbout",
+    "footerPrivacy",
+    "footerContact"
+  ];
+
+  function setLanguage(lang) {
+    const selected = translations[lang] ? lang : "ru";
+    const t = translations[selected];
+
+    document.documentElement.lang = selected;
+
+    document.getElementById("pageTitle").textContent = t.title;
+    document.getElementById("metaDescription").content = t.description;
+    document.getElementById("backLink").textContent = t.back;
+
+    textIds.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.innerHTML = t[id];
+      }
+    });
+
+    document.getElementById("languageButton").textContent =
+      selected === "ru" ? "EN" : "RU";
+
+    localStorage.setItem("protools-language", selected);
+  }
+
+  function toggleLanguage() {
+    const current = localStorage.getItem("protools-language") || "ru";
+    setLanguage(current === "ru" ? "en" : "ru");
+  }
+
+  const savedLanguage = localStorage.getItem("protools-language");
+  setLanguage(savedLanguage === "en" ? "en" : "ru");
+</script>
 
 </body>
 </html>
