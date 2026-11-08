@@ -13,21 +13,23 @@
   <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/compress.html">
 
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#EEF2FF',
-              400: '#818CF8',
-              500: '#6366F1',
-              600: '#4F46E5',
-              700: '#4338CA'
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#EEF2FF',
+                400: '#818CF8',
+                500: '#6366F1',
+                600: '#4F46E5',
+                700: '#4338CA'
+              }
+            },
+            boxShadow: {
+              card: '0 2px 12px rgba(15,23,42,0.04)',
+              btn: '0 4px 12px rgba(79,70,229,0.2)'
             }
-          },
-          boxShadow: {
-            card: '0 2px 12px rgba(15,23,42,0.04)',
-            btn: '0 4px 12px rgba(79,70,229,0.2)'
           }
         }
       }
@@ -79,15 +81,16 @@
       </a>
 
       <nav class="hidden items-center gap-1 text-sm font-medium md:flex">
-        <a href="qr.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</a>
-        <a href="converter.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Конвертер" data-uz="Konverter">Конвертер</a>
-        <a href="compress.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="Сжатие" data-uz="Siqish">Сжатие</a>
-        <a href="password.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Пароли" data-uz="Parollar">Пароли</a>
-        <a href="premium.html" class="ml-2 rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700" data-ru="Премиум" data-uz="Premium">Премиум</a>
+        <a href="qr.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="QR-коды" data-en="QR Codes">QR-коды</a>
+        <a href="converter.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Конвертер" data-en="Converter">Конвертер</a>
+        <a href="compress.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="Сжатие" data-en="Compression">Сжатие</a>
+        <a href="password.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100" data-ru="Пароли" data-en="Passwords">Пароли</a>
+        <a href="premium.html" class="ml-2 rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700" data-ru="Премиум" data-en="Premium">Премиум</a>
       </nav>
 
       <div class="flex items-center gap-2">
-        <button id="langBtn" class="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold hover:bg-slate-100">UZ</button>
+        <button id="langBtn" class="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold hover:bg-slate-100">EN</button>
+
         <button id="menuBtn" class="rounded-lg border border-slate-200 p-2 md:hidden" aria-label="Меню">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -98,11 +101,11 @@
 
     <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-3 md:hidden">
       <div class="flex flex-col gap-1 text-sm">
-        <a href="qr.html" class="rounded-lg px-3 py-2" data-ru="QR-коды" data-uz="QR-kodlar">QR-коды</a>
-        <a href="converter.html" class="rounded-lg px-3 py-2" data-ru="Конвертер" data-uz="Konverter">Конвертер</a>
-        <a href="compress.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="Сжатие" data-uz="Siqish">Сжатие</a>
-        <a href="password.html" class="rounded-lg px-3 py-2" data-ru="Пароли" data-uz="Parollar">Пароли</a>
-        <a href="premium.html" class="rounded-lg px-3 py-2 text-indigo-600" data-ru="Премиум" data-uz="Premium">Премиум</a>
+        <a href="qr.html" class="rounded-lg px-3 py-2" data-ru="QR-коды" data-en="QR Codes">QR-коды</a>
+        <a href="converter.html" class="rounded-lg px-3 py-2" data-ru="Конвертер" data-en="Converter">Конвертер</a>
+        <a href="compress.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700" data-ru="Сжатие" data-en="Compression">Сжатие</a>
+        <a href="password.html" class="rounded-lg px-3 py-2" data-ru="Пароли" data-en="Passwords">Пароли</a>
+        <a href="premium.html" class="rounded-lg px-3 py-2 text-indigo-600" data-ru="Премиум" data-en="Premium">Премиум</a>
       </div>
     </div>
   </header>
@@ -114,13 +117,13 @@
       <div class="mb-3 inline-flex rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">PROTOOLS</div>
 
       <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl"
-          data-ru="Сжатие изображений" data-uz="Rasmlarni siqish">
+          data-ru="Сжатие изображений" data-en="Image Compression">
         Сжатие изображений
       </h1>
 
       <p class="mt-3 text-sm leading-6 text-slate-500 md:text-base"
          data-ru="Уменьшайте размер фотографий и сохраняйте их на устройство. Всё работает прямо в браузере."
-         data-uz="Rasmlar hajmini kamaytiring va qurilmangizga saqlang. Hammasi brauzerda ishlaydi.">
+         data-en="Reduce image file sizes and save them to your device. Everything works directly in your browser.">
         Уменьшайте размер фотографий и сохраняйте их на устройство. Всё работает прямо в браузере.
       </p>
     </div>
@@ -137,20 +140,20 @@
         </div>
 
         <p class="text-sm font-semibold text-slate-700"
-           data-ru="Перетащите изображения сюда" data-uz="Rasmlarni shu yerga tashlang">
+           data-ru="Перетащите изображения сюда" data-en="Drag and drop images here">
           Перетащите изображения сюда
         </p>
 
         <p class="mt-2 text-xs text-slate-400"
            data-ru="Или нажмите, чтобы выбрать · JPG, PNG, WebP"
-           data-uz="Yoki tanlash uchun bosing · JPG, PNG, WebP">
+           data-en="Or click to browse · JPG, PNG, WebP">
           Или нажмите, чтобы выбрать · JPG, PNG, WebP
         </p>
 
         <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
 
         <button id="chooseBtn" type="button" class="mt-5 rounded-lg bg-indigo-600 px-5 py-2.5 text-xs font-semibold text-white hover:bg-indigo-700"
-                data-ru="Выбрать изображения" data-uz="Rasmlarni tanlash">
+                data-ru="Выбрать изображения" data-en="Choose Images">
           Выбрать изображения
         </button>
       </div>
@@ -162,12 +165,15 @@
             <p id="fileCount" class="text-sm font-semibold text-slate-800"></p>
             <p class="mt-1 text-xs text-slate-500"
                data-ru="Можно добавить до 10 файлов, каждый до 8 МБ."
-               data-uz="10 tagacha fayl qo'shish mumkin, har biri 8 MB gacha.">
+               data-en="You can add up to 10 files, each up to 8 MB.">
               Можно добавить до 10 файлов, каждый до 8 МБ.
             </p>
           </div>
+
           <button id="clearBtn" type="button" class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50"
-                  data-ru="Очистить" data-uz="Tozalash">Очистить</button>
+                  data-ru="Очистить" data-en="Clear">
+            Очистить
+          </button>
         </div>
       </div>
 
@@ -177,7 +183,7 @@
         <div>
           <div class="mb-2 flex justify-between text-sm">
             <label for="quality" class="font-semibold text-slate-700"
-                   data-ru="Качество" data-uz="Sifat">Качество</label>
+                   data-ru="Качество" data-en="Quality">Качество</label>
             <span id="qualityValue" class="font-bold text-indigo-600">80%</span>
           </div>
 
@@ -185,14 +191,14 @@
 
           <p class="mt-2 text-xs text-slate-400"
              data-ru="Ниже качество — обычно меньше файл."
-             data-uz="Sifat pasaysa, fayl odatda kichrayadi.">
+             data-en="Lower quality usually means a smaller file.">
             Ниже качество — обычно меньше файл.
           </p>
         </div>
 
         <div>
           <label for="maxWidth" class="mb-2 block text-sm font-semibold text-slate-700"
-                 data-ru="Максимальная ширина (px)" data-uz="Maksimal kenglik (px)">
+                 data-ru="Максимальная ширина (px)" data-en="Maximum width (px)">
             Максимальная ширина (px)
           </label>
 
@@ -201,7 +207,7 @@
 
           <p class="mt-2 text-xs text-slate-400"
              data-ru="Например, 1280 или 1920."
-             data-uz="Masalan, 1280 yoki 1920.">
+             data-en="For example, 1280 or 1920.">
             Например, 1280 или 1920.
           </p>
         </div>
@@ -210,26 +216,26 @@
       <!-- OUTPUT FORMAT -->
       <div class="mt-6">
         <label for="outputFormat" class="mb-2 block text-sm font-semibold text-slate-700"
-               data-ru="Формат результата" data-uz="Natija formati">
+               data-ru="Формат результата" data-en="Output format">
           Формат результата
         </label>
 
         <select id="outputFormat" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm outline-none focus:border-indigo-500">
-          <option value="image/webp">WebP — обычно меньше размер</option>
-          <option value="image/jpeg">JPG — совместимый формат</option>
-          <option value="image/png">PNG — без потери качества</option>
+          <option value="image/webp">WebP — usually smaller file</option>
+          <option value="image/jpeg">JPG — widely compatible</option>
+          <option value="image/png">PNG — lossless format</option>
         </select>
 
         <p class="mt-2 text-xs text-slate-400"
            data-ru="При сохранении в JPG прозрачные области станут белыми."
-           data-uz="JPG formatida shaffof joylar oq rangga aylanadi.">
+           data-en="Transparent areas will become white when saving as JPG.">
           При сохранении в JPG прозрачные области станут белыми.
         </p>
       </div>
 
       <!-- BUTTON -->
       <button id="compressBtn" type="button" disabled class="btn mt-6 w-full rounded-xl bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-btn hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40">
-        <span data-ru="Сжать изображения" data-uz="Rasmlarni siqish">Сжать изображения</span>
+        <span data-ru="Сжать изображения" data-en="Compress Images">Сжать изображения</span>
       </button>
 
       <!-- PROGRESS -->
@@ -238,6 +244,7 @@
           <span id="progressText">Обработка...</span>
           <span id="progressPercent">0%</span>
         </div>
+
         <div class="h-2 overflow-hidden rounded-full bg-indigo-100">
           <div id="progressBar" class="h-full rounded-full bg-indigo-600 transition-all" style="width:0%"></div>
         </div>
@@ -250,19 +257,21 @@
       <div id="results" class="mt-6 hidden space-y-3">
         <div class="flex items-center justify-between">
           <h2 class="text-sm font-bold text-slate-800"
-              data-ru="Результаты" data-uz="Natijalar">Результаты</h2>
+              data-ru="Результаты" data-en="Results">Результаты</h2>
+
           <button id="downloadAllBtn" type="button" class="rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-700"
-                  data-ru="Скачать все" data-uz="Hammasini yuklab olish">
+                  data-ru="Скачать все" data-en="Download All">
             Скачать все
           </button>
         </div>
+
         <div id="resultList" class="space-y-3"></div>
       </div>
     </div>
 
     <p class="mt-5 text-center text-xs leading-5 text-slate-400"
        data-ru="Максимум 10 изображений · до 8 МБ каждое. Файлы обрабатываются локально в браузере и не отправляются на сервер."
-       data-uz="Maksimal 10 ta rasm · har biri 8 MB gacha. Fayllar brauzerda qayta ishlanadi va serverga yuborilmaydi.">
+       data-en="Up to 10 images · 8 MB each. Files are processed locally in your browser and are never uploaded to a server.">
       Максимум 10 изображений · до 8 МБ каждое. Файлы обрабатываются локально в браузере и не отправляются на сервер.
     </p>
 
@@ -272,7 +281,7 @@
   <footer class="mt-10 border-t border-slate-200 bg-white">
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row">
       <a href="index.html" class="font-bold text-slate-700">PROTOOLS</a>
-      <a href="index.html" class="hover:text-indigo-600" data-ru="← На главную" data-uz="← Bosh sahifaga">← На главную</a>
+      <a href="index.html" class="hover:text-indigo-600" data-ru="← На главную" data-en="← Home">← На главную</a>
     </div>
   </footer>
 
@@ -291,8 +300,8 @@
           invalid: 'Можно загружать только JPG, PNG и WebP.',
           tooLarge: name => 'Файл больше 8 МБ: ' + name,
           tooMany: 'Можно выбрать максимум 10 файлов.',
-          empty: 'Сначала выбери изображения.',
-          width: 'Укажи ширину от 100 до 10000 пикселей.',
+          empty: 'Сначала выберите изображения.',
+          width: 'Укажите ширину от 100 до 10000 пикселей.',
           processing: 'Обрабатываем изображение...',
           complete: 'Готово',
           failed: name => 'Не удалось обработать: ' + name,
@@ -306,25 +315,26 @@
           unsupported: 'Браузер не поддерживает выбранный формат.',
           imageError: 'Не удалось прочитать изображение.'
         },
-        uz: {
-          selected: n => 'Tanlangan fayllar: ' + n,
-          invalid: 'Faqat JPG, PNG va WebP fayllarini yuklash mumkin.',
-          tooLarge: name => 'Fayl 8 MB dan katta: ' + name,
-          tooMany: 'Maksimal 10 ta fayl tanlash mumkin.',
-          empty: 'Avval rasmlarni tanlang.',
-          width: 'Kenglikni 100 dan 10000 pikselgacha kiriting.',
-          processing: 'Rasm qayta ishlanmoqda...',
-          complete: 'Tayyor',
-          failed: name => 'Qayta ishlash amalga oshmadi: ' + name,
-          original: 'Oldin',
-          compressed: 'Keyin',
-          saved: 'Tejaldi',
-          bigger: 'Hajm kattalashdi',
-          download: 'Yuklab olish',
-          done: 'Qayta ishlash tugadi',
-          noResults: 'Yuklab olish uchun tayyor fayllar yo‘q.',
-          unsupported: 'Brauzer tanlangan formatni qo‘llab-quvvatlamaydi.',
-          imageError: 'Rasmni o‘qib bo‘lmadi.'
+
+        en: {
+          selected: n => 'Selected files: ' + n,
+          invalid: 'Only JPG, PNG, and WebP files are supported.',
+          tooLarge: name => 'File is larger than 8 MB: ' + name,
+          tooMany: 'You can select a maximum of 10 files.',
+          empty: 'Please select images first.',
+          width: 'Enter a width between 100 and 10000 pixels.',
+          processing: 'Processing image...',
+          complete: 'Done',
+          failed: name => 'Could not process: ' + name,
+          original: 'Original',
+          compressed: 'Compressed',
+          saved: 'Saved',
+          bigger: 'File size increased',
+          download: 'Download',
+          done: 'Processing complete',
+          noResults: 'There are no files ready to download.',
+          unsupported: 'Your browser does not support the selected format.',
+          imageError: 'Could not read the image.'
         }
       };
 
@@ -334,29 +344,55 @@
       }
 
       function setLanguage(lang) {
-        language = lang;
-        document.documentElement.lang = lang;
+        language = lang === 'en' ? 'en' : 'ru';
+        document.documentElement.lang = language;
 
-        document.querySelectorAll('[data-ru][data-uz]').forEach(el => {
-          el.textContent = el.getAttribute('data-' + lang);
+        document.querySelectorAll('[data-ru][data-en]').forEach(el => {
+          el.textContent = el.getAttribute('data-' + language);
         });
 
-        $('langBtn').textContent = lang === 'ru' ? 'UZ' : 'RU';
+        $('langBtn').textContent = language === 'ru' ? 'EN' : 'RU';
+
+        $('menuBtn').setAttribute(
+          'aria-label',
+          language === 'ru' ? 'Меню' : 'Menu'
+        );
+
+        $('outputFormat').options[0].textContent =
+          language === 'ru'
+            ? 'WebP — обычно меньше размер'
+            : 'WebP — usually smaller file';
+
+        $('outputFormat').options[1].textContent =
+          language === 'ru'
+            ? 'JPG — совместимый формат'
+            : 'JPG — widely compatible';
+
+        $('outputFormat').options[2].textContent =
+          language === 'ru'
+            ? 'PNG — без потери качества'
+            : 'PNG — lossless format';
 
         try {
-          localStorage.setItem('protools-language', lang);
+          localStorage.setItem('protools-language', language);
         } catch (e) {}
+
+        if (files.length) updateFileInfo();
+
+        if (!$('progressBox').classList.contains('hidden') && busy) {
+          $('progressText').textContent = t('processing');
+        }
       }
 
       try {
         const saved = localStorage.getItem('protools-language');
-        if (saved === 'ru' || saved === 'uz') language = saved;
+        if (saved === 'ru' || saved === 'en') language = saved;
       } catch (e) {}
 
       setLanguage(language);
 
       $('langBtn').addEventListener('click', () => {
-        setLanguage(language === 'ru' ? 'uz' : 'ru');
+        setLanguage(language === 'ru' ? 'en' : 'ru');
       });
 
       $('menuBtn').addEventListener('click', () => {
@@ -364,9 +400,17 @@
       });
 
       function formatSize(bytes) {
-        if (bytes < 1024) return bytes + ' Б';
-        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' КБ';
-        return (bytes / 1048576).toFixed(2) + ' МБ';
+        if (bytes < 1024) {
+          return bytes + (language === 'ru' ? ' Б' : ' B');
+        }
+
+        if (bytes < 1048576) {
+          return (bytes / 1024).toFixed(1) +
+            (language === 'ru' ? ' КБ' : ' KB');
+        }
+
+        return (bytes / 1048576).toFixed(2) +
+          (language === 'ru' ? ' МБ' : ' MB');
       }
 
       function clearResults() {
@@ -454,6 +498,7 @@
 
       $('clearBtn').addEventListener('click', () => {
         if (busy) return;
+
         files = [];
         clearResults();
         $('errorBox').classList.add('hidden');
@@ -491,6 +536,7 @@
               reject(new Error(t('unsupported')));
               return;
             }
+
             resolve(blob);
           }, type, quality);
         });
@@ -502,7 +548,8 @@
         const originalWidth = img.naturalWidth;
         const originalHeight = img.naturalHeight;
 
-        if (!originalWidth || !originalHeight || originalWidth * originalHeight > 40000000) {
+        if (!originalWidth || !originalHeight ||
+            originalWidth * originalHeight > 40000000) {
           throw new Error(t('imageError'));
         }
 
@@ -540,11 +587,14 @@
         return { blob, extension, width, height };
       }
 
-      function createResultCard(file, output, index) {
+      function createResultCard(file, output) {
         const url = URL.createObjectURL(output.blob);
+        const outputName =
+          file.name.replace(/\.[^.]+$/, '') + '.' + output.extension;
+
         resultsData.push({
           url,
-          name: file.name.replace(/\.[^.]+$/, '') + '.' + output.extension
+          name: outputName
         });
 
         const saved = (1 - output.blob.size / file.size) * 100;
@@ -554,7 +604,7 @@
 
         const img = document.createElement('img');
         img.src = url;
-        img.alt = 'Compressed image';
+        img.alt = language === 'ru' ? 'Сжатое изображение' : 'Compressed image';
         img.className = 'h-16 w-16 rounded-lg border border-slate-200 bg-white object-cover';
 
         const info = document.createElement('div');
@@ -562,7 +612,7 @@
 
         const name = document.createElement('p');
         name.className = 'truncate text-sm font-semibold text-slate-800';
-        name.textContent = resultsData[resultsData.length - 1].name;
+        name.textContent = outputName;
 
         const sizes = document.createElement('p');
         sizes.className = 'mt-1 text-xs text-slate-500';
@@ -570,14 +620,16 @@
           ' → ' + t('compressed') + ': ' + formatSize(output.blob.size);
 
         const badge = document.createElement('p');
-        badge.className = 'mt-1 text-xs font-semibold ' + (saved > 0 ? 'text-emerald-600' : 'text-amber-600');
+        badge.className = 'mt-1 text-xs font-semibold ' +
+          (saved > 0 ? 'text-emerald-600' : 'text-amber-600');
+
         badge.textContent = saved > 0
           ? t('saved') + ': ' + saved.toFixed(1) + '%'
           : t('bigger');
 
         const download = document.createElement('a');
         download.href = url;
-        download.download = resultsData[resultsData.length - 1].name;
+        download.download = outputName;
         download.className = 'shrink-0 rounded-lg bg-indigo-600 px-4 py-2 text-center text-xs font-semibold text-white hover:bg-indigo-700';
         download.textContent = t('download');
 
@@ -589,9 +641,11 @@
 
       function updateProgress(current, total) {
         const percent = Math.round(current / total * 100);
+
         $('progressPercent').textContent = percent + '%';
         $('progressBar').style.width = percent + '%';
-        $('progressText').textContent = t('processing') + ' ' + current + '/' + total;
+        $('progressText').textContent =
+          t('processing') + ' ' + current + '/' + total;
       }
 
       $('compressBtn').addEventListener('click', async () => {
@@ -618,7 +672,6 @@
 
         const quality = Number($('quality').value) / 100;
         const outputType = $('outputFormat').value;
-
         const fileSnapshot = [...files];
 
         for (let i = 0; i < fileSnapshot.length; i++) {
@@ -635,7 +688,7 @@
             );
 
             $('resultList').appendChild(
-              createResultCard(file, output, i)
+              createResultCard(file, output)
             );
 
             $('results').classList.remove('hidden');
@@ -643,7 +696,9 @@
           } catch (error) {
             const errorLine = document.createElement('p');
             errorLine.className = 'rounded-lg bg-red-50 p-3 text-xs text-red-600';
-            errorLine.textContent = t('failed', file.name) + ' — ' + error.message;
+            errorLine.textContent =
+              t('failed', file.name) + ' — ' + error.message;
+
             $('resultList').appendChild(errorLine);
             $('results').classList.remove('hidden');
           }
@@ -652,6 +707,7 @@
         }
 
         $('progressText').textContent = t('done');
+
         busy = false;
         updateFileInfo();
       });
