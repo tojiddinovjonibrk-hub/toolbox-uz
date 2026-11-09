@@ -5,24 +5,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Тест скорости интернета — PROTOOLS</title>
-  <meta name="description" content="Бесплатно проверьте скорость интернета: загрузку, отдачу, ping и jitter онлайн.">
+  <title data-title-ru="Тест скорости интернета — PROTOOLS"
+         data-title-en="Internet Speed Test — PROTOOLS">Тест скорости интернета — PROTOOLS</title>
+
+  <meta name="description"
+        data-description-ru="Бесплатно проверьте скорость интернета: загрузку, отдачу, Ping и Jitter с PROTOOLS."
+        data-description-en="Check your internet download speed, upload speed, ping and jitter for free with PROTOOLS."
+        content="Бесплатно проверьте скорость интернета: загрузку, отдачу, Ping и Jitter с PROTOOLS.">
+
+  <meta name="keywords" content="internet speed test, speed test, ping, download, upload, PROTOOLS">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4F46E5">
   <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/speed.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: {
+              brand: {
+                50: '#EEF2FF',
+                400: '#818CF8',
+                500: '#6366F1',
+                600: '#4F46E5',
+                700: '#4338CA'
+              }
+            },
+            boxShadow: {
+              card: '0 2px 12px rgba(15,23,42,0.04)',
+              btn: '0 4px 12px rgba(79,70,229,0.2)'
+            }
+          }
+        }
+      }
+    };
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
-      background: #f8fafc;
+      font-family: 'Inter', sans-serif;
     }
 
-    .tool-card {
-      transition: transform .2s ease, box-shadow .2s ease;
+    .btn {
+      transition: transform .15s ease, background-color .15s ease;
     }
 
-    .tool-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: scale(.98);
+    }
+
+    button:disabled {
+      cursor: not-allowed;
     }
 
     .speed-number {
@@ -31,366 +76,468 @@
   </style>
 </head>
 
-<body class="text-slate-800">
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-5 py-4 flex justify-between items-center">
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
 
-      <a href="index.html" class="text-2xl font-black tracking-tight">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-lg font-extrabold text-white">P</div>
+      <span class="text-lg font-extrabold tracking-tight text-slate-900">
         PRO<span class="text-indigo-600">TOOLS</span>
-      </a>
+      </span>
+    </a>
 
-      <div class="flex items-center gap-4">
-        <a href="index.html"
-           class="text-sm font-medium text-slate-600 hover:text-indigo-600"
-           data-ru="Главная"
-           data-en="Home">
-          Главная
-        </a>
+    <nav class="hidden items-center gap-1 text-sm font-medium md:flex">
+      <a href="qr.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100"
+         data-ru="QR-коды" data-en="QR Codes">QR-коды</a>
 
-        <select id="languageSelect"
-                class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-sm">
-          <option value="ru">RU</option>
-          <option value="en">EN</option>
-        </select>
+      <a href="converter.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100"
+         data-ru="Конвертер" data-en="Converter">Конвертер</a>
+
+      <a href="compress.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100"
+         data-ru="Сжатие" data-en="Compression">Сжатие</a>
+
+      <a href="password.html" class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100"
+         data-ru="Пароли" data-en="Passwords">Пароли</a>
+
+      <a href="speed.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700"
+         data-ru="Скорость" data-en="Speed Test">Скорость</a>
+
+      <a href="premium.html" class="ml-2 rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+         data-ru="Премиум" data-en="Premium">Премиум</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+
+      <button id="langBtn" type="button"
+        class="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold hover:bg-slate-100">
+        EN
+      </button>
+
+      <button id="menuBtn" type="button"
+        class="rounded-lg border border-slate-200 p-2 md:hidden"
+        aria-label="Открыть меню"
+        data-menu-ru="Открыть меню"
+        data-menu-en="Open menu"
+        aria-expanded="false">
+
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-3 md:hidden">
+    <div class="flex flex-col gap-1 text-sm">
+
+      <a href="qr.html" class="rounded-lg px-3 py-2"
+         data-ru="QR-коды" data-en="QR Codes">QR-коды</a>
+
+      <a href="converter.html" class="rounded-lg px-3 py-2"
+         data-ru="Конвертер" data-en="Converter">Конвертер</a>
+
+      <a href="compress.html" class="rounded-lg px-3 py-2"
+         data-ru="Сжатие" data-en="Compression">Сжатие</a>
+
+      <a href="password.html" class="rounded-lg px-3 py-2"
+         data-ru="Пароли" data-en="Passwords">Пароли</a>
+
+      <a href="speed.html" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700"
+         data-ru="Тест скорости" data-en="Speed Test">Тест скорости</a>
+
+      <a href="premium.html" class="rounded-lg px-3 py-2 text-indigo-600"
+         data-ru="Премиум" data-en="Premium">Премиум</a>
+    </div>
+  </div>
+</header>
+
+<main class="mx-auto max-w-3xl px-5 py-10 md:py-14">
+
+  <div class="mb-8">
+    <div class="mb-3 inline-flex rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">
+      PROTOOLS
+    </div>
+
+    <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl"
+        data-ru="Тест скорости интернета"
+        data-en="Internet Speed Test">
+      Тест скорости интернета
+    </h1>
+
+    <p class="mt-3 text-sm leading-6 text-slate-500 md:text-base"
+       data-ru="Проверьте скорость загрузки, отдачи и отклик вашего интернет-соединения."
+       data-en="Check your download speed, upload speed and internet connection response.">
+      Проверьте скорость загрузки, отдачи и отклик вашего интернет-соединения.
+    </p>
+  </div>
+
+  <!-- SPEED TEST -->
+  <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-card md:p-7">
+
+    <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+
+      <div class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-center">
+        <p class="text-xs font-semibold text-slate-500">PING</p>
+        <p id="ping" class="speed-number mt-3 text-3xl font-extrabold text-slate-900">—</p>
+        <p class="mt-1 text-xs text-slate-400">ms</p>
+      </div>
+
+      <div class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-center">
+        <p class="text-xs font-semibold text-slate-500">JITTER</p>
+        <p id="jitter" class="speed-number mt-3 text-3xl font-extrabold text-slate-900">—</p>
+        <p class="mt-1 text-xs text-slate-400">ms</p>
+      </div>
+
+      <div class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-center">
+        <p class="text-xs font-semibold text-slate-500"
+           data-ru="ЗАГРУЗКА" data-en="DOWNLOAD">ЗАГРУЗКА</p>
+        <p id="download" class="speed-number mt-3 text-3xl font-extrabold text-slate-900">—</p>
+        <p class="mt-1 text-xs text-slate-400">Mbps</p>
+      </div>
+
+      <div class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-center">
+        <p class="text-xs font-semibold text-slate-500"
+           data-ru="ОТДАЧА" data-en="UPLOAD">ОТДАЧА</p>
+        <p id="upload" class="speed-number mt-3 text-3xl font-extrabold text-slate-900">—</p>
+        <p class="mt-1 text-xs text-slate-400">Mbps</p>
       </div>
 
     </div>
-  </header>
 
-  <!-- MAIN -->
-  <main class="max-w-5xl mx-auto px-5 py-12">
+    <div class="mt-8 rounded-2xl bg-slate-50 px-5 py-8 text-center">
 
-    <div class="mb-8">
-      <h1 class="text-3xl md:text-4xl font-black mb-3"
-          data-ru="Тест скорости интернета"
-          data-en="Internet Speed Test">
-        Тест скорости интернета
-      </h1>
+      <p id="status" class="text-sm font-medium text-slate-500"
+         data-ru="Готово к проверке"
+         data-en="Ready to test">
+        Готово к проверке
+      </p>
 
-      <p class="text-slate-500"
-         data-ru="Проверьте скорость вашего интернет-соединения бесплатно."
-         data-en="Check your internet connection speed for free.">
-        Проверьте скорость вашего интернет-соединения бесплатно.
+      <div id="mainSpeed" class="speed-number mt-4 text-6xl font-extrabold tracking-tight text-indigo-600 md:text-7xl">
+        —
+      </div>
+
+      <p class="mt-2 text-xs font-medium text-slate-400">Mbps</p>
+
+      <p id="stage" class="mt-3 text-xs text-slate-400"
+         data-ru="Сначала измеряется Ping, затем Download и Upload."
+         data-en="First Ping is measured, followed by Download and Upload.">
+        Сначала измеряется Ping, затем Download и Upload.
+      </p>
+
+      <button id="startButton" type="button"
+        class="btn mt-7 w-full rounded-xl bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-btn hover:bg-indigo-700 disabled:opacity-50">
+
+        <span data-ru="Начать проверку"
+              data-en="Start Test">
+          Начать проверку
+        </span>
+      </button>
+
+      <div id="errorBox" class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"></div>
+
+    </div>
+  </div>
+
+  <!-- INFORMATION -->
+  <div class="mt-6 grid gap-4 sm:grid-cols-3">
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+      <h2 class="text-sm font-bold text-slate-900">Ping</h2>
+      <p class="mt-2 text-xs leading-5 text-slate-500"
+         data-ru="Время отклика соединения. Чем ниже значение, тем быстрее реакция."
+         data-en="Connection response time. Lower values mean faster response.">
+        Время отклика соединения. Чем ниже значение, тем быстрее реакция.
       </p>
     </div>
 
-    <!-- SPEED TEST CARD -->
-    <section class="bg-white border border-slate-200 rounded-2xl p-6 md:p-10">
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-
-        <div class="bg-slate-50 rounded-xl p-5 text-center">
-          <div class="text-sm text-slate-500 mb-3">Ping</div>
-          <div class="text-3xl font-bold speed-number" id="ping">—</div>
-          <div class="text-xs text-slate-400 mt-2">ms</div>
-        </div>
-
-        <div class="bg-slate-50 rounded-xl p-5 text-center">
-          <div class="text-sm text-slate-500 mb-3">Jitter</div>
-          <div class="text-3xl font-bold speed-number" id="jitter">—</div>
-          <div class="text-xs text-slate-400 mt-2">ms</div>
-        </div>
-
-        <div class="bg-slate-50 rounded-xl p-5 text-center">
-          <div class="text-sm text-slate-500 mb-3"
-               data-ru="Загрузка"
-               data-en="Download">Загрузка</div>
-          <div class="text-3xl font-bold speed-number" id="download">—</div>
-          <div class="text-xs text-slate-400 mt-2">Mbps</div>
-        </div>
-
-        <div class="bg-slate-50 rounded-xl p-5 text-center">
-          <div class="text-sm text-slate-500 mb-3"
-               data-ru="Отдача"
-               data-en="Upload">Отдача</div>
-          <div class="text-3xl font-bold speed-number" id="upload">—</div>
-          <div class="text-xs text-slate-400 mt-2">Mbps</div>
-        </div>
-
-      </div>
-
-      <div class="text-center">
-
-        <div class="mb-7">
-          <div class="text-sm text-slate-500 mb-2"
-               id="status"
-               data-ru="Готово к проверке"
-               data-en="Ready to test">
-            Готово к проверке
-          </div>
-
-          <div class="text-6xl md:text-7xl font-black text-indigo-600 speed-number"
-               id="mainSpeed">
-            —
-          </div>
-
-          <div class="text-sm text-slate-400 mt-2"
-               id="mainLabel"
-               data-ru="Mbps"
-               data-en="Mbps">
-            Mbps
-          </div>
-        </div>
-
-        <button id="startButton"
-                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-10 py-4 rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed">
-
-          <span data-ru="Начать проверку"
-                data-en="Start Test">
-            Начать проверку
-          </span>
-
-        </button>
-
-        <p id="errorMessage" class="text-red-500 text-sm mt-5 hidden"></p>
-
-      </div>
-
-    </section>
-
-    <!-- INFO -->
-    <section class="mt-8 grid md:grid-cols-3 gap-5">
-
-      <div class="tool-card bg-white border border-slate-200 rounded-xl p-6">
-        <h2 class="font-bold mb-2">Ping</h2>
-        <p class="text-sm text-slate-500"
-           data-ru="Время отклика соединения. Чем меньше значение, тем быстрее реакция."
-           data-en="Connection response time. Lower values mean faster response.">
-          Время отклика соединения. Чем меньше значение, тем быстрее реакция.
-        </p>
-      </div>
-
-      <div class="tool-card bg-white border border-slate-200 rounded-xl p-6">
-        <h2 class="font-bold mb-2"
-            data-ru="Загрузка"
-            data-en="Download">Загрузка</h2>
-        <p class="text-sm text-slate-500"
-           data-ru="Скорость получения данных из интернета."
-           data-en="How fast your device receives data from the internet.">
-          Скорость получения данных из интернета.
-        </p>
-      </div>
-
-      <div class="tool-card bg-white border border-slate-200 rounded-xl p-6">
-        <h2 class="font-bold mb-2"
-            data-ru="Отдача"
-            data-en="Upload">Отдача</h2>
-        <p class="text-sm text-slate-500"
-           data-ru="Скорость отправки данных в интернет."
-           data-en="How fast your device sends data to the internet.">
-          Скорость отправки данных в интернет.
-        </p>
-      </div>
-
-    </section>
-
-    <div class="text-center mt-10">
-      <a href="index.html"
-         class="text-indigo-600 font-semibold hover:underline"
-         data-ru="← Вернуться на главную"
-         data-en="← Back to Home">
-        ← Вернуться на главную
-      </a>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+      <h2 class="text-sm font-bold text-slate-900"
+          data-ru="Загрузка" data-en="Download">Загрузка</h2>
+      <p class="mt-2 text-xs leading-5 text-slate-500"
+         data-ru="Скорость получения данных из интернета."
+         data-en="How fast your device receives data from the internet.">
+        Скорость получения данных из интернета.
+      </p>
     </div>
 
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-200 bg-white mt-12">
-    <div class="max-w-5xl mx-auto px-5 py-7 text-center text-sm text-slate-500">
-      © <span id="year"></span> PROTOOLS.
-      <span data-ru="Все права защищены."
-            data-en="All rights reserved.">
-        Все права защищены.
-      </span>
+    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+      <h2 class="text-sm font-bold text-slate-900"
+          data-ru="Отдача" data-en="Upload">Отдача</h2>
+      <p class="mt-2 text-xs leading-5 text-slate-500"
+         data-ru="Скорость отправки данных в интернет."
+         data-en="How fast your device sends data to the internet.">
+        Скорость отправки данных в интернет.
+      </p>
     </div>
-  </footer>
 
-  <script>
-    const $ = id => document.getElementById(id);
+  </div>
 
-    let language = localStorage.getItem('protools-language') || 'ru';
+  <p class="mt-5 text-center text-xs leading-5 text-slate-400"
+     data-ru="Результаты являются приблизительными и зависят от вашего устройства, Wi-Fi и нагрузки сети."
+     data-en="Results are approximate and depend on your device, Wi-Fi and network load.">
+    Результаты являются приблизительными и зависят от вашего устройства, Wi-Fi и нагрузки сети.
+  </p>
 
-    function setLanguage(lang) {
-      language = lang;
-      document.documentElement.lang = lang;
+</main>
 
-      document.querySelectorAll('[data-ru][data-en]').forEach(element => {
-        element.textContent = element.getAttribute(
-          lang === 'ru' ? 'data-ru' : 'data-en'
-        );
-      });
+<footer class="mt-10 border-t border-slate-200 bg-white">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row">
 
-      $('languageSelect').value = lang;
+    <a href="index.html" class="font-bold text-slate-700">PROTOOLS</a>
 
-      document.title = lang === 'ru'
-        ? 'Тест скорости интернета — PROTOOLS'
-        : 'Internet Speed Test — PROTOOLS';
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="index.html" class="hover:text-indigo-600"
+         data-ru="Главная" data-en="Home">Главная</a>
 
-      localStorage.setItem('protools-language', lang);
+      <a href="about.html" class="hover:text-indigo-600"
+         data-ru="О нас" data-en="About">О нас</a>
+
+      <a href="contact.html" class="hover:text-indigo-600"
+         data-ru="Контакты" data-en="Contact">Контакты</a>
+
+      <a href="privacy.html" class="hover:text-indigo-600"
+         data-ru="Конфиденциальность" data-en="Privacy">Конфиденциальность</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+
+  const $ = id => document.getElementById(id);
+
+  let language = 'ru';
+  let running = false;
+
+  const messages = {
+    ru: {
+      ready: 'Готово к проверке',
+      ping: 'Измеряем Ping...',
+      download: 'Измеряем скорость загрузки...',
+      upload: 'Измеряем скорость отдачи...',
+      done: 'Проверка завершена',
+      failed: 'Не удалось выполнить тест. Проверьте соединение и попробуйте ещё раз.',
+      start: 'Начать проверку',
+      working: 'Проверка выполняется...'
+    },
+    en: {
+      ready: 'Ready to test',
+      ping: 'Measuring Ping...',
+      download: 'Measuring download speed...',
+      upload: 'Measuring upload speed...',
+      done: 'Test completed',
+      failed: 'Test failed. Check your connection and try again.',
+      start: 'Start Test',
+      working: 'Test in progress...'
     }
+  };
 
-    $('languageSelect').addEventListener('change', event => {
-      setLanguage(event.target.value);
+  function setLanguage(lang) {
+    if (lang !== 'ru' && lang !== 'en') return;
+
+    language = lang;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-ru][data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
     });
 
-    setLanguage(language);
+    $('langBtn').textContent = lang === 'ru' ? 'EN' : 'RU';
 
-    $('year').textContent = new Date().getFullYear();
+    $('menuBtn').setAttribute(
+      'aria-label',
+      $('menuBtn').getAttribute('data-menu-' + lang)
+    );
 
-    function showError(messageRu, messageEn) {
-      $('errorMessage').textContent =
-        language === 'ru' ? messageRu : messageEn;
-      $('errorMessage').classList.remove('hidden');
-    }
+    document.title = document.querySelector('title')
+      .getAttribute('data-title-' + lang);
 
-    async function measurePing() {
-      const times = [];
+    const description = document.querySelector('meta[name="description"]');
 
-      for (let i = 0; i < 5; i++) {
-        const start = performance.now();
+    description.content = description.getAttribute('data-description-' + lang);
 
-        await fetch(
-          'https://www.cloudflare.com/cdn-cgi/trace?test=' + Math.random(),
-          { cache: 'no-store', mode: 'cors' }
-        );
+    try {
+      localStorage.setItem('protools-language', lang);
+    } catch (e) {}
+  }
 
-        times.push(performance.now() - start);
-      }
+  try {
+    const saved = localStorage.getItem('protools-language');
+    if (saved === 'ru' || saved === 'en') language = saved;
+  } catch (e) {}
 
-      const average = times.reduce((a, b) => a + b, 0) / times.length;
+  setLanguage(language);
 
-      const differences = times.slice(1).map((time, index) =>
-        Math.abs(time - times[index])
-      );
+  $('langBtn').addEventListener('click', () => {
+    setLanguage(language === 'ru' ? 'en' : 'ru');
+  });
 
-      const jitter = differences.length
-        ? differences.reduce((a, b) => a + b, 0) / differences.length
-        : 0;
+  $('menuBtn').addEventListener('click', () => {
+    const hidden = $('mobileMenu').classList.toggle('hidden');
+    $('menuBtn').setAttribute('aria-expanded', String(!hidden));
+  });
 
-      return {
-        ping: average,
-        jitter
-      };
-    }
+  $('mobileMenu').querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      $('mobileMenu').classList.add('hidden');
+      $('menuBtn').setAttribute('aria-expanded', 'false');
+    });
+  });
 
-    async function measureDownload() {
-      const sizes = [1000000, 5000000, 10000000];
-      let totalBytes = 0;
-      let totalTime = 0;
+  function average(values) {
+    return values.reduce((a, b) => a + b, 0) / values.length;
+  }
 
-      for (const size of sizes) {
-        const start = performance.now();
+  function format(value) {
+    return value.toFixed(1);
+  }
 
-        const response = await fetch(
-          'https://speed.cloudflare.com/__down?bytes=' + size + '&cache=' + Math.random(),
-          { cache: 'no-store' }
-        );
+  async function measurePing() {
+    const values = [];
 
-        if (!response.ok) throw new Error('Download failed');
-
-        const data = await response.arrayBuffer();
-
-        totalTime += (performance.now() - start) / 1000;
-        totalBytes += data.byteLength;
-      }
-
-      return (totalBytes * 8) / totalTime / 1000000;
-    }
-
-    async function measureUpload() {
-      const size = 2000000;
-      const data = new Uint8Array(size);
-
-      if (window.crypto && window.crypto.getRandomValues) {
-        for (let i = 0; i < data.length; i += 65536) {
-          window.crypto.getRandomValues(data.subarray(i, Math.min(i + 65536, data.length)));
-        }
-      }
-
+    for (let i = 0; i < 5; i++) {
       const start = performance.now();
 
       const response = await fetch(
-        'https://speed.cloudflare.com/__up?cache=' + Math.random(),
-        {
-          method: 'POST',
-          body: data,
-          cache: 'no-store'
-        }
+        'https://www.cloudflare.com/cdn-cgi/trace?test=' + Math.random(),
+        { cache: 'no-store' }
       );
 
-      if (!response.ok) throw new Error('Upload failed');
+      if (!response.ok) throw new Error('Ping failed');
 
       await response.text();
-
-      const seconds = (performance.now() - start) / 1000;
-
-      return (size * 8) / seconds / 1000000;
+      values.push(performance.now() - start);
     }
 
-    function formatNumber(number) {
-      return number.toFixed(1);
+    const jitterValues = values.slice(1).map((v, i) =>
+      Math.abs(v - values[i])
+    );
+
+    return {
+      ping: average(values),
+      jitter: average(jitterValues)
+    };
+  }
+
+  async function measureDownload() {
+    const sizes = [1000000, 5000000, 10000000];
+
+    let bytes = 0;
+    let seconds = 0;
+
+    for (const size of sizes) {
+      const start = performance.now();
+
+      const response = await fetch(
+        'https://speed.cloudflare.com/__down?bytes=' +
+        size + '&cache=' + Math.random(),
+        { cache: 'no-store' }
+      );
+
+      if (!response.ok) throw new Error('Download failed');
+
+      const data = await response.arrayBuffer();
+
+      bytes += data.byteLength;
+      seconds += (performance.now() - start) / 1000;
     }
 
-    async function startTest() {
-      const button = $('startButton');
-      const error = $('errorMessage');
+    return bytes * 8 / seconds / 1000000;
+  }
 
-      button.disabled = true;
-      error.classList.add('hidden');
+  async function measureUpload() {
+    const size = 2000000;
+    const data = new Uint8Array(size);
 
-      $('ping').textContent = '...';
-      $('jitter').textContent = '...';
-      $('download').textContent = '...';
-      $('upload').textContent = '...';
-      $('mainSpeed').textContent = '...';
+    for (let i = 0; i < data.length; i += 65536) {
+      crypto.getRandomValues(data.subarray(i, Math.min(i + 65536, data.length)));
+    }
 
-      const setStatus = (ru, en) => {
-        $('status').textContent = language === 'ru' ? ru : en;
-      };
+    const start = performance.now();
 
-      try {
-        setStatus('Измеряем Ping...', 'Measuring Ping...');
-
-        const latency = await measurePing();
-
-        $('ping').textContent = formatNumber(latency.ping);
-        $('jitter').textContent = formatNumber(latency.jitter);
-
-        setStatus('Измеряем скорость загрузки...', 'Measuring download speed...');
-
-        const download = await measureDownload();
-
-        $('download').textContent = formatNumber(download);
-        $('mainSpeed').textContent = formatNumber(download);
-
-        setStatus('Измеряем скорость отдачи...', 'Measuring upload speed...');
-
-        const upload = await measureUpload();
-
-        $('upload').textContent = formatNumber(upload);
-
-        setStatus('Проверка завершена', 'Test completed');
-
-      } catch (error) {
-        console.error(error);
-
-        showError(
-          'Не удалось выполнить тест. Проверьте интернет-соединение и попробуйте ещё раз.',
-          'Test failed. Check your internet connection and try again.'
-        );
-
-        setStatus('Ошибка проверки', 'Test failed');
-
-      } finally {
-        button.disabled = false;
+    const response = await fetch(
+      'https://speed.cloudflare.com/__up?cache=' + Math.random(),
+      {
+        method: 'POST',
+        body: data,
+        cache: 'no-store'
       }
-    }
+    );
 
-    $('startButton').addEventListener('click', startTest);
-  </script>
+    if (!response.ok) throw new Error('Upload failed');
+
+    await response.text();
+
+    const seconds = (performance.now() - start) / 1000;
+
+    return size * 8 / seconds / 1000000;
+  }
+
+  async function startTest() {
+    if (running) return;
+
+    running = true;
+
+    const button = $('startButton');
+    const errorBox = $('errorBox');
+
+    button.disabled = true;
+    button.querySelector('span').textContent = messages[language].working;
+
+    errorBox.classList.add('hidden');
+
+    $('ping').textContent = '—';
+    $('jitter').textContent = '—';
+    $('download').textContent = '—';
+    $('upload').textContent = '—';
+    $('mainSpeed').textContent = '—';
+
+    try {
+      $('status').textContent = messages[language].ping;
+
+      const latency = await measurePing();
+
+      $('ping').textContent = format(latency.ping);
+      $('jitter').textContent = format(latency.jitter);
+
+      $('status').textContent = messages[language].download;
+
+      const download = await measureDownload();
+
+      $('download').textContent = format(download);
+      $('mainSpeed').textContent = format(download);
+
+      $('status').textContent = messages[language].upload;
+
+      const upload = await measureUpload();
+
+      $('upload').textContent = format(upload);
+
+      $('status').textContent = messages[language].done;
+
+    } catch (error) {
+      console.error(error);
+
+      $('status').textContent = messages[language].ready;
+
+      errorBox.textContent = messages[language].failed;
+      errorBox.classList.remove('hidden');
+
+    } finally {
+      running = false;
+      button.disabled = false;
+      button.querySelector('span').textContent = messages[language].start;
+    }
+  }
+
+  $('startButton').addEventListener('click', startTest);
+
+})();
+</script>
 
 </body>
 </html>
