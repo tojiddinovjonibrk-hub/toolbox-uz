@@ -1,518 +1,396 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Test your internet download speed, upload speed, ping and jitter online for free with PROTOOLS.">
-<title>Internet Speed Test — PROTOOLS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  <title>Тест скорости интернета — PROTOOLS</title>
+  <meta name="description" content="Бесплатно проверьте скорость интернета: загрузку, отдачу, ping и jitter онлайн.">
+  <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/speed.html">
 
-body {
-    background: #0b1020;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-}
+  <script src="https://cdn.tailwindcss.com"></script>
 
-header {
-    padding: 22px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #252d42;
-}
-
-.logo {
-    font-size: 27px;
-    font-weight: 800;
-    color: #6c8cff;
-    text-decoration: none;
-}
-
-.back {
-    color: #b9c5e2;
-    text-decoration: none;
-}
-
-.container {
-    max-width: 900px;
-    margin: 55px auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    font-size: 38px;
-    margin-bottom: 12px;
-}
-
-.subtitle {
-    color: #9ba8c7;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.panel {
-    background: #151d32;
-    border: 1px solid #283550;
-    border-radius: 20px;
-    padding: 35px 22px;
-    text-align: center;
-}
-
-.gauge {
-    width: 230px;
-    height: 230px;
-    margin: 10px auto 25px;
-    border-radius: 50%;
-    background: conic-gradient(
-        #617fff 0deg,
-        #283653 0deg
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: background .3s;
-}
-
-.gauge::before {
-    content: "";
-    position: absolute;
-    width: 195px;
-    height: 195px;
-    background: #151d32;
-    border-radius: 50%;
-}
-
-.gauge-content {
-    position: relative;
-    z-index: 1;
-}
-
-#speed {
-    font-size: 49px;
-    font-weight: bold;
-}
-
-.unit {
-    color: #9ba8c7;
-    font-size: 15px;
-    margin-top: 5px;
-}
-
-#phase {
-    color: #9ba8c7;
-    font-size: 14px;
-    min-height: 20px;
-}
-
-.start {
-    background: #617fff;
-    color: white;
-    border: none;
-    padding: 16px 45px;
-    border-radius: 12px;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 22px;
-}
-
-.start:hover {
-    background: #7893ff;
-}
-
-.start:disabled {
-    opacity: .5;
-    cursor: not-allowed;
-}
-
-.results {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-top: 30px;
-}
-
-.result {
-    background: #10182b;
-    border: 1px solid #293957;
-    border-radius: 13px;
-    padding: 20px 8px;
-}
-
-.result .icon {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.result h3 {
-    color: #9ba8c7;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
-
-.result strong {
-    font-size: 25px;
-}
-
-.result small {
-    display: block;
-    color: #8e9bb8;
-    margin-top: 5px;
-}
-
-.status {
-    color: #9ba8c7;
-    margin-top: 25px;
-    font-size: 13px;
-    min-height: 20px;
-}
-
-.note {
-    color: #7e8aa7;
-    font-size: 12px;
-    line-height: 1.6;
-    margin-top: 22px;
-}
-
-footer {
-    text-align: center;
-    color: #7583a4;
-    padding: 30px;
-    font-size: 13px;
-}
-
-@media(max-width:650px) {
-    .results {
-        grid-template-columns: repeat(2, 1fr);
+  <style>
+    body {
+      background: #f8fafc;
     }
 
-    h1 {
-        font-size: 29px;
+    .tool-card {
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .panel {
-        padding: 25px 12px;
+    .tool-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
     }
 
-    .gauge {
-        width: 200px;
-        height: 200px;
+    .speed-number {
+      font-variant-numeric: tabular-nums;
     }
-
-    .gauge::before {
-        width: 168px;
-        height: 168px;
-    }
-
-    #speed {
-        font-size: 40px;
-    }
-}
-</style>
+  </style>
 </head>
 
-<body>
+<body class="text-slate-800">
 
-<header>
-    <a href="index.html" class="logo">PROTOOLS</a>
-    <a href="index.html" class="back">← Home</a>
-</header>
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-5 py-4 flex justify-between items-center">
 
-<main class="container">
+      <a href="index.html" class="text-2xl font-black tracking-tight">
+        PRO<span class="text-indigo-600">TOOLS</span>
+      </a>
 
-    <h1>Internet Speed Test</h1>
-    <p class="subtitle">
-        Check your internet connection speed for free.
-    </p>
+      <div class="flex items-center gap-4">
+        <a href="index.html"
+           class="text-sm font-medium text-slate-600 hover:text-indigo-600"
+           data-ru="Главная"
+           data-en="Home">
+          Главная
+        </a>
 
-    <section class="panel">
+        <select id="languageSelect"
+                class="border border-slate-300 rounded-lg px-3 py-2 bg-white text-sm">
+          <option value="ru">RU</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
 
-        <div class="gauge" id="gauge">
-            <div class="gauge-content">
-                <div id="speed">0.00</div>
-                <div class="unit">Mbps</div>
-            </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-5xl mx-auto px-5 py-12">
+
+    <div class="mb-8">
+      <h1 class="text-3xl md:text-4xl font-black mb-3"
+          data-ru="Тест скорости интернета"
+          data-en="Internet Speed Test">
+        Тест скорости интернета
+      </h1>
+
+      <p class="text-slate-500"
+         data-ru="Проверьте скорость вашего интернет-соединения бесплатно."
+         data-en="Check your internet connection speed for free.">
+        Проверьте скорость вашего интернет-соединения бесплатно.
+      </p>
+    </div>
+
+    <!-- SPEED TEST CARD -->
+    <section class="bg-white border border-slate-200 rounded-2xl p-6 md:p-10">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+
+        <div class="bg-slate-50 rounded-xl p-5 text-center">
+          <div class="text-sm text-slate-500 mb-3">Ping</div>
+          <div class="text-3xl font-bold speed-number" id="ping">—</div>
+          <div class="text-xs text-slate-400 mt-2">ms</div>
         </div>
 
-        <p id="phase">Ready to test your internet</p>
-
-        <button class="start" id="start">START TEST</button>
-
-        <div class="results">
-
-            <div class="result">
-                <div class="icon">⬇️</div>
-                <h3>DOWNLOAD</h3>
-                <strong id="download">--</strong>
-                <small>Mbps</small>
-            </div>
-
-            <div class="result">
-                <div class="icon">⬆️</div>
-                <h3>UPLOAD</h3>
-                <strong id="upload">--</strong>
-                <small>Mbps</small>
-            </div>
-
-            <div class="result">
-                <div class="icon">📡</div>
-                <h3>PING</h3>
-                <strong id="ping">--</strong>
-                <small>ms</small>
-            </div>
-
-            <div class="result">
-                <div class="icon">📊</div>
-                <h3>JITTER</h3>
-                <strong id="jitter">--</strong>
-                <small>ms</small>
-            </div>
-
+        <div class="bg-slate-50 rounded-xl p-5 text-center">
+          <div class="text-sm text-slate-500 mb-3">Jitter</div>
+          <div class="text-3xl font-bold speed-number" id="jitter">—</div>
+          <div class="text-xs text-slate-400 mt-2">ms</div>
         </div>
 
-        <p class="status" id="status">
-            Press START TEST to begin.
-        </p>
+        <div class="bg-slate-50 rounded-xl p-5 text-center">
+          <div class="text-sm text-slate-500 mb-3"
+               data-ru="Загрузка"
+               data-en="Download">Загрузка</div>
+          <div class="text-3xl font-bold speed-number" id="download">—</div>
+          <div class="text-xs text-slate-400 mt-2">Mbps</div>
+        </div>
 
-        <p class="note">
-            Measurements use Cloudflare's public speed test endpoint.
-            Results are estimates and may vary depending on network
-            conditions, browser and server availability.
-        </p>
+        <div class="bg-slate-50 rounded-xl p-5 text-center">
+          <div class="text-sm text-slate-500 mb-3"
+               data-ru="Отдача"
+               data-en="Upload">Отдача</div>
+          <div class="text-3xl font-bold speed-number" id="upload">—</div>
+          <div class="text-xs text-slate-400 mt-2">Mbps</div>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <div class="mb-7">
+          <div class="text-sm text-slate-500 mb-2"
+               id="status"
+               data-ru="Готово к проверке"
+               data-en="Ready to test">
+            Готово к проверке
+          </div>
+
+          <div class="text-6xl md:text-7xl font-black text-indigo-600 speed-number"
+               id="mainSpeed">
+            —
+          </div>
+
+          <div class="text-sm text-slate-400 mt-2"
+               id="mainLabel"
+               data-ru="Mbps"
+               data-en="Mbps">
+            Mbps
+          </div>
+        </div>
+
+        <button id="startButton"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-10 py-4 rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed">
+
+          <span data-ru="Начать проверку"
+                data-en="Start Test">
+            Начать проверку
+          </span>
+
+        </button>
+
+        <p id="errorMessage" class="text-red-500 text-sm mt-5 hidden"></p>
+
+      </div>
 
     </section>
 
-</main>
+    <!-- INFO -->
+    <section class="mt-8 grid md:grid-cols-3 gap-5">
 
-<footer>
-    © 2026 PROTOOLS. All rights reserved.
-</footer>
+      <div class="tool-card bg-white border border-slate-200 rounded-xl p-6">
+        <h2 class="font-bold mb-2">Ping</h2>
+        <p class="text-sm text-slate-500"
+           data-ru="Время отклика соединения. Чем меньше значение, тем быстрее реакция."
+           data-en="Connection response time. Lower values mean faster response.">
+          Время отклика соединения. Чем меньше значение, тем быстрее реакция.
+        </p>
+      </div>
 
-<script>
-const $ = id => document.getElementById(id);
+      <div class="tool-card bg-white border border-slate-200 rounded-xl p-6">
+        <h2 class="font-bold mb-2"
+            data-ru="Загрузка"
+            data-en="Download">Загрузка</h2>
+        <p class="text-sm text-slate-500"
+           data-ru="Скорость получения данных из интернета."
+           data-en="How fast your device receives data from the internet.">
+          Скорость получения данных из интернета.
+        </p>
+      </div>
 
-const startBtn = $("start");
-const gauge = $("gauge");
+      <div class="tool-card bg-white border border-slate-200 rounded-xl p-6">
+        <h2 class="font-bold mb-2"
+            data-ru="Отдача"
+            data-en="Upload">Отдача</h2>
+        <p class="text-sm text-slate-500"
+           data-ru="Скорость отправки данных в интернет."
+           data-en="How fast your device sends data to the internet.">
+          Скорость отправки данных в интернет.
+        </p>
+      </div>
 
-const BASE = "https://speed.cloudflare.com";
+    </section>
 
-let running = false;
+    <div class="text-center mt-10">
+      <a href="index.html"
+         class="text-indigo-600 font-semibold hover:underline"
+         data-ru="← Вернуться на главную"
+         data-en="← Back to Home">
+        ← Вернуться на главную
+      </a>
+    </div>
 
-function showSpeed(value) {
-    $("speed").textContent =
-        Number.isFinite(value) ? value.toFixed(2) : "0.00";
+  </main>
 
-    const degrees = Math.min(
-        Math.max(value / 200 * 360, 0), 360
-    );
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white mt-12">
+    <div class="max-w-5xl mx-auto px-5 py-7 text-center text-sm text-slate-500">
+      © <span id="year"></span> PROTOOLS.
+      <span data-ru="Все права защищены."
+            data-en="All rights reserved.">
+        Все права защищены.
+      </span>
+    </div>
+  </footer>
 
-    gauge.style.background =
-        `conic-gradient(#617fff ${degrees}deg, #283653 ${degrees}deg)`;
-}
+  <script>
+    const $ = id => document.getElementById(id);
 
-function setPhase(text) {
-    $("phase").textContent = text;
-    $("status").textContent = text;
-}
+    let language = localStorage.getItem('protools-language') || 'ru';
 
-function setResult(id, value) {
-    $(id).textContent =
-        Number.isFinite(value) ? value.toFixed(2) : "--";
-}
+    function setLanguage(lang) {
+      language = lang;
+      document.documentElement.lang = lang;
 
-async function timedFetch(url, options = {}) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 25000);
-
-    try {
-        return await fetch(url, {
-            ...options,
-            signal: controller.signal,
-            cache: "no-store"
-        });
-    } finally {
-        clearTimeout(timeout);
-    }
-}
-
-async function measurePing() {
-    const times = [];
-
-    for (let i = 0; i < 5; i++) {
-        const start = performance.now();
-
-        const response = await timedFetch(
-            `${BASE}/__down?bytes=0&test=${Date.now()}-${i}`
+      document.querySelectorAll('[data-ru][data-en]').forEach(element => {
+        element.textContent = element.getAttribute(
+          lang === 'ru' ? 'data-ru' : 'data-en'
         );
+      });
 
-        if (!response.ok) {
-            throw new Error("Ping request failed.");
-        }
+      $('languageSelect').value = lang;
 
-        await response.arrayBuffer();
+      document.title = lang === 'ru'
+        ? 'Тест скорости интернета — PROTOOLS'
+        : 'Internet Speed Test — PROTOOLS';
 
-        times.push(performance.now() - start);
-    }
-
-    const average =
-        times.reduce((a, b) => a + b, 0) / times.length;
-
-    let jitter = 0;
-
-    for (let i = 1; i < times.length; i++) {
-        jitter += Math.abs(times[i] - times[i - 1]);
-    }
-
-    jitter /= times.length - 1;
-
-    return { ping: average, jitter };
-}
-
-async function measureDownload() {
-    const sizes = [1000000, 5000000];
-    const speeds = [];
-
-    for (const size of sizes) {
-        setPhase(
-            `Testing download: ${(size / 1000000).toFixed(0)} MB...`
-        );
-
-        const start = performance.now();
-
-        const response = await timedFetch(
-            `${BASE}/__down?bytes=${size}&test=${Date.now()}`
-        );
-
-        if (!response.ok) {
-            throw new Error("Download test failed.");
-        }
-
-        const data = await response.arrayBuffer();
-        const seconds = (performance.now() - start) / 1000;
-
-        if (data.byteLength === 0 || seconds <= 0) {
-            throw new Error("Invalid download measurement.");
-        }
-
-        speeds.push(
-            (data.byteLength * 8) / seconds / 1000000
-        );
+      localStorage.setItem('protools-language', lang);
     }
 
-    return speeds[speeds.length - 1];
-}
-
-async function measureUpload() {
-    const sizes = [1000000, 3000000];
-    const speeds = [];
-
-    for (const size of sizes) {
-        setPhase(
-            `Testing upload: ${(size / 1000000).toFixed(0)} MB...`
-        );
-
-        const data = new Uint8Array(size);
-
-        const start = performance.now();
-
-        const response = await timedFetch(
-            `${BASE}/__up`,
-            {
-                method: "POST",
-                body: data,
-                headers: {
-                    "Content-Type": "application/octet-stream"
-                }
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error("Upload test failed.");
-        }
-
-        await response.arrayBuffer();
-
-        const seconds = (performance.now() - start) / 1000;
-
-        if (seconds <= 0) {
-            throw new Error("Invalid upload measurement.");
-        }
-
-        speeds.push(
-            (size * 8) / seconds / 1000000
-        );
-    }
-
-    return speeds[speeds.length - 1];
-}
-
-async function runTest() {
-    if (running) return;
-
-    running = true;
-    startBtn.disabled = true;
-    startBtn.textContent = "TESTING...";
-
-    ["download", "upload", "ping", "jitter"].forEach(id => {
-        $(id).textContent = "--";
+    $('languageSelect').addEventListener('change', event => {
+      setLanguage(event.target.value);
     });
 
-    showSpeed(0);
+    setLanguage(language);
 
-    try {
-        setPhase("Measuring ping...");
+    $('year').textContent = new Date().getFullYear();
+
+    function showError(messageRu, messageEn) {
+      $('errorMessage').textContent =
+        language === 'ru' ? messageRu : messageEn;
+      $('errorMessage').classList.remove('hidden');
+    }
+
+    async function measurePing() {
+      const times = [];
+
+      for (let i = 0; i < 5; i++) {
+        const start = performance.now();
+
+        await fetch(
+          'https://www.cloudflare.com/cdn-cgi/trace?test=' + Math.random(),
+          { cache: 'no-store', mode: 'cors' }
+        );
+
+        times.push(performance.now() - start);
+      }
+
+      const average = times.reduce((a, b) => a + b, 0) / times.length;
+
+      const differences = times.slice(1).map((time, index) =>
+        Math.abs(time - times[index])
+      );
+
+      const jitter = differences.length
+        ? differences.reduce((a, b) => a + b, 0) / differences.length
+        : 0;
+
+      return {
+        ping: average,
+        jitter
+      };
+    }
+
+    async function measureDownload() {
+      const sizes = [1000000, 5000000, 10000000];
+      let totalBytes = 0;
+      let totalTime = 0;
+
+      for (const size of sizes) {
+        const start = performance.now();
+
+        const response = await fetch(
+          'https://speed.cloudflare.com/__down?bytes=' + size + '&cache=' + Math.random(),
+          { cache: 'no-store' }
+        );
+
+        if (!response.ok) throw new Error('Download failed');
+
+        const data = await response.arrayBuffer();
+
+        totalTime += (performance.now() - start) / 1000;
+        totalBytes += data.byteLength;
+      }
+
+      return (totalBytes * 8) / totalTime / 1000000;
+    }
+
+    async function measureUpload() {
+      const size = 2000000;
+      const data = new Uint8Array(size);
+
+      if (window.crypto && window.crypto.getRandomValues) {
+        for (let i = 0; i < data.length; i += 65536) {
+          window.crypto.getRandomValues(data.subarray(i, Math.min(i + 65536, data.length)));
+        }
+      }
+
+      const start = performance.now();
+
+      const response = await fetch(
+        'https://speed.cloudflare.com/__up?cache=' + Math.random(),
+        {
+          method: 'POST',
+          body: data,
+          cache: 'no-store'
+        }
+      );
+
+      if (!response.ok) throw new Error('Upload failed');
+
+      await response.text();
+
+      const seconds = (performance.now() - start) / 1000;
+
+      return (size * 8) / seconds / 1000000;
+    }
+
+    function formatNumber(number) {
+      return number.toFixed(1);
+    }
+
+    async function startTest() {
+      const button = $('startButton');
+      const error = $('errorMessage');
+
+      button.disabled = true;
+      error.classList.add('hidden');
+
+      $('ping').textContent = '...';
+      $('jitter').textContent = '...';
+      $('download').textContent = '...';
+      $('upload').textContent = '...';
+      $('mainSpeed').textContent = '...';
+
+      const setStatus = (ru, en) => {
+        $('status').textContent = language === 'ru' ? ru : en;
+      };
+
+      try {
+        setStatus('Измеряем Ping...', 'Measuring Ping...');
 
         const latency = await measurePing();
 
-        setResult("ping", latency.ping);
-        setResult("jitter", latency.jitter);
+        $('ping').textContent = formatNumber(latency.ping);
+        $('jitter').textContent = formatNumber(latency.jitter);
 
-        setPhase("Measuring download speed...");
+        setStatus('Измеряем скорость загрузки...', 'Measuring download speed...');
 
-        const downloadSpeed = await measureDownload();
+        const download = await measureDownload();
 
-        setResult("download", downloadSpeed);
-        showSpeed(downloadSpeed);
+        $('download').textContent = formatNumber(download);
+        $('mainSpeed').textContent = formatNumber(download);
 
-        setPhase("Measuring upload speed...");
+        setStatus('Измеряем скорость отдачи...', 'Measuring upload speed...');
 
-        const uploadSpeed = await measureUpload();
+        const upload = await measureUpload();
 
-        setResult("upload", uploadSpeed);
-        showSpeed(uploadSpeed);
+        $('upload').textContent = formatNumber(upload);
 
-        setPhase("Test completed!");
+        setStatus('Проверка завершена', 'Test completed');
 
-        $("status").textContent =
-            "Your internet speed test is complete.";
-
-    } catch (error) {
+      } catch (error) {
         console.error(error);
 
-        setPhase("Test could not be completed.");
+        showError(
+          'Не удалось выполнить тест. Проверьте интернет-соединение и попробуйте ещё раз.',
+          'Test failed. Check your internet connection and try again.'
+        );
 
-        $("status").textContent =
-            "Connection error. Please check your internet and try again.";
+        setStatus('Ошибка проверки', 'Test failed');
 
-    } finally {
-        running = false;
-        startBtn.disabled = false;
-        startBtn.textContent = "TEST AGAIN";
+      } finally {
+        button.disabled = false;
+      }
     }
-}
 
-startBtn.addEventListener("click", runTest);
-</script>
+    $('startButton').addEventListener('click', startTest);
+  </script>
 
 </body>
 </html>
