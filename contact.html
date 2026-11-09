@@ -1,291 +1,335 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Контакты — PROTOOLS</title>
-  <meta name="description" content="Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#2563eb">
-  <link rel="canonical" href="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/contact.html">
+  <title data-title-ru="Свяжитесь с нами — PROTOOLS"
+         data-title-en="Contact Us — PROTOOLS">Свяжитесь с нами — PROTOOLS</title>
+
+  <meta name="description"
+        data-description-ru="Свяжитесь с командой PROTOOLS. Мы готовы ответить на ваши вопросы и предложения."
+        data-description-en="Contact the PROTOOLS team. We are ready to answer your questions and suggestions.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca'
+            }
+          },
+          boxShadow: {
+            card: '0 10px 30px rgba(15,23,42,0.05)',
+            btn: '0 4px 12px rgba(79,70,229,0.25)'
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #172033;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: Inter, sans-serif;
     }
 
-    header {
-      background: white;
-      padding: 18px 20px;
-      border-bottom: 1px solid #e5eaf2;
+    input, textarea {
+      outline: none;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .back {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .lang-btn {
-      background: white;
-      color: #2563eb;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 10px 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .lang-btn:hover {
-      background: #eff6ff;
-    }
-
-    main {
-      flex: 1;
-      padding: 75px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: clamp(30px, 5vw, 42px);
-      margin: 0 0 15px;
-    }
-
-    .subtitle {
-      max-width: 650px;
-      margin: auto;
-      color: #64748b;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .card {
-      max-width: 620px;
-      margin: 40px auto;
-      padding: 35px;
-      background: white;
-      border: 1px solid #e8edf5;
-      border-radius: 20px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.05);
-      text-align: left;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      font-size: 23px;
-    }
-
-    .card p {
-      color: #64748b;
-      line-height: 1.8;
-    }
-
-    .email {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 14px 22px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background .2s, transform .2s;
-    }
-
-    .email:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      padding: 25px 15px;
-      text-align: center;
-      color: #64748b;
-      background: white;
-      border-top: 1px solid #e5eaf2;
-    }
-
-    footer p {
-      margin-top: 0;
-    }
-
-    footer a {
-      display: inline-block;
-      color: #2563eb;
-      text-decoration: none;
-      margin: 5px 8px;
-    }
-
-    footer a:hover,
-    .back:hover {
-      text-decoration: underline;
-    }
-
-    @media(max-width: 600px) {
-      header { padding: 15px 10px; }
-      .container { padding: 0 12px; }
-      .logo { font-size: 21px; }
-      .header-actions { gap: 9px; }
-      .back { font-size: 13px; }
-      .lang-btn { padding: 8px 11px; }
-      main { padding: 55px 12px; }
-      .card { padding: 24px 20px; margin-top: 30px; }
-      .subtitle { font-size: 15px; }
-      .email { width: 100%; text-align: center; }
+    input:focus, textarea:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.12);
     }
   </style>
 </head>
 
-<body>
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
 
-<header>
-  <div class="container header-content">
-    <a class="logo" href="index.html">PROTOOLS</a>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
 
-    <div class="header-actions">
-      <button id="langBtn" class="lang-btn" type="button">EN</button>
-      <a href="index.html" class="back"
-         data-ru="← Главная"
-         data-en="← Home">← Главная</a>
-    </div>
-  </div>
-</header>
-
-<main>
-  <div class="container">
-
-    <h1 data-ru="Свяжитесь с нами"
-        data-en="Contact us">Свяжитесь с нами</h1>
-
-    <p class="subtitle"
-       data-ru="Есть вопрос, предложение или нашли ошибку? Мы будем рады получить ваше сообщение."
-       data-en="Have a question, suggestion, or found a bug? We would be happy to hear from you.">
-      Есть вопрос, предложение или нашли ошибку?
-      Мы будем рады получить ваше сообщение.
-    </p>
-
-    <div class="card">
-      <h2 data-ru="📩 Электронная почта"
-          data-en="📩 Email">📩 Электронная почта</h2>
-
-      <p
-        data-ru="По вопросам работы сайта, сотрудничества, предложений и технических проблем вы можете написать нам на электронную почту."
-        data-en="For questions about the website, cooperation, suggestions, or technical issues, you can contact us by email.">
-        По вопросам работы сайта, сотрудничества,
-        предложений и технических проблем вы можете
-        написать нам на электронную почту.
-      </p>
-
-      <a class="email"
-         href="mailto:shslsh32@gmail.com"
-         data-ru="Написать нам"
-         data-en="Send us an email">
-        Написать нам
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 font-bold text-white">
+          P
+        </div>
+        <span class="text-xl font-extrabold tracking-tight">PROTOOLS</span>
       </a>
+
+      <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+        <a href="qr.html" class="hover:text-indigo-600">QR-коды</a>
+        <a href="converter.html" class="hover:text-indigo-600">Конвертер</a>
+        <a href="compress.html" class="hover:text-indigo-600">Сжатие</a>
+        <a href="password.html" class="hover:text-indigo-600">Пароли</a>
+        <a href="premium.html" class="hover:text-indigo-600">Премиум</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="langBtn"
+          class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold hover:bg-slate-100">
+          EN
+        </button>
+
+        <button id="menuBtn"
+          class="rounded-xl border border-slate-200 px-3 py-2 text-sm md:hidden"
+          aria-expanded="false">
+          ☰
+        </button>
+      </div>
     </div>
 
-  </div>
-</main>
+    <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+      <div class="flex flex-col gap-3 text-sm font-medium">
+        <a href="qr.html">QR-коды</a>
+        <a href="converter.html">Конвертер</a>
+        <a href="compress.html">Сжатие</a>
+        <a href="password.html">Пароли</a>
+        <a href="premium.html">Премиум</a>
+      </div>
+    </div>
+  </header>
 
-<footer>
-  <p>
-    © <span id="year"></span> PROTOOLS.
-    <span data-ru="Все права защищены."
-          data-en="All rights reserved.">Все права защищены.</span>
-  </p>
+  <!-- MAIN -->
+  <main class="mx-auto max-w-3xl px-4 py-12 md:py-16">
 
-  <a href="index.html" data-ru="Главная" data-en="Home">Главная</a>
-  <a href="about.html" data-ru="О нас" data-en="About us">О нас</a>
-  <a href="privacy.html" data-ru="Конфиденциальность" data-en="Privacy">Конфиденциальность</a>
-  <a href="terms.html" data-ru="Условия" data-en="Terms">Условия</a>
-</footer>
+    <div class="mb-8 text-center">
+      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700">
+        ✉️ <span data-ru="Поддержка PROTOOLS" data-en="PROTOOLS Support">Поддержка PROTOOLS</span>
+      </div>
 
-<script>
-(function () {
-  const langBtn = document.getElementById('langBtn');
-  const year = document.getElementById('year');
+      <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl"
+          data-ru="Свяжитесь с нами"
+          data-en="Contact Us">
+        Свяжитесь с нами
+      </h1>
 
-  let language = 'ru';
+      <p class="mt-3 text-slate-500"
+         data-ru="Есть вопросы или предложения? Напишите нам!"
+         data-en="Have questions or suggestions? Send us a message!">
+        Есть вопросы или предложения? Напишите нам!
+      </p>
+    </div>
 
-  try {
-    const saved = localStorage.getItem('protools-language');
-    if (saved === 'ru' || saved === 'en') {
-      language = saved;
-    }
-  } catch (error) {}
+    <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-card md:p-8">
 
-  function setLanguage(lang) {
-    if (lang !== 'ru' && lang !== 'en') return;
+      <div class="mb-7">
+        <h2 class="text-xl font-bold text-slate-900"
+            data-ru="Отправить сообщение"
+            data-en="Send a Message">
+          Отправить сообщение
+        </h2>
 
-    language = lang;
-    document.documentElement.lang = lang;
+        <p class="mt-2 text-sm text-slate-500"
+           data-ru="Заполните форму ниже. Мы получим ваше сообщение на электронную почту."
+           data-en="Fill out the form below. We will receive your message by email.">
+          Заполните форму ниже. Мы получим ваше сообщение на электронную почту.
+        </p>
+      </div>
 
-    try {
+      <form action="https://formsubmit.co/shslsh32@gmail.com" method="POST"
+            class="space-y-5">
+
+        <input type="hidden" name="_subject" value="Новое сообщение с сайта PROTOOLS">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next"
+               value="https://tojiddinovjonibrk-hub.github.io/toolbox-uz/contact.html?sent=1">
+
+        <div>
+          <label for="name" class="mb-2 block text-sm font-semibold"
+                 data-ru="Ваше имя"
+                 data-en="Your Name">
+            Ваше имя
+          </label>
+
+          <input
+            id="name"
+            type="text"
+            name="name"
+            required
+            maxlength="80"
+            autocomplete="name"
+            placeholder="Введите ваше имя"
+            data-placeholder-ru="Введите ваше имя"
+            data-placeholder-en="Enter your name"
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition">
+        </div>
+
+        <div>
+          <label for="email" class="mb-2 block text-sm font-semibold"
+                 data-ru="Ваш Email"
+                 data-en="Your Email">
+            Ваш Email
+          </label>
+
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            maxlength="150"
+            autocomplete="email"
+            placeholder="example@gmail.com"
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition">
+        </div>
+
+        <div>
+          <label for="message" class="mb-2 block text-sm font-semibold"
+                 data-ru="Сообщение"
+                 data-en="Message">
+            Сообщение
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            maxlength="5000"
+            placeholder="Напишите ваше сообщение..."
+            data-placeholder-ru="Напишите ваше сообщение..."
+            data-placeholder-en="Write your message..."
+            class="w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition"></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white shadow-btn transition hover:bg-indigo-700 active:scale-[0.99]">
+
+          <span data-ru="Отправить сообщение →"
+                data-en="Send Message →">
+            Отправить сообщение →
+          </span>
+        </button>
+
+        <p class="text-center text-xs text-slate-400"
+           data-ru="Отправляя форму, вы соглашаетесь с обработкой предоставленных данных для ответа на ваше сообщение."
+           data-en="By submitting this form, you agree to the use of your information to respond to your message.">
+          Отправляя форму, вы соглашаетесь с обработкой предоставленных данных для ответа на ваше сообщение.
+        </p>
+
+      </form>
+    </section>
+
+    <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+      <div class="flex items-start gap-4">
+        <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xl">
+          📧
+        </div>
+
+        <div>
+          <h3 class="font-bold"
+              data-ru="Электронная почта"
+              data-en="Email">
+            Электронная почта
+          </h3>
+
+          <p class="mt-1 text-sm text-slate-500"
+             data-ru="Для вопросов и предложений используйте форму выше."
+             data-en="For questions and suggestions, use the form above.">
+            Для вопросов и предложений используйте форму выше.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="successMessage"
+      class="mt-5 hidden rounded-xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-700"
+      data-ru="Сообщение отправлено! Спасибо за обращение."
+      data-en="Message sent! Thank you for contacting us.">
+      Сообщение отправлено! Спасибо за обращение.
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-12 border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-7 text-sm text-slate-500 md:flex-row">
+
+      <p>© 2026 PROTOOLS. All rights reserved.</p>
+
+      <div class="flex flex-wrap justify-center gap-5">
+        <a href="index.html" class="hover:text-indigo-600"
+           data-ru="Главная" data-en="Home">Главная</a>
+
+        <a href="about.html" class="hover:text-indigo-600"
+           data-ru="О нас" data-en="About">О нас</a>
+
+        <a href="privacy.html" class="hover:text-indigo-600"
+           data-ru="Конфиденциальность" data-en="Privacy">Конфиденциальность</a>
+
+        <a href="contact.html" class="font-semibold text-indigo-600"
+           data-ru="Контакты" data-en="Contact">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    let language = localStorage.getItem('protools-language') || 'ru';
+
+    function setLanguage(lang) {
+      language = lang;
+
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-ru][data-en]').forEach(element => {
+        element.textContent = element.getAttribute('data-' + lang);
+      });
+
+      document.querySelectorAll('[data-placeholder-ru][data-placeholder-en]').forEach(element => {
+        element.placeholder = element.getAttribute('data-placeholder-' + lang);
+      });
+
+      const title = document.querySelector('title');
+      document.title = title.getAttribute('data-title-' + lang);
+
+      const description = document.querySelector('meta[name="description"]');
+      description.content = description.getAttribute('data-description-' + lang);
+
+      document.getElementById('langBtn').textContent = lang === 'ru' ? 'EN' : 'RU';
+
       localStorage.setItem('protools-language', lang);
-    } catch (error) {}
+    }
 
-    document.querySelectorAll('[data-ru][data-en]').forEach(function (element) {
-      element.textContent = element.getAttribute('data-' + lang);
+    document.getElementById('langBtn').addEventListener('click', () => {
+      setLanguage(language === 'ru' ? 'en' : 'ru');
     });
 
-    langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    document.title = lang === 'ru'
-      ? 'Контакты — PROTOOLS'
-      : 'Contact — PROTOOLS';
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
 
-    const description = document.querySelector('meta[name="description"]');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
 
-    description.content = lang === 'ru'
-      ? 'Свяжитесь с командой PROTOOLS. Мы открыты к вопросам, предложениям и сообщениям об ошибках.'
-      : 'Contact the PROTOOLS team. We welcome questions, suggestions, and bug reports.';
-  }
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-  langBtn.addEventListener('click', function () {
-    setLanguage(language === 'ru' ? 'en' : 'ru');
-  });
+    setLanguage(language);
 
-  year.textContent = new Date().getFullYear();
-  setLanguage(language);
-})();
-</script>
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      document.getElementById('successMessage').classList.remove('hidden');
+    }
+  </script>
 
 </body>
 </html>
