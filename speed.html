@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Test your internet download speed, upload speed, ping and jitter online for free with PROTOOLS.">
+<title>Internet Speed Test — PROTOOLS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b1020;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #252d42;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: #6c8cff;
+    text-decoration: none;
+}
+
+.back {
+    color: #b9c5e2;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 900px;
+    margin: 55px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #9ba8c7;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.panel {
+    background: #151d32;
+    border: 1px solid #283550;
+    border-radius: 20px;
+    padding: 35px 22px;
+    text-align: center;
+}
+
+.gauge {
+    width: 230px;
+    height: 230px;
+    margin: 10px auto 25px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #617fff 0deg,
+        #283653 0deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background .3s;
+}
+
+.gauge::before {
+    content: "";
+    position: absolute;
+    width: 195px;
+    height: 195px;
+    background: #151d32;
+    border-radius: 50%;
+}
+
+.gauge-content {
+    position: relative;
+    z-index: 1;
+}
+
+#speed {
+    font-size: 49px;
+    font-weight: bold;
+}
+
+.unit {
+    color: #9ba8c7;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+#phase {
+    color: #9ba8c7;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.start {
+    background: #617fff;
+    color: white;
+    border: none;
+    padding: 16px 45px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 22px;
+}
+
+.start:hover {
+    background: #7893ff;
+}
+
+.start:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.result {
+    background: #10182b;
+    border: 1px solid #293957;
+    border-radius: 13px;
+    padding: 20px 8px;
+}
+
+.result .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.result h3 {
+    color: #9ba8c7;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.result strong {
+    font-size: 25px;
+}
+
+.result small {
+    display: block;
+    color: #8e9bb8;
+    margin-top: 5px;
+}
+
+.status {
+    color: #9ba8c7;
+    margin-top: 25px;
+    font-size: 13px;
+    min-height: 20px;
+}
+
+.note {
+    color: #7e8aa7;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 22px;
+}
+
+footer {
+    text-align: center;
+    color: #7583a4;
+    padding: 30px;
+    font-size: 13px;
+}
+
+@media(max-width:650px) {
+    .results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    .panel {
+        padding: 25px 12px;
+    }
+
+    .gauge {
+        width: 200px;
+        height: 200px;
+    }
+
+    .gauge::before {
+        width: 168px;
+        height: 168px;
+    }
+
+    #speed {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">PROTOOLS</a>
+    <a href="index.html" class="back">← Home</a>
+</header>
+
+<main class="container">
+
+    <h1>Internet Speed Test</h1>
+    <p class="subtitle">
+        Check your internet connection speed for free.
+    </p>
+
+    <section class="panel">
+
+        <div class="gauge" id="gauge">
+            <div class="gauge-content">
+                <div id="speed">0.00</div>
+                <div class="unit">Mbps</div>
+            </div>
+        </div>
+
+        <p id="phase">Ready to test your internet</p>
+
+        <button class="start" id="start">START TEST</button>
+
+        <div class="results">
+
+            <div class="result">
+                <div class="icon">⬇️</div>
+                <h3>DOWNLOAD</h3>
+                <strong id="download">--</strong>
+                <small>Mbps</small>
+            </div>
+
+            <div class="result">
+                <div class="icon">⬆️</div>
+                <h3>UPLOAD</h3>
+                <strong id="upload">--</strong>
+                <small>Mbps</small>
+            </div>
+
+            <div class="result">
+                <div class="icon">📡</div>
+                <h3>PING</h3>
+                <strong id="ping">--</strong>
+                <small>ms</small>
+            </div>
+
+            <div class="result">
+                <div class="icon">📊</div>
+                <h3>JITTER</h3>
+                <strong id="jitter">--</strong>
+                <small>ms</small>
+            </div>
+
+        </div>
+
+        <p class="status" id="status">
+            Press START TEST to begin.
+        </p>
+
+        <p class="note">
+            Measurements use Cloudflare's public speed test endpoint.
+            Results are estimates and may vary depending on network
+            conditions, browser and server availability.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 PROTOOLS. All rights reserved.
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const startBtn = $("start");
+const gauge = $("gauge");
+
+const BASE = "https://speed.cloudflare.com";
+
+let running = false;
+
+function showSpeed(value) {
+    $("speed").textContent =
+        Number.isFinite(value) ? value.toFixed(2) : "0.00";
+
+    const degrees = Math.min(
+        Math.max(value / 200 * 360, 0), 360
+    );
+
+    gauge.style.background =
+        `conic-gradient(#617fff ${degrees}deg, #283653 ${degrees}deg)`;
+}
+
+function setPhase(text) {
+    $("phase").textContent = text;
+    $("status").textContent = text;
+}
+
+function setResult(id, value) {
+    $(id).textContent =
+        Number.isFinite(value) ? value.toFixed(2) : "--";
+}
+
+async function timedFetch(url, options = {}) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 25000);
+
+    try {
+        return await fetch(url, {
+            ...options,
+            signal: controller.signal,
+            cache: "no-store"
+        });
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+async function measurePing() {
+    const times = [];
+
+    for (let i = 0; i < 5; i++) {
+        const start = performance.now();
+
+        const response = await timedFetch(
+            `${BASE}/__down?bytes=0&test=${Date.now()}-${i}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Ping request failed.");
+        }
+
+        await response.arrayBuffer();
+
+        times.push(performance.now() - start);
+    }
+
+    const average =
+        times.reduce((a, b) => a + b, 0) / times.length;
+
+    let jitter = 0;
+
+    for (let i = 1; i < times.length; i++) {
+        jitter += Math.abs(times[i] - times[i - 1]);
+    }
+
+    jitter /= times.length - 1;
+
+    return { ping: average, jitter };
+}
+
+async function measureDownload() {
+    const sizes = [1000000, 5000000];
+    const speeds = [];
+
+    for (const size of sizes) {
+        setPhase(
+            `Testing download: ${(size / 1000000).toFixed(0)} MB...`
+        );
+
+        const start = performance.now();
+
+        const response = await timedFetch(
+            `${BASE}/__down?bytes=${size}&test=${Date.now()}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Download test failed.");
+        }
+
+        const data = await response.arrayBuffer();
+        const seconds = (performance.now() - start) / 1000;
+
+        if (data.byteLength === 0 || seconds <= 0) {
+            throw new Error("Invalid download measurement.");
+        }
+
+        speeds.push(
+            (data.byteLength * 8) / seconds / 1000000
+        );
+    }
+
+    return speeds[speeds.length - 1];
+}
+
+async function measureUpload() {
+    const sizes = [1000000, 3000000];
+    const speeds = [];
+
+    for (const size of sizes) {
+        setPhase(
+            `Testing upload: ${(size / 1000000).toFixed(0)} MB...`
+        );
+
+        const data = new Uint8Array(size);
+
+        const start = performance.now();
+
+        const response = await timedFetch(
+            `${BASE}/__up`,
+            {
+                method: "POST",
+                body: data,
+                headers: {
+                    "Content-Type": "application/octet-stream"
+                }
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Upload test failed.");
+        }
+
+        await response.arrayBuffer();
+
+        const seconds = (performance.now() - start) / 1000;
+
+        if (seconds <= 0) {
+            throw new Error("Invalid upload measurement.");
+        }
+
+        speeds.push(
+            (size * 8) / seconds / 1000000
+        );
+    }
+
+    return speeds[speeds.length - 1];
+}
+
+async function runTest() {
+    if (running) return;
+
+    running = true;
+    startBtn.disabled = true;
+    startBtn.textContent = "TESTING...";
+
+    ["download", "upload", "ping", "jitter"].forEach(id => {
+        $(id).textContent = "--";
+    });
+
+    showSpeed(0);
+
+    try {
+        setPhase("Measuring ping...");
+
+        const latency = await measurePing();
+
+        setResult("ping", latency.ping);
+        setResult("jitter", latency.jitter);
+
+        setPhase("Measuring download speed...");
+
+        const downloadSpeed = await measureDownload();
+
+        setResult("download", downloadSpeed);
+        showSpeed(downloadSpeed);
+
+        setPhase("Measuring upload speed...");
+
+        const uploadSpeed = await measureUpload();
+
+        setResult("upload", uploadSpeed);
+        showSpeed(uploadSpeed);
+
+        setPhase("Test completed!");
+
+        $("status").textContent =
+            "Your internet speed test is complete.";
+
+    } catch (error) {
+        console.error(error);
+
+        setPhase("Test could not be completed.");
+
+        $("status").textContent =
+            "Connection error. Please check your internet and try again.";
+
+    } finally {
+        running = false;
+        startBtn.disabled = false;
+        startBtn.textContent = "TEST AGAIN";
+    }
+}
+
+startBtn.addEventListener("click", runTest);
+</script>
+
+</body>
+</html>
